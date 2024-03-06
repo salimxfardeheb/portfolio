@@ -1,28 +1,7 @@
 import React from "react";
 import Logo from "../images/logo-SF.png";
+import menuItems from "./menuItems";
 
-const menuItems = [
-  {
-    id: 1,
-    name: "Home",
-    link: "#",
-  },
-  {
-    id: 2,
-    name: "About",
-    link: "#",
-  },
-  {
-    id: 3,
-    name: "Portfolio",
-    link: "#",
-  },
-  {
-    id: 4,
-    name: "Services",
-    link: "#",
-  },
-];
 
 const NavbarDesktop = () => {
   return (
