@@ -26,23 +26,23 @@ const menuItems = [
 
 const NavbarDesktop = () => {
   return (
-    <div>
-      <div className="flex justify-between mx-[12%] pt-[30px] items-baseline">
+    <div className="w-full ">
+      <div className="md:flex justify-between mx-[12%] pt-[30px] items-baseline hidden">
         {/* logo */}
         <div>
-          <img src={Logo} alt="logo" className="h-[75px] object-contain" />
+          <img src={Logo} alt="logo" className="h-[75px] object-contain"/>
         </div>
         {/* menu items */}
         <div>
           <ul
-            className="flex gap-16
+            className="md:flex lg:gap-16 md:gap-10
           "
           >
             {menuItems.map((data) => (
               <li key={data.id}>
                 <a
                   href={data.link}
-                  className=" text-white text-Header5  hover:text-redOrange"
+                  className=" text-white lg:text-Header5 text-p hover:text-redOrange"
                 >
                   {data.name}
                 </a>
@@ -51,8 +51,8 @@ const NavbarDesktop = () => {
           </ul>
         </div>
         {/* get in touch button*/}
-        <div>
-          <button className="px-5 py-2 bg-redOrange text-white text-p hover:bg-opacity-0 hover:border-2">
+        <div className="">
+          <button className="lg:px-5 px-3 py-2 lg:py-2 bg-redOrange text-white text-p hover:bg-opacity-0 hover:border-2">
             Get in Touch
           </button>
         </div>
