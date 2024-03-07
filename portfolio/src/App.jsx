@@ -6,9 +6,11 @@ import HeroSection from "./hero-section/heroSection";
 const App = () => {
   return (
     <>
-      <NavbarDesktop />
-      <NavbarMobile />
-      <HeroSection />
+      <div className="relative">
+        <NavbarDesktop />
+        <NavbarMobile />
+        <HeroSection />
+      </div>
     </>
   );
 };

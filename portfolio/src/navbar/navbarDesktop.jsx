@@ -5,7 +5,7 @@ import menuItems from "./menuItems";
 
 const NavbarDesktop = () => {
   return (
-    <div className="w-full ">
+    <div className="w-full absolute top-0 ">
       <div className="md:flex justify-between mx-[12%] pt-[30px] items-baseline hidden">
         {/* logo */}
         <div>

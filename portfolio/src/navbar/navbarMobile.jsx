@@ -4,13 +4,15 @@ import HamburgerButtonItems from "./HamburgerButtonItems";
 
 const NavbarMobile = () => {
   return (
-    <div className="flex md:hidden justify-between items-center pt-12 mx-[12%] relative">
+    <div className="absolute w-full">
+      <div className="flex md:hidden justify-between items-center pt-12 mx-[12%] relative">
       {/* Logo */}
       <div>
         <img src={Logo} alt="logoMobile" className="h-[50px] object-contain" />
       </div>
       {/* humburger button */}
       <HamburgerButtonItems />
+    </div>
     </div>
   );
 };
