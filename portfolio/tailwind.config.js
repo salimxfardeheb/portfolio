@@ -11,7 +11,7 @@ export default {
       redOrange: "#FF302F",
       nevada: "#676869",
       white: "#FFFFFF",
-      black: "#00000"
+      black: "#00000",
     },
     fontFamily: {
       poppins: ["Poppins"],
@@ -34,11 +34,15 @@ export default {
       p: ["16px", { fontWeight: "400" }],
     },
 
-    extend: {},
+    extend: {
+      backgroundImage: {
+        hero: "url('/Herosection.png')",
+      },
+    },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/aspect-ratio"),
   ],
 };
