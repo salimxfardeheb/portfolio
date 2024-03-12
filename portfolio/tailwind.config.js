@@ -3,9 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      lg: "1920px",
+      lg: "1290px",
       md: "900px",
-      sm: "800px",
+      sm: "600px",
     },
     colors: {
       redOrange: "#FF302F",
@@ -33,6 +33,7 @@ export default {
       //text
       p: ["16px", { fontWeight: "400" }],
     },
+
 
     extend: {
       backgroundImage: {

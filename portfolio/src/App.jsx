@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import NavbarDesktop from "./navbar/navbarDesktop";
 import NavbarMobile from "./navbar/navbarMobile";
 import HeroSection from "./hero-section/heroSection";
 import Card from "./cards/cards";
 import AboutMe from "./AboutMe/AboutMe";
+import Portfolio from "./portfolioSection/portfolio";
 
 import Professional from "./images/rating-cards/Professional.png";
 import Fast from "./images/rating-cards/Fast.png";
@@ -18,7 +19,7 @@ const descriptionsAdv = [
 const App = () => {
   return (
     <>
-      <div className="relative md:mb-[25%] mb-[200%] sm:mb-[100%]">
+      <div className="relative md:mb-[25%] mb-[200%] sm:mb-[100%] lg:mb-[12%]">
         <NavbarDesktop />
         <NavbarMobile />
         <HeroSection />
@@ -37,6 +38,7 @@ const App = () => {
         </div>
       </div>
       <AboutMe />
+      <Portfolio />
     </>
   );
 };

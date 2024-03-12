@@ -3,11 +3,11 @@ import About from "../images/AboutMe.png";
 
 const AboutMe = () => {
   return (
-    <div>
+    <div className="mb-[100px] pt-[100px]">
       <div className="mx-[12%] flex flex-col md:flex-row justify-between items-center gap-6">
         {/* image About Me */}
         <div>
-          <img src={About} alt="About Me Cover" className="w-[447px] h-[780px] object-contain" />
+          <img src={About} alt="About Me Cover" className="md:w-[447px] w-[313px] object-contain" />
         </div>
         {/* text about me */}
         <div className="gap-5 flex flex-col md:w-1/2">
