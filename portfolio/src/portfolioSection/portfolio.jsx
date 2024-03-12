@@ -1,5 +1,6 @@
 import React from "react";
 import { GrFormNextLink } from "react-icons/gr";
+import { motion as m } from "framer-motion";
 
 import EasyAcademia from "../images/EasyAcademia.png";
 import TenueTendance from "../images/TenueTendance.png";
@@ -17,9 +18,9 @@ const Portfolio = () => {
         </p>
         <p className="text-MobileHeader2 md:text-Header2">My Portfolio</p>
       </div>
-      <div className="flex flex-col gap-24">
+      <div className="flex flex-col gap-24 snap-mandatory snap-y scroll-p-12">
         {/* Easy Academia */}
-        <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6 snap-always snap-center">
           {/* image */}
           <div>
             <img
@@ -29,7 +30,12 @@ const Portfolio = () => {
             />
           </div>
           {/* description */}
-          <div className="md:w-1/2 flex flex-col gap-6 items-start">
+          <m.div
+            className="md:w-1/2 flex flex-col gap-6 items-start"
+            initial={{ opacity: 0, translateY: 100, scale: 0.95 }}
+            whileInView={{ opacity: 1, translateY: 0, scale: 1 }}
+            transition={{ duration: 0.75 }}
+          >
             <p className=" text-Header3">Easy Academia</p>
             <p className="text-p text-nevada">
               Experience an educational revolution with our all-in-one app.
@@ -46,16 +52,21 @@ const Portfolio = () => {
               Learn More
               <GrFormNextLink />
             </button>
-          </div>
+          </m.div>
         </div>
         {/* FlexFret */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 snap-always snap-center">
           {/* image */}
           <div>
             <img src={FlexFret} alt="" className=" w-[566px] object-contain" />
           </div>
           {/* description */}
-          <div className="md:w-1/2 flex flex-col gap-6 items-start">
+          <m.div
+            className="md:w-1/2 flex flex-col gap-6 items-start"
+            initial={{ opacity: 0, translateY: 100, scale: 0.95 }}
+            whileInView={{ opacity: 1, translateY: 0, scale: 1 }}
+            transition={{ duration: 0.75 }}
+          >
             <p className=" text-Header3">FlexFret</p>
             <p className="text-p text-nevada">
               Our website is distinguished by a sleek and modern design,
@@ -73,10 +84,10 @@ const Portfolio = () => {
               Learn More
               <GrFormNextLink />
             </button>
-          </div>
+          </m.div>
         </div>
         {/* TenuTendance */}
-        <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6 snap-center">
           {/* image */}
           <div>
             <img
@@ -86,7 +97,12 @@ const Portfolio = () => {
             />
           </div>
           {/* description */}
-          <div className="md:w-1/2 flex flex-col gap-6 items-start">
+          <m.div
+            className="md:w-1/2 flex flex-col gap-6 items-start"
+            initial={{ opacity: 0, translateY: 100, scale: 0.95 }}
+            whileInView={{ opacity: 1, translateY: 0, scale: 1 }}
+            transition={{ duration: 0.75 }}
+          >
             <p className=" text-Header3">Tenue Tendance</p>
             <p className="text-p text-nevada">
               Discover the elegance redefined with our latest design project!
@@ -102,7 +118,7 @@ const Portfolio = () => {
               Learn More
               <GrFormNextLink />
             </button>
-          </div>
+          </m.div>
         </div>
       </div>
     </div>

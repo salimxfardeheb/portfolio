@@ -7,11 +7,17 @@ const AboutMe = () => {
       <div className="mx-[12%] flex flex-col md:flex-row justify-between items-center gap-6">
         {/* image About Me */}
         <div>
-          <img src={About} alt="About Me Cover" className="md:w-[447px] w-[313px] object-contain" />
+          <img
+            src={About}
+            alt="About Me Cover"
+            className="md:w-[447px] w-[313px] object-contain"
+          />
         </div>
         {/* text about me */}
         <div className="gap-5 flex flex-col md:w-1/2">
-          <p className=" text-redOrange text-MobileHeader5 md:text-Header5">About</p>
+          <p className=" text-redOrange text-MobileHeader5 md:text-Header5">
+            About
+          </p>
           <p className="text-MobileHeader2 md:text-Header2">About Me</p>
           <p className=" text-p text-nevada">
             As a master’s student in computer science, my passion for graphic
@@ -34,5 +40,4 @@ const AboutMe = () => {
     </div>
   );
 };
-
 export default AboutMe;
