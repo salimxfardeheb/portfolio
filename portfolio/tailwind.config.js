@@ -4,8 +4,8 @@ export default {
   theme: {
     screens: {
       lg: "1920px",
-      md: "800px",
-      sm: "420px",
+      md: "900px",
+      sm: "800px",
     },
     colors: {
       redOrange: "#FF302F",
@@ -18,10 +18,10 @@ export default {
     },
     fontSize: {
       // Desktop
-      Header1: ["65px", { fontWeight: "800" }],
-      Header2: ["55px", { fontWeight: "800" }],
-      Header3: ["45px", { fontWeight: "800" }],
-      Header4: ["35px", { fontWeight: "500" }],
+      Header1: ["55px", { fontWeight: "800" }],
+      Header2: ["45px", { fontWeight: "800" }],
+      Header3: ["35px", { fontWeight: "800" }],
+      Header4: ["25px", { fontWeight: "500" }],
       Header5: ["18px", { fontWeight: "300" }],
       // Mobile
       MobileHeader1: ["45px", { fontWeight: "800" }],
