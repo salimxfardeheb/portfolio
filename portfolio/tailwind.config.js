@@ -11,7 +11,7 @@ export default {
       redOrange: "#FF302F",
       nevada: "#676869",
       white: "#FFFFFF",
-      black: "#00000",
+      black: "#000000",
     },
     fontFamily: {
       poppins: ["Poppins"],

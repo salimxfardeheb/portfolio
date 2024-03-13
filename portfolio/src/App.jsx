@@ -5,6 +5,7 @@ import HeroSection from "./hero-section/heroSection";
 import Card from "./cards/cards";
 import AboutMe from "./AboutMe/AboutMe";
 import Portfolio from "./portfolioSection/portfolio";
+import Footer from "./footer/Footer";
 
 import Professional from "./images/rating-cards/Professional.png";
 import Fast from "./images/rating-cards/Fast.png";
@@ -62,6 +63,7 @@ const App = () => {
             description={descriptionServices[2]}
           />
         </div>
+        <Footer/>
     </>
   );
 };
