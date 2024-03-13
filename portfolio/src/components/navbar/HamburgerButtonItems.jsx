@@ -23,6 +23,7 @@ const HamburgerButtonItems = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             {isOpen ? (
+              /* drawing the close icon */
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -30,6 +31,7 @@ const HamburgerButtonItems = () => {
                 d="M6 18L18 6M6 6l12 12"
               />
             ) : (
+              /*  drawing the open icon */
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -44,13 +46,13 @@ const HamburgerButtonItems = () => {
       <div
         className={
           isOpen
-            ? "absolute w-full bg-white top-28 p-4 rounded-md shadow-redOrange shadow-2xl ease-in-out duration-500 "
-            : "absolute w-full bg-white -top-96 p-4 rounded-md shadow-redOrange shadow-2xl ease-in-out duration-500"
+            ? "menuItems top-28 scale-100"
+            : "menuItems -top-96 scale-0"
         }
       >
         <ul className="flex flex-col items-center space-y-4">
           {menuItems.map((data) => (
-            <li key={data.id} className="">
+            <li key={data.id}>
               <a href={data.link} className="lg:text-Header5 text-p">
                 {data.name}
               </a>

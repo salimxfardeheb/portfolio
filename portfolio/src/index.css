@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.menuItems {
+    @apply absolute w-full bg-white p-4 rounded-md shadow-redOrange shadow-2xl ease-in-out duration-500;
+}
+
+.inputContact {
+    @apply rounded-[20px] bg-black border-2 border-white placeholder:text-white focus:border-redOrange p-5;
+}
+
+.copyRight {
+    @apply text-nevada text-p;
+}
+
+.socialMedia{
+    @apply w-10 h-10 text-nevada object-contain hover:text-redOrange;
+}

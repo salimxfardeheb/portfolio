@@ -2,22 +2,22 @@ const menuItems = [
   {
     id: 1,
     name: "Home",
-    link: "#",
+    link: "/home",
   },
   {
     id: 2,
     name: "About",
-    link: "#",
+    link: "/about",
   },
   {
     id: 3,
     name: "Portfolio",
-    link: "#",
+    link: "/portfolio",
   },
   {
     id: 4,
     name: "Services",
-    link: "#",
+    link: "/services",
   },
 ];
 

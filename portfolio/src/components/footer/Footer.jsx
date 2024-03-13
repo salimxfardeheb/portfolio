@@ -2,8 +2,9 @@ import React from "react";
 import menuItems from "../navbar/menuItems";
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareInstagram, FaSquareXTwitter } from "react-icons/fa6";
+import handleclick from "../../handleclick";
 
-import logo from "../images/logo-SF.png";
+import logo from "../../images/logo-SF.png";
 
 const Footer = () => {
   return (
@@ -23,20 +24,20 @@ const Footer = () => {
               type="text"
               name="name"
               placeholder="Your Name"
-              className="rounded-[20px] bg-black border-2 border-white placeholder:text-white focus:border-redOrange  p-5"
+              className="inputContact"
             />
             <input
               type="Email"
               name="name"
               placeholder="Your Email"
-              className="rounded-[20px] bg-black border-2 border-white placeholder:text-white focus:border-redOrange p-5 "
+              className="inputContact "
             />
             <textarea
               name=""
               id=""
               cols="30"
               rows="10"
-              className="rounded-[20px] bg-black border-2 border-white placeholder:text-white focus:border-redOrange p-5"
+              className="inputContact"
               placeholder="Your Message"
             ></textarea>
             <button className="bg-redOrange py-3 hover:opacity-90 duration-150">
@@ -64,26 +65,25 @@ const Footer = () => {
             />
           </div>
           <div className="hidden md:block">
-            <p className="text-nevada text-p">© Copyright by Salim Fardeheb.</p>
+            <p className="copyRight">© Copyright by Salim Fardeheb.</p>
           </div>
           <div className="flex justify-between md:w-[30%] gap-3">
-            <a href="">
-              <FaFacebookSquare className="w-10 h-10 text-nevada object-contain hover:text-redOrange" />
+            <a href="" onClick={handleclick}>
+              <FaFacebookSquare className="socialMedia" />
             </a>
-            <a href="">
-
-              <FaLinkedin className="w-10 h-10 text-nevada object-contain hover:text-redOrange" />
+            <a href="" onClick={handleclick}>
+              <FaLinkedin className="socialMedia" />
             </a>
-            <a href="">
-              <FaSquareXTwitter className="w-10 h-10 text-nevada object-contain hover:text-redOrange" />
+            <a href="" onClick={handleclick}>
+              <FaSquareXTwitter className="socialMedia" />
             </a>
-            <a href="">
-              <FaSquareInstagram className="w-10 h-10 text-nevada object-contain hover:text-redOrange" />
+            <a href="" onClick={handleclick}>
+              <FaSquareInstagram className="socialMedia" />
             </a>
           </div>
         </div>
         <div className="pt-10 md:hidden w-full flex justify-center">
-          <p className="text-nevada text-p">© Copyright by Salim Fardeheb.</p>
+          <p className="copyRight">© Copyright by Salim Fardeheb.</p>
         </div>
       </div>
     </div>

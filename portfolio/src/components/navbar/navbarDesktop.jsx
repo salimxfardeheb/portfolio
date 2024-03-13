@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../images/logo-SF.png";
+import Logo from "../../images/logo-SF.png";
 import menuItems from "./menuItems";
 
 
@@ -9,7 +9,7 @@ const NavbarDesktop = () => {
       <div className="md:flex justify-between mx-[12%] pt-[30px] items-baseline hidden">
         {/* logo */}
         <div>
-          <img src={Logo} alt="logo" className="h-[75px] object-contain"/>
+          <a href="/home"><img src={Logo} alt="logo" className="h-[75px] object-contain"/></a>
         </div>
         {/* menu items */}
         <div>
@@ -31,7 +31,8 @@ const NavbarDesktop = () => {
         </div>
         {/* get in touch button*/}
         <div className="">
-          <button className="lg:px-5 px-3 py-2 lg:py-2 bg-redOrange text-white text-p hover:bg-opacity-0 hover:border-2">
+          <button className="lg:px-5 px-3 py-2 lg:py-2 bg-redOrange text-white text-p hover:bg-opacity-0 hover:border-2"
+          /* onClick={contactMe} */>
             Get in Touch
           </button>
         </div>

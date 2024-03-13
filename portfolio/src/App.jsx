@@ -1,11 +1,11 @@
 import React from "react";
-import NavbarDesktop from "./navbar/navbarDesktop";
-import NavbarMobile from "./navbar/navbarMobile";
-import HeroSection from "./hero-section/heroSection";
-import Card from "./cards/cards";
-import AboutMe from "./AboutMe/AboutMe";
-import Portfolio from "./portfolioSection/portfolio";
-import Footer from "./footer/Footer";
+import NavbarDesktop from "./components/navbar/navbarDesktop";
+import NavbarMobile from "./components/navbar/navbarMobile";
+import HeroSection from "./components/hero-section/heroSection";
+import Card from "./components/cards/cards";
+import AboutMe from "./components/AboutMe/AboutMe";
+import Portfolio from "./components/portfolioSection/portfolio";
+import Footer from "./components/footer/Footer";
 
 import Professional from "./images/rating-cards/Professional.png";
 import Fast from "./images/rating-cards/Fast.png";
@@ -31,10 +31,11 @@ const App = () => {
   return (
     <>
       <div className="relative md:mb-[25%] mb-[200%] sm:mb-[100%] lg:mb-[12%]">
-        <NavbarDesktop />
-        <NavbarMobile />
-        <HeroSection />
+        <NavbarDesktop/>
+        <NavbarMobile/>
+        <HeroSection/>
         <div className="flex flex-col md:flex-row mx-[12%] gap-12 absolute top-[90%]">
+          {/* Cards of my experiance */}
           <Card
             icon={Professional}
             title="Professional"
@@ -48,8 +49,9 @@ const App = () => {
           />
         </div>
       </div>
-      <AboutMe />
-      <Portfolio />
+      <AboutMe/>
+      <Portfolio/>
+      {/* cards of Services */}
       <div className="flex flex-col md:flex-row mx-[12%] gap-12 my-24">
           <Card
             icon={ScreenIcon}
@@ -63,6 +65,7 @@ const App = () => {
             description={descriptionServices[2]}
           />
         </div>
+        {/* footer */}
         <Footer/>
     </>
   );
