@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+
 import NavbarDesktop from "./components/navbar/navbarDesktop";
 import NavbarMobile from "./components/navbar/navbarMobile";
 import HeroSection from "./components/hero-section/heroSection";
@@ -28,6 +29,12 @@ const descriptionServices = [
 ]
 
 const App = () => {
+  const [backendData, setBackendData] = useState([{}])
+  useEffect(()=> {
+    fetch("/")
+  })
+
+
   return (
     <>
       <div className="relative md:mb-[25%] mb-[200%] sm:mb-[100%] lg:mb-[12%]">
