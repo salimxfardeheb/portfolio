@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import menuItems from "../navbar/menuItems";
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareInstagram, FaSquareXTwitter } from "react-icons/fa6";
 import handleclick from "../../handleclick";
-import AnchorLink from "react-anchor-link-smooth-scroll"; 
-
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import logo from "../../images/logo-SF.png";
 
 const Footer = () => {
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [comment, setComment] = useState(null);
+
+  const values = {
+    name: name,
+    email: email,
+    comment: comment,
+  };
+
+  const sendMail = () => {
+    axios
+      .post("http://localhost:3000/send-email", values)
+      .then(() => {
+        console.log("success!");
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  };
+  
+
+  console.log(values);
   return (
     <div className="bg-black py-24 flex flex-col md:gap-24 gap-12">
       <div className="mx-[12%] flex flex-col gap-6" id="contact">
@@ -20,29 +43,38 @@ const Footer = () => {
             Work Inquiry
           </p>
         </div>
-        <form action="contact">
+        <form action="/sendmail" method="post">
           <div className="input-group flex flex-col gap-6 text-white ">
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               className="inputContact"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
             />
             <input
               type="Email"
-              name="name"
+              name="email"
               placeholder="Your Email"
               className="inputContact"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <textarea
-              name=""
+              name="comment"
               id=""
               cols="30"
               rows="10"
               className="inputContact"
               placeholder="Your Message"
+              onChange={(e) => {
+                setComment(e.target.value);
+              }}
             ></textarea>
-            <button className="bg-redOrange py-3 hover:opacity-90 duration-150">
+            <button className="bg-redOrange py-3 hover:opacity-90 duration-150" onClick={sendMail}>
               Send Your Message
             </button>
           </div>
