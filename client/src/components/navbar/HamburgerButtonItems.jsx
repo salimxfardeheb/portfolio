@@ -1,6 +1,8 @@
 // HamburgerButton.js
 import React, { useState } from "react";
 import menuItems from "./menuItems";
+import AnchorLink from "react-anchor-link-smooth-scroll"; 
+
 
 const HamburgerButtonItems = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,9 +55,9 @@ const HamburgerButtonItems = () => {
         <ul className="flex flex-col items-center space-y-4">
           {menuItems.map((data) => (
             <li key={data.id}>
-              <a href={data.link} className="lg:text-Header5 text-p">
-                {data.name}
-              </a>
+              <AnchorLink href={data.link} className="lg:text-Header5 text-p">
+              {data.name}
+              </AnchorLink>
             </li>
           ))}
         </ul>

@@ -3,13 +3,15 @@ import menuItems from "../navbar/menuItems";
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareInstagram, FaSquareXTwitter } from "react-icons/fa6";
 import handleclick from "../../handleclick";
+import AnchorLink from "react-anchor-link-smooth-scroll"; 
+
 
 import logo from "../../images/logo-SF.png";
 
 const Footer = () => {
   return (
     <div className="bg-black py-24 flex flex-col md:gap-24 gap-12">
-      <div className="mx-[12%] flex flex-col gap-6">
+      <div className="mx-[12%] flex flex-col gap-6" id="contact">
         <div>
           <p className="md:text-Header5 text-MobileHeader5 text-redOrange">
             Contact Me
@@ -18,7 +20,7 @@ const Footer = () => {
             Work Inquiry
           </p>
         </div>
-        <form action="">
+        <form action="contact">
           <div className="input-group flex flex-col gap-6 text-white ">
             <input
               type="text"
@@ -30,7 +32,7 @@ const Footer = () => {
               type="Email"
               name="name"
               placeholder="Your Email"
-              className="inputContact "
+              className="inputContact"
             />
             <textarea
               name=""
@@ -51,7 +53,7 @@ const Footer = () => {
           <ul className=" text-white flex flex-col md:flex-row md:justify-around items-center text-Header5 border-y-2 border-nevada md:py-12 gap-6 py-5 mx-[25%] md:mx-auto">
             {menuItems.map((data) => (
               <li key={data.id} className=" hover:text-redOrange">
-                <a href={data.link}>{data.name}</a>
+                <AnchorLink href={data.link}>{data.name}</AnchorLink>
               </li>
             ))}
           </ul>
@@ -89,5 +91,4 @@ const Footer = () => {
     </div>
   );
 };
-
 export default Footer;

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 
 import NavbarDesktop from "./components/navbar/navbarDesktop";
 import NavbarMobile from "./components/navbar/navbarMobile";
@@ -29,20 +29,15 @@ const descriptionServices = [
 ]
 
 const App = () => {
-  const [backendData, setBackendData] = useState([{}])
-  useEffect(()=> {
-    fetch("/")
-  })
-
-
   return (
     <>
       <div className="relative md:mb-[25%] mb-[200%] sm:mb-[100%] lg:mb-[12%]">
         <NavbarDesktop/>
         <NavbarMobile/>
         <HeroSection/>
+        {/* Cards of my experiance */}
         <div className="flex flex-col md:flex-row mx-[12%] gap-12 absolute top-[90%]">
-          {/* Cards of my experiance */}
+          
           <Card
             icon={Professional}
             title="Professional"
@@ -59,7 +54,7 @@ const App = () => {
       <AboutMe/>
       <Portfolio/>
       {/* cards of Services */}
-      <div className="flex flex-col md:flex-row mx-[12%] gap-12 my-24">
+      <div className="flex flex-col md:flex-row mx-[12%] gap-12 my-24" id="services">
           <Card
             icon={ScreenIcon}
             title="Desktop & Mobile Screens"

@@ -3,7 +3,7 @@ import About from "../../images/AboutMe.png";
 
 const AboutMe = () => {
   return (
-    <div className="mb-[100px] pt-[100px]">
+    <div className="mb-[100px] pt-[100px]" id="about">
       <div className="mx-[12%] flex flex-col md:flex-row justify-between items-center gap-6">
         {/* image About Me */}
         <div>
@@ -40,4 +40,5 @@ const AboutMe = () => {
     </div>
   );
 };
+
 export default AboutMe;

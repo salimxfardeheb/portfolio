@@ -7,8 +7,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../client/dist')));  
 
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
+
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+  res.redirect("/#about");
 });
 
 // Écouter le port 3000
