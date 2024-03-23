@@ -17,3 +17,7 @@
 .socialMedia{
     @apply w-10 h-10 text-nevada object-contain hover:text-redOrange;
 }
+
+.buttonUP {
+    @apply rounded-full bg-redOrange flex p-3 w-fit justify-center items-center cursor-pointer fixed z-40 shadow-md md:bottom-10 bottom-5 ease-in-out duration-500;
+}

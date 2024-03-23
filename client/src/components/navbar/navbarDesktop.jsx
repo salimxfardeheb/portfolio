@@ -5,7 +5,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const NavbarDesktop = () => {
   return (
-    <div className="w-full absolute top-0">
+    <div className="w-full absolute top-0" id="up">
       <div className="md:flex justify-between mx-[12%] pt-[30px] items-baseline hidden">
         {/* logo */}
         <div>
