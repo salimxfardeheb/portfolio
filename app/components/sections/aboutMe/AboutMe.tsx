@@ -14,28 +14,29 @@ const AboutMe = ({ text = "text-black" }) => {
         </div>
         {/* text about me */}
         <div className="gap-5 flex flex-col md:w-1/2">
-          <p className=" text-redOrange text-MobileHeader5 md:text-Header5">
+          <p className=" text-redOrange text-MobileHeader5 md:text-Header5 font-Header5">
             About
           </p>
-          <p className={`text-MobileHeader2 md:text-Header2 ${text}`}>
+          <p className={`text-MobileHeader2 md:text-Header2 lg:font-Header2 font-MobileHeader2 ${text}`}>
             About Me
           </p>
           <p className="aboutme_text">
             I'm 24 years old, computer science graduate with a Master's degree
             and over
-            <span>3 years of experiance</span> of in
+            <span> more than 3 years of experiance</span> of in
             <span> UI/UX design</span> and <span>Full-stack development</span>.
             <br />
             <br />
-            My passion for graphic design drives me to create stunning, modern,
-            and responsive models for websites and mobile applications,
-            utilizing <span>UI/UX design</span> principles and{" "}
-            <span>design system</span> to ensure seamless and user-friendly
-            experiences. As a <span>Full-Stack developer</span>, I specialize in
-            turning into fully functional, modern, and responsive
-            websites—whether static or dynamic. My approach shaped by experience
-            focuses on <span>Code optimization</span> and efficient delivery to
-            ensure <span>high-quality result in a timely manner</span>.
+            As a passionate<span> Full-Stack developer</span> , I create modern,
+            responsive, and high-performance web applications. I focus on{" "}
+            <span>building scalable architectures</span>, writing{" "}
+            <span>clean and optimized code</span>, and ensuring{" "}
+            <span>
+              {" "}
+              seamless interaction between front-end and back-end for an
+              exceptional user experience
+            </span>
+            .
             <br />
             <br />
             Turn your vision into an exceptional digital experience: modern,

@@ -15,7 +15,7 @@ const Card = ({ icon, title, description }: Props) => {
       </div>
       {/* Title & Description */}
       <div>
-        <p className=" text-MobileHeader4 lg:text-Header4">{title}</p>
+        <p className=" text-MobileHeader4 lg:text-Header4 font-Header4 lg:font-Header4">{title}</p>
       </div>
       <div>
         <p className="text-MobileHeader5 lg:text-Header5 text-nevada text-center">
