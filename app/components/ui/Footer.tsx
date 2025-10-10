@@ -24,8 +24,8 @@ const Footer = () => {
   };
 
   return (
-    <div className="bg-black py-24 flex flex-col md:gap-24 gap-12">
-      <div className="mx-[12%] flex flex-col gap-6" id="contact">
+    <div className="bg-black py-24 flex flex-col md:gap-24 gap-12" id="contact">
+      <div className="mx-[12%] flex flex-col gap-6">
         <div>
           <p className="md:text-Header5 text-MobileHeader5 text-redOrange">
             Contact Me

@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+'use client'
+import React, { useState } from "react";
 import { menuItems } from "@/app/variables";
 import Link from "next/link";
 

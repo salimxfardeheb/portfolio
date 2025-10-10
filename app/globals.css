@@ -90,14 +90,6 @@ body {
     @apply text-redOrange md:text-Header5 text-MobileHeader5 mx-4;
 }
 
-.hero_container{
-    @apply flex flex-col justify-center items-center gap-8 md:w-1/2 w-3/4 md:text-Header3 text-MobileHeader3;
-}
-
-.hero_container img{
-    @apply md:min-w-28 min-w-5;
-}
-
 .aboutme_text{
     @apply text-p text-nevada;
 }
