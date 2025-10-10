@@ -1,48 +1,26 @@
 'use client'
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { menuItems } from "@/app/variables";
-import { FaFacebookSquare, FaLinkedin } from "react-icons/fa";
-import { FaSquareInstagram, FaSquareXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
+import { sendEmail } from "@/app/utils/send-email";
 
 const Footer = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [messageServer, setMessageServer] = useState("");
   const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    if (localStorage.getItem("operationSuccess") === "true") {
-      setSuccess(true);
-      localStorage.removeItem("operationSuccess");
-    }
-  }, []);
-
-  const handleSubmit = (e : React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  };
+    const { success } = await sendEmail({ name, email, message });
+    setSuccess(success);
 
-  const values = { name, email, message };
-  const api_url = "https://portfolio-l4ki.onrender.com"
-
-  const sendMail = () => {
-    axios
-      .post(`${api_url}/send`, values)
-      .then((res) => {
-        console.log("Success!");
-
-        setName("");
-        setEmail("");
-        setMessage("");
-
-        localStorage.setItem("operationSuccess", "true");
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.log("Error:", error);
-      });
+    if (success) {
+      setName("");
+      setEmail("");
+      setMessage("");
+    }
   };
 
   return (
@@ -63,7 +41,7 @@ const Footer = () => {
           </p>
         )}
 
-        <form method="post" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="input-group flex flex-col gap-6 text-white">
             <input
               type="text"
@@ -72,6 +50,7 @@ const Footer = () => {
               className="inputContact"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
             <input
               type="email"
@@ -80,6 +59,7 @@ const Footer = () => {
               className="inputContact"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <textarea
               name="message"
@@ -89,11 +69,11 @@ const Footer = () => {
               placeholder="Your Message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              required
             ></textarea>
             <button
-              type="button"
+              type="submit"
               className="bg-redOrange py-3 hover:opacity-90 duration-150"
-              onClick={sendMail}
             >
               Send Your Message
             </button>
@@ -116,19 +96,30 @@ const Footer = () => {
             alt="Logo"
             className="md:w-[120px] w-[64.15px] object-contain"
           />
-          <p className="hidden md:block copyRight">© Copyright by Salim Fardeheb.</p>
-          <div className="flex gap-3">
-            <a href="https://www.facebook.com/salimxfardeheb13/">
-              <FaFacebookSquare className="socialMedia" />
+          <p className="hidden md:block copyRight">
+            © Copyright by Salim Fardeheb.
+          </p>
+          <div className="flex gap-8">
+            <a
+              href="https://github.com/salimxfardeheb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="socialMedia" />
             </a>
-            <a href="https://www.linkedin.com/in/salim-fardeheb-ba6060256/">
+            <a
+              href="https://www.linkedin.com/in/salim-fardeheb-ba6060256/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaLinkedin className="socialMedia" />
             </a>
-            <a href="https://x.com/salimxfardeheb">
-              <FaSquareXTwitter className="socialMedia" />
-            </a>
-            <a href="https://www.instagram.com/salimsdev">
-              <FaSquareInstagram className="socialMedia" />
+            <a
+              href="https://wa.me/213670668790?text=Bonjour%20Salim%2C%20je%20souhaite%20plus%20d'informations"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWhatsapp className="socialMedia" />
             </a>
           </div>
         </div>

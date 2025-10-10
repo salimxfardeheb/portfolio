@@ -38,3 +38,9 @@ export const menuItems = [
     link: "/services",
   },
 ];
+
+export type FormData = {
+  name: string;
+  email: string;
+  message: string;
+};
