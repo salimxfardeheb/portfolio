@@ -99,11 +99,11 @@ body {
 }
 
 .toolkit{
-    @apply md:flex justify-between w-full hidden;
+    @apply md:flex justify-between w-full hidden px-[12%] ;
 }
 
 .toolkit img{
-    @apply max-h-28;
+    @apply max-h-56;
 }
 .toolkit_mobile{
     @apply flex gap-4 justify-center items-center;
