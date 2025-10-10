@@ -1,9 +1,122 @@
 @import "tailwindcss";
 
-:root {
+
+@theme {
+  /* 🌍 Breakpoints */
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1441px;
+
+  /* 🎨 Couleurs */
+  --color-redOrange: #FF302F;
+  --color-nevada: #676869;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* 🖋️ Fontes */
   --font-poppins: "Poppins", sans-serif;
+
+  /* 🔠 Tailles de texte */
+  --text-Header1: 55px;
+  --text-Header2: 45px;
+  --text-Header3: 35px;
+  --text-Header4: 25px;
+  --text-Header5: 18px;
+  --text-MobileHeader1: 45px;
+  --text-MobileHeader2: 35px;
+  --text-MobileHeader3: 25px;
+  --text-MobileHeader32: 20px;
+  --text-MobileHeader4: 18px;
+  --text-MobileHeader5: 16px;
+  --text-p: 16px;
+
+  /* 🧱 Font weights */
+  --font-weight-Header1: 800;
+  --font-weight-Header2: 800;
+  --font-weight-Header3: 800;
+  --font-weight-Header4: 500;
+  --font-weight-Header5: 300;
+  --font-weight-MobileHeader1: 800;
+  --font-weight-MobileHeader2: 800;
+  --font-weight-MobileHeader3: 800;
+  --font-weight-MobileHeader32: 800;
+  --font-weight-MobileHeader4: 500;
+  --font-weight-MobileHeader5: 300;
+  --font-weight-p: 400;
+
+  /* 🖼️ Images de fond */
+  --background-image-hero: url("/images/Herosection.png");
+}
+
+/* ----------------------------- */
+/* 🌐 Styles globaux */
+/* ----------------------------- */
+
+:root {
+  font-family: var(--font-poppins);
 }
 
 body {
   font-family: var(--font-poppins);
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.menuItems {
+    @apply absolute w-full bg-white p-4 rounded-md shadow-redOrange shadow-2xl ease-in-out duration-500;
+}
+
+.inputContact {
+    @apply rounded-[20px] bg-black border-2 border-white placeholder:text-white focus:border-redOrange p-5;
+}
+
+.copyRight {
+    @apply text-nevada text-p;
+}
+
+.socialMedia{
+    @apply w-10 h-10 text-nevada object-contain hover:text-redOrange;
+}
+
+.buttonUP {
+    @apply rounded-full bg-redOrange flex p-3 w-fit justify-center items-center cursor-pointer fixed z-40 shadow-md md:bottom-10 bottom-5 ease-in-out duration-500;
+}
+
+.services_text{
+    @apply text-white text-Header2;
+}
+
+.services_text span{
+    @apply text-redOrange md:text-Header5 text-MobileHeader5 mx-4;
+}
+
+.hero_container{
+    @apply flex flex-col justify-center items-center gap-8 md:w-1/2 w-3/4 md:text-Header3 text-MobileHeader3;
+}
+
+.hero_container img{
+    @apply md:min-w-28 min-w-5;
+}
+
+.aboutme_text{
+    @apply text-p text-nevada;
+}
+
+.aboutme_text span{
+    @apply text-redOrange font-bold;
+}
+
+.toolkit{
+    @apply md:flex justify-between w-full hidden;
+}
+
+.toolkit img{
+    @apply max-h-28;
+}
+.toolkit_mobile{
+    @apply flex gap-4 justify-center items-center;
+}
+
+.toolkit_mobile img{
+    @apply max-h-14;
 }

@@ -1,11 +1,20 @@
-import React, { ReactNode } from 'react'
+"use client";
+import React, { ReactNode } from "react";
+import Footer from "../components/ui/Footer";
+import NavbarDesktop from "../components/ui/navbarDesktop";
+import NavbarMobile from "../components/ui/navbarMobile";
 
-const layout = ({children} : {children : ReactNode}) => {
+const layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className='body_root'>
-      {children}
+    <div>
+      <header>
+        <NavbarDesktop />
+        <NavbarMobile />
+      </header>
+      <main>{children}</main>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default layout
+export default layout;

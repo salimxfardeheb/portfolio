@@ -13,5 +13,28 @@ export const descriptionServices = [
 export const descriptionFullstack = [
   "I transform your model into a modern and responsive website that can be used on multiple devices. ",
   "I develop a web server that can interact with inerface and give several dynamic page and interactions in real time.",
-  "I create an optimized and well-structured database with uml diagrams."
-]
+  "I create an optimized and well-structured database with uml diagrams.",
+];
+
+export const menuItems = [
+  {
+    id: 1,
+    name: "Home",
+    link: "/",
+  },
+  {
+    id: 2,
+    name: "About",
+    link: "/about",
+  },
+  {
+    id: 3,
+    name: "Portfolio",
+    link: "/portfolio",
+  },
+  {
+    id: 4,
+    name: "Services",
+    link: "/services",
+  },
+];
