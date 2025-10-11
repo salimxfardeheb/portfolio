@@ -4,9 +4,13 @@ import { menuItems } from "@/app/variables";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 
-const NavbarDesktop = () => {
+interface Props {
+  absolute? : boolean
+}
+
+const NavbarDesktop = ({absolute = true} : Props) => {
   return (
-    <div className="w-full absolute top-0" id="up">
+    <div className={`${absolute && "w-full absolute top-0"}`} id="up">
       <div className="md:flex justify-between mx-[5%] lg:mx-[12%] pt-[30px] items-baseline hidden">
         {/* logo */}
         <div>

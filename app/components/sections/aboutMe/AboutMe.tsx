@@ -1,6 +1,6 @@
 import React from "react";
 
-const AboutMe = ({ text = "text-black" }) => {
+const AboutMe = ({ title = "text-black" , text = "text-nevada" }) => {
   return (
     <div className="mb-[100px] pt-[100px]" id="about">
       <div className="mx-[12%] flex flex-col md:flex-row justify-between items-center gap-6">
@@ -17,10 +17,10 @@ const AboutMe = ({ text = "text-black" }) => {
           <p className=" text-redOrange text-MobileHeader5 md:text-Header5 font-Header5">
             About
           </p>
-          <p className={`text-MobileHeader2 md:text-Header2 lg:font-Header2 font-MobileHeader2 ${text}`}>
+          <p className={`text-MobileHeader2 md:text-Header2 lg:font-Header2 font-MobileHeader2 ${title}`}>
             About Me
           </p>
-          <p className="aboutme_text">
+          <p className={`aboutme_text ${text}`}>
             I'm 24 years old, computer science graduate with a Master's degree
             and over
             <span> more than 3 years of experiance</span> of in

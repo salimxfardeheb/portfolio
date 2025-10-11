@@ -4,8 +4,8 @@ import { Link as ScrollLink } from "react-scroll";
 
 const HeroSection = () => {
   return (
-    <div className="bg-hero h-screen bg-cover bg-center flex flex-col justify-center items-center">
-      <div className="flex flex-col items-center gap-16 text-white text-center my-[40%] md:my-[10%]">
+    <div className="bg-hero min-h-screen bg-cover bg-center flex flex-col justify-center items-center">
+      <div className="flex flex-col items-center gap-8 md:gap-16 text-white text-center my-[40%] md:my-[10%]">
         <div className="flex flex-col p-4 md:p-4">
           <span className="text-MobileHeader4 md:text-Header4">I'm </span>
           <span className=" text-MobileHeader2 md:text-Header2 md:font-Header2 font-MobileHeader2">

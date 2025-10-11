@@ -4,7 +4,7 @@ import Link from "next/link";
 const Myworks = () => {
   return (
     <div
-      className="my-[100px] mx-[12%] flex flex-col justify-center items-center max-h-screen"
+      className="my-[100px] mx-[12%] flex flex-col justify-center items-center min-h-screen"
       id="portfolio"
     >
       <div className="gap-5 flex flex-col md:w-1/2 justify-center items-center">

@@ -91,7 +91,7 @@ body {
 }
 
 .aboutme_text{
-    @apply text-p text-nevada text-justify;
+    @apply text-p  text-justify;
 }
 
 .aboutme_text span{

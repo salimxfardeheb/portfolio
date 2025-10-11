@@ -76,7 +76,7 @@ const page = () => {
       <AboutMe />
       <Portfolio />
       <div
-        className="flex flex-col md:flex-row mx-[12%] gap-12 my-24"
+        className="flex flex-col md:flex-row mx-[12%] gap-12 my-[100px]"
         id="services"
       >
         <Card
