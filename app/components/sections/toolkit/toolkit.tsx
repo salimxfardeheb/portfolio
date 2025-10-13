@@ -7,7 +7,7 @@ const toolkit = () => {
         <p className=" text-redOrange text-MobileHeader5 md:text-Header5">
           Workspace
         </p>
-        <p className="text-MobileHeader2 md:text-Header2">My ToolKit</p>
+        <p className="text-MobileHeader2 md:text-Header2 font-Header2">My ToolKit</p>
       </div>
       <div className="toolkit">
         <img src="/images/toolkit/tailwind.png" />
