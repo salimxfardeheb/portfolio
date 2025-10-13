@@ -34,7 +34,7 @@ const page = () => {
             />
             <Card
             icon="/images/Services/webInterface.png"
-            title="Creating website interfece"
+            title="Creating website interface"
             description={descriptionFullstack[0]}
           />
           <Card

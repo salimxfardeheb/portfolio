@@ -46,7 +46,7 @@ const Myworks = () => {
           </Link>
         </div>
         <div>
-          <Link href="/portfolio/fullstack">
+          <Link href="/portfolio">
             <button className="px-9 py-5 text-black hover:text-white text-MobileHeader4  border-2 hover:bg-redOrange duration-200">
               See My Works
             </button>

@@ -1,0 +1,42 @@
+[
+    {
+        "id": 4,
+        "title": "Location costume",
+        "image": "/images/location-costume.png",
+        "description": [
+            "I designed and developped a multi-functional web application for costume rental management. The concept focuses on providing a comprehensive management system for individual boutiques, including features like adding models, managing reservations/rentals, a dashboard, and an integrated calendar.",
+            "The project uses Figma for the design phase, and is being developed using Next.js for the front-end and Firebase for the back-end infrastructure. This application streamlines rental operations and enhances organizational efficiency for costume businesses."
+        ],
+        "link": "https://location-costumes.vercel.app/"
+    },
+    {
+        "id": 2,
+        "title": "My Portfolio Website",
+        "image": "/images/My_Portfolio_website.png",
+        "description": [
+            "I designed my personal portfolio website using Figma, emphasizing UI/UX principles and a responsive design with a cohesive system (color, typography) for better user experience.",
+            "I then developed the site as a full-stack application using React (Next.js). The portfolio efficiently showcases my projects and skills, highlighting my expertise in full-stack development."
+        ],
+        "link": "https://salimsportfolio.netlify.app/"
+    },
+    {
+        "id": 3,
+        "title": "Play Time Reserve",
+        "image": "/images/Play Time reserve.png",
+        "description": [
+            "I designed the comprehensive UI/UX for a stadium reservation app that allows users to book football stadiums or join existing matches.",
+            "The project included creating a full design system (color palette, typography, reusable components) and establishing a clear app architecture for intuitive navigation, resulting in a user-friendly platform for football enthusiasts."
+        ],
+        "link": "https://www.figma.com/design/maJ0NtTNrUGbjGPaoG4h3h/reservation-foot?t=HGOzC9payeZNDiO9-0"
+    },
+    {
+        "id": 1,
+        "title": "FlexFret",
+        "image": "/images/FlexFret.png",
+        "description": [
+            "I designed the FlexFret website with a team using Figma, focusing on a user-centered, responsive interface and a comprehensive design system.",
+            "I then collaborated with the development team to build the fully responsive site using HTML, CSS, Tailwind CSS, and Node.js, by converting design mockups into clean, efficient code. This demonstrates my expertise in front-end development."
+        ],
+        "link": "https://www.flexfret.com/"
+    }
+]
