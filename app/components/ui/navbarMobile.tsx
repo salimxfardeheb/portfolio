@@ -6,7 +6,6 @@ const NavbarMobile = () => {
   return (
     <div className="absolute w-full">
       <div className="flex md:hidden justify-between items-center pt-12 mx-[12%] relative">
-        {/* Logo */}
         <div>
           <Link href="/">
             <img
@@ -16,7 +15,6 @@ const NavbarMobile = () => {
             />
           </Link>
         </div>
-        {/* humburger button */}
         <HamburgerButtonItems />
       </div>
     </div>

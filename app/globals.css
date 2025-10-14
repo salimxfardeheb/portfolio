@@ -7,16 +7,16 @@
   --breakpoint-md: 900px;
   --breakpoint-lg: 1441px;
 
-  /* 🎨 Couleurs */
+  /* 🎨 colors */
   --color-redOrange: #FF302F;
   --color-nevada: #676869;
   --color-white: #FFFFFF;
   --color-black: #000000;
 
-  /* 🖋️ Fontes */
+  /* 🖋️ text font */
   --font-poppins: "Poppins", sans-serif;
 
-  /* 🔠 Tailles de texte */
+  /* Test sizes */
   --text-Header1: 55px;
   --text-Header2: 45px;
   --text-Header3: 35px;
@@ -44,13 +44,8 @@
   --font-weight-MobileHeader5: 300;
   --font-weight-p: 400;
 
-  /* 🖼️ Images de fond */
   --background-image-hero: url("/images/Herosection.png");
 }
-
-/* ----------------------------- */
-/* 🌐 Styles globaux */
-/* ----------------------------- */
 
 :root {
   font-family: var(--font-poppins);

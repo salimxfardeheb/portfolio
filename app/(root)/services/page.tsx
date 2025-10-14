@@ -12,7 +12,6 @@ const page = () => {
           <p className="text-white text-Header2 flex flex-col-reverse gap-4 text-center leading-tight tracking-wide">
             <span className="text-redOrange md:text-Header5 text-MobileHeader5 mx-4">Dive into these cards to explore what I can build for you</span> Web Developer
           </p>
-          {/* cards of Services */}
           <div
             className="flex flex-wrap items-center justify-center mx-[12%] gap-12 my-20 w-full"
             id="services"

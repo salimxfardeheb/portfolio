@@ -4,7 +4,6 @@ const AboutMe = ({ title = "text-black" , text = "text-nevada" }) => {
   return (
     <div className="mb-[100px] pt-[100px]" id="about">
       <div className="mx-[12%] flex flex-col md:flex-row justify-between items-center gap-6">
-        {/* image About Me */}
         <div>
           <img
             src="/images/profile_picture.png"
@@ -12,7 +11,6 @@ const AboutMe = ({ title = "text-black" , text = "text-nevada" }) => {
             className="md:w-[447px] w-[313px] object-contain"
           />
         </div>
-        {/* text about me */}
         <div className="gap-5 flex flex-col md:w-1/2">
           <p className=" text-redOrange text-MobileHeader5 md:text-Header5 font-Header5">
             About

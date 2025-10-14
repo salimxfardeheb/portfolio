@@ -12,7 +12,6 @@ const NavbarDesktop = ({absolute = true} : Props) => {
   return (
     <div className={`${absolute && "w-full absolute top-0"}`} id="up">
       <div className="md:flex justify-between mx-[5%] lg:mx-[12%] pt-[30px] items-baseline hidden">
-        {/* logo */}
         <div>
           <Link href="/">
             <img
@@ -22,7 +21,6 @@ const NavbarDesktop = ({absolute = true} : Props) => {
             />
           </Link>
         </div>
-        {/* menu items */}
         <div>
           <ul className="md:flex lg:gap-16 md:gap-10">
             {menuItems.map((data) => (

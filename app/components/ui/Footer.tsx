@@ -21,6 +21,7 @@ const Footer = () => {
       setEmail("");
       setMessage("");
     }
+     setTimeout(() => setSuccess(false), 3000);
   };
 
   return (
@@ -115,7 +116,7 @@ const Footer = () => {
               <FaLinkedin className="socialMedia" />
             </a>
             <a
-              href="https://wa.me/213670668790?text=Bonjour%20Salim%2C%20je%20souhaite%20plus%20d'informations"
+              href="https://wa.me/213670668790?"
               target="_blank"
               rel="noopener noreferrer"
             >
