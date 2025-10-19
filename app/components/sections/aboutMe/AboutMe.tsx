@@ -19,7 +19,7 @@ const AboutMe = ({ title = "text-black" , text = "text-nevada" }) => {
             About Me
           </p>
           <p className={`aboutme_text ${text}`}>
-            I'm 24 years old, computer science graduate with a Master's degree
+            I'm 25 years old, computer science graduate with a Master's degree
             and over
             <span> more than 3 years of experiance</span> of in
             <span> UI/UX design</span> and <span>Full-stack development</span>.
