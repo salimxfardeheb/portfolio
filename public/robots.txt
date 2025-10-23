@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://salimxfardeheb.com
+
+# Sitemaps
+Sitemap: https://salimxfardeheb.com/sitemap.xml
