@@ -1,42 +1,10 @@
-export const descriptionsAdv = [
-  "A seasoned professional in my field, I bring expertise and dedication to ensure top-tier work.",
-  "Swift and efficient, I prioritize timely project delivery without compromising quality.",
-  "Adept at clear and open communication, I foster collaboration for successful project outcomes.",
-];
-
-export const descriptionServices = [
-  "I design captivating interfaces for desktop and mobile platforms, prioritizing seamless user experiences across devices.",
-  "I create prototypes using Figma and Adobe XD, bringing designs to life with interactive and user-friendly experiences.",
-  "I employ a design system to streamline and enhance the consistency of my creations, ensuring a cohesive and polished aesthetic in my designs.",
-];
-
-export const descriptionFullstack = [
-  "I transform your model into a modern and responsive website that can be used on multiple devices. ",
-  "I develop a web server that can interact with inerface and give several dynamic page and interactions in real time.",
-  "I create an optimized and well-structured database with uml diagrams.",
-];
 
 export const menuItems = [
-  {
-    id: 1,
-    name: "Home",
-    link: "/",
-  },
-  {
-    id: 2,
-    name: "About",
-    link: "/about",
-  },
-  {
-    id: 3,
-    name: "Portfolio",
-    link: "/portfolio",
-  },
-  {
-    id: 4,
-    name: "Services",
-    link: "/services",
-  },
+  { id: 1, key: "home" as const, link: "/" },
+  { id: 2, key: "about" as const, link: "/about" },
+  { id: 3, key: "portfolio" as const, link: "/portfolio" },
+  { id: 4, key: "services" as const, link: "/services" },
+  { id: 5, key: "templates" as const, link: "/templates" },
 ];
 
 export type FormData = {

@@ -5,21 +5,19 @@ import NavbarMobile from "./components/ui/navbarMobile";
 import HeroSection from "./components/sections/hero-section/heroSection";
 import Portfolio from "./components/sections/portfolioSection/portfolio";
 import Card from "./components/ui/cards";
-import {
-  descriptionFullstack,
-  descriptionsAdv,
-  descriptionServices,
-} from "./variables";
 import AboutMe from "./components/sections/aboutMe/AboutMe";
 import Toolkit from "./components/sections/toolkit/toolkit";
+import TemplatesTeaser from "./components/sections/templatesTeaser/TemplatesTeaser";
+import { useLanguage } from "./context/LanguageContext";
 
 import { FaChevronUp } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
 
 const page = () => {
   const [showButton, setShowButton] = useState(true);
+  const { t } = useLanguage();
 
-    useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       const heroSection = document.getElementById("up");
       if (heroSection) {
@@ -58,18 +56,18 @@ const page = () => {
         <div className="flex flex-col md:flex-row mx-[12%] gap-12 md:absolute top-[90%] my-20 md:my-4 lg:my-0">
           <Card
             icon="/images/rating-cards/Professional.png"
-            title="Professional"
-            description={descriptionsAdv[0]}
+            title={t.cards.professional}
+            description={t.cards.professionalDesc}
           />
           <Card
             icon="/images/rating-cards/Fast.png"
-            title="Fast"
-            description={descriptionsAdv[1]}
+            title={t.cards.fast}
+            description={t.cards.fastDesc}
           />
           <Card
             icon="/images/rating-cards/Communications.png"
-            title="Communication"
-            description={descriptionsAdv[2]}
+            title={t.cards.communication}
+            description={t.cards.communicationDesc}
           />
         </div>
       </header>
@@ -81,20 +79,21 @@ const page = () => {
       >
         <Card
           icon="/images/Services/Devices.png"
-          title="Desktop & Mobile Screens"
-          description={descriptionServices[0]}
+          title={t.services.desktopMobile}
+          description={t.services.desktopMobileDesc}
         />
         <Card
           icon="/images/Services/webInterface.png"
-          title="Creating the website interface"
-          description={descriptionFullstack[0]}
+          title={t.services.webInterface}
+          description={t.services.webInterfaceDesc}
         />
         <Card
           icon="/images/Services/ServerWeb.png"
-          title="Server web"
-          description={descriptionServices[1]}
+          title={t.services.serverWeb}
+          description={t.services.serverWebDesc}
         />
       </div>
+      <TemplatesTeaser />
       <Toolkit />
     </div>
   );

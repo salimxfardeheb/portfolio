@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import portfolio from "@/app/portfolio.json";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 interface Project {
   id: number;
@@ -10,13 +12,17 @@ interface Project {
 }
 
 const page = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen lg:py-12 pt-48 space-y-11 mx-[12%]">
       <div className="flex flex-col justify-center items-center gap-5 text-center">
         <p className="text-redOrange text-MobileHeader5 md:text-Header5 font-Header5">
-          My Works
+          {t.portfolio.pageLabel}
         </p>
-        <p className="text-white text-MobileHeader2 md:text-Header2 md:font-Header2 font-MobileHeader2">Portfolio</p>
+        <p className="text-white text-MobileHeader2 md:text-Header2 md:font-Header2 font-MobileHeader2">
+          {t.portfolio.pageTitle}
+        </p>
       </div>
 
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
@@ -40,7 +46,7 @@ const page = () => {
               </ul>
             ) : (
               <p className="text-nevada italic mb-4">
-                No description available.
+                {t.portfolio.noDescription}
               </p>
             )}
 
@@ -50,7 +56,7 @@ const page = () => {
               rel="noopener noreferrer"
               className="mt-auto text-center bg-redOrange text-white py-2 hover:bg-white hover:text-black hover:outline-2 transition duration-75"
             >
-              Visit Project
+              {t.portfolio.visitProject}
             </a>
           </div>
         ))}

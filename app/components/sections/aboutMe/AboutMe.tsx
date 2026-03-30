@@ -1,6 +1,10 @@
+"use client";
 import React from "react";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-const AboutMe = ({ title = "text-black" , text = "text-nevada" }) => {
+const AboutMe = ({ title = "text-black", text = "text-nevada" }) => {
+  const { t } = useLanguage();
+
   return (
     <div className="mb-[100px] pt-[100px]" id="about">
       <div className="mx-[12%] flex flex-col md:flex-row justify-between items-center gap-6">
@@ -13,35 +17,16 @@ const AboutMe = ({ title = "text-black" , text = "text-nevada" }) => {
         </div>
         <div className="gap-5 flex flex-col md:w-1/2">
           <p className=" text-redOrange text-MobileHeader5 md:text-Header5 font-Header5">
-            About
+            {t.about.label}
           </p>
           <p className={`text-MobileHeader2 md:text-Header2 lg:font-Header2 font-MobileHeader2 ${title}`}>
-            About Me
+            {t.about.title}
           </p>
-          <p className={`aboutme_text ${text}`}>
-            I'm 25 years old, computer science graduate with a Master's degree
-            and over
-            <span> more than 3 years of experiance</span> of in
-            <span> UI/UX design</span> and <span>Full-stack development</span>.
-            <br />
-            <br />
-            As a passionate<span> Full-Stack developer</span> , I create modern,
-            responsive, and high-performance web applications. I focus on{" "}
-            <span>building scalable architectures</span>, writing{" "}
-            <span>clean and optimized code</span>, and ensuring{" "}
-            <span>
-              {" "}
-              seamless interaction between front-end and back-end for an
-              exceptional user experience
-            </span>
-            .
-            <br />
-            <br />
-            Turn your vision into an exceptional digital experience: modern,
-            responsive, and tailor-made websites where every detail is crafted
-            to combine performance, aesthetics, and speed. Your project, in the
-            right hands, becomes a reality that leaves a lasting impression.
-          </p>
+          <div className={`aboutme_text ${text} flex flex-col gap-4`}>
+            <p>{t.about.bio1}</p>
+            <p>{t.about.bio2}</p>
+            <p>{t.about.bio3}</p>
+          </div>
         </div>
       </div>
     </div>

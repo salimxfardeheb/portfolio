@@ -4,12 +4,14 @@ import { menuItems } from "@/app/variables";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import { sendEmail } from "@/app/utils/send-email";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const Footer = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
+  const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ const Footer = () => {
       setEmail("");
       setMessage("");
     }
-     setTimeout(() => setSuccess(false), 3000);
+    setTimeout(() => setSuccess(false), 3000);
   };
 
   return (
@@ -29,16 +31,16 @@ const Footer = () => {
       <div className="mx-[12%] flex flex-col gap-6">
         <div>
           <p className="md:text-Header5 text-MobileHeader5 text-redOrange">
-            Contact Me
+            {t.footer.contactLabel}
           </p>
           <p className="md:text-Header2 text-MobileHeader2 text-white">
-            Work Inquiry
+            {t.footer.contactTitle}
           </p>
         </div>
 
         {success && (
           <p className="text-green-500 font-semibold">
-            ✅ Votre message a été envoyé avec succès !
+            {t.footer.successMessage}
           </p>
         )}
 
@@ -47,7 +49,7 @@ const Footer = () => {
             <input
               type="text"
               name="name"
-              placeholder="Your Name"
+              placeholder={t.footer.namePlaceholder}
               className="inputContact"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -56,7 +58,7 @@ const Footer = () => {
             <input
               type="email"
               name="email"
-              placeholder="Your Email"
+              placeholder={t.footer.emailPlaceholder}
               className="inputContact"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +69,7 @@ const Footer = () => {
               cols={30}
               rows={10}
               className="inputContact"
-              placeholder="Your Message"
+              placeholder={t.footer.messagePlaceholder}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
@@ -76,7 +78,7 @@ const Footer = () => {
               type="submit"
               className="bg-redOrange py-3 hover:opacity-90 duration-150"
             >
-              Send Your Message
+              {t.footer.sendButton}
             </button>
           </div>
         </form>
@@ -86,7 +88,7 @@ const Footer = () => {
         <ul className="text-white flex flex-col md:flex-row md:justify-around items-center text-Header5 border-y-2 border-nevada md:py-12 gap-6 py-5 mx-[25%] md:mx-auto">
           {menuItems.map((data) => (
             <li key={data.id} className="hover:text-redOrange">
-              <Link href={data.link}>{data.name}</Link>
+              <Link href={data.link}>{t.nav[data.key]}</Link>
             </li>
           ))}
         </ul>
@@ -98,7 +100,7 @@ const Footer = () => {
             className="md:w-[120px] w-[64.15px] object-contain"
           />
           <p className="hidden md:block copyRight">
-            © Copyright by Salim Fardeheb.
+            {t.footer.copyright}
           </p>
           <div className="flex gap-8">
             <a
@@ -126,7 +128,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-10 md:hidden w-full flex justify-center">
-          <p className="copyRight">© Copyright by Salim Fardeheb.</p>
+          <p className="copyRight">{t.footer.copyright}</p>
         </div>
       </div>
     </div>

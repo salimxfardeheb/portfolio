@@ -1,13 +1,17 @@
+"use client";
 import React from "react";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-const toolkit = () => {
+const Toolkit = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="flex flex-col justify-center items-center gap-10 my-14 md:my-28">
       <div className="gap-5 flex flex-col md:w-1/2 justify-center items-center">
         <p className=" text-redOrange text-MobileHeader5 md:text-Header5">
-          Workspace
+          {t.toolkit.label}
         </p>
-        <p className="text-MobileHeader2 md:text-Header2 font-Header2">My ToolKit</p>
+        <p className="text-MobileHeader2 md:text-Header2 font-Header2">{t.toolkit.title}</p>
       </div>
       <div className="toolkit">
         <img src="/images/toolkit/tailwind.png" />
@@ -35,4 +39,4 @@ const toolkit = () => {
   );
 };
 
-export default toolkit;
+export default Toolkit;
