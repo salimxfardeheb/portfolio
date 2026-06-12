@@ -2,6 +2,18 @@
 import React from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
 
+const highlightBold = (text: string) => {
+  return text.split(/\*\*(.+?)\*\*/g).map((part, index) =>
+    index % 2 === 1 ? (
+      <strong key={index} className="text-redOrange font-bold">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+};
+
 const AboutMe = ({ title = "text-black", text = "text-nevada" }) => {
   const { t } = useLanguage();
 
@@ -23,9 +35,8 @@ const AboutMe = ({ title = "text-black", text = "text-nevada" }) => {
             {t.about.title}
           </p>
           <div className={`aboutme_text ${text} flex flex-col gap-4`}>
-            <p>{t.about.bio1}</p>
-            <p>{t.about.bio2}</p>
-            <p>{t.about.bio3}</p>
+            <p>{highlightBold(t.about.bio1)}</p>
+            <p>{highlightBold(t.about.bio2)}</p>
           </div>
         </div>
       </div>

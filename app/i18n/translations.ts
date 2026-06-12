@@ -31,11 +31,9 @@ const translations = {
       label: "About",
       title: "About Me",
       bio1:
-        "I'm 25 years old, a computer science graduate with a Master's degree and over 3 years of experience in UI/UX design and Full-stack development.",
+        "I design and develop **modern web applications** that combine **performance**, **user experience**, and **scalability**. With more than **3 years** of **Full-Stack development** experience, I build **end-to-end solutions**, from software architecture and database design to back-end services and user interfaces.",
       bio2:
-        "As a passionate Full-Stack developer, I create modern, responsive, and high-performance web applications. I focus on building scalable architectures, writing clean and optimized code, and ensuring seamless interaction between front-end and back-end for an exceptional user experience.",
-      bio3:
-        "Turn your vision into an exceptional digital experience: modern, responsive, and tailor-made websites where every detail is crafted to combine performance, aesthetics, and speed. Your project, in the right hands, becomes a reality that leaves a lasting impression.",
+        "I am also interested in **Machine Learning** and **data-driven technologies**, leveraging data to create smarter applications tailored to real-world needs. I place strong emphasis on **code quality**, **performance**, and building **sustainable digital experiences** that deliver long-term value.",
     },
     portfolio: {
       label: "Works",
@@ -57,9 +55,6 @@ const translations = {
       prototype: "Figma & Adobe XD Prototype",
       prototypeDesc:
         "I create prototypes using Figma and Adobe XD, bringing designs to life with interactive and user-friendly experiences.",
-      designSystem: "Design System",
-      designSystemDesc:
-        "I employ a design system to streamline and enhance the consistency of my creations, ensuring a cohesive and polished aesthetic in my designs.",
       webInterface: "Creating website interface",
       webInterfaceDesc:
         "I transform your model into a modern and responsive website that can be used on multiple devices.",
@@ -69,6 +64,19 @@ const translations = {
       database: "Database optimized",
       databaseDesc:
         "I create an optimized and well-structured database with UML diagrams.",
+      api: "API Development & Integration",
+      apiDesc:
+        "I design and build RESTful APIs and integrate third-party APIs to connect your application with external services and data sources.",
+      aiMl: "AI & Machine Learning Integration",
+      aiMlDesc:
+        "I integrate AI and machine learning features into web applications, turning data into smart automation and insights tailored to your business.",
+      deployment: "Deployment & Hosting",
+      deploymentDesc:
+        "I deploy and configure your application on modern hosting platforms with CI/CD, custom domains, and a smooth go-live process.",
+      ecommerce: "E-commerce Solutions",
+      ecommerceDesc:
+        "I build online stores with product management, shopping cart, and secure payment integration tailored to your business.",
+      cta: "See All Services",
     },
     templates: {
       pageLabel: "Templates",
@@ -133,11 +141,9 @@ const translations = {
       label: "À propos",
       title: "À propos de moi",
       bio1:
-        "J'ai 25 ans, diplômé en informatique avec un Master et plus de 3 ans d'expérience en design UI/UX et développement Full-stack.",
+        "Je conçois et développe des **applications web modernes** qui allient **performance**, **expérience utilisateur** et **évolutivité**. Avec plus de **3 ans d'expérience** en développement **Full-Stack**, je crée des **solutions complètes**, de l'architecture logicielle à l'interface utilisateur, en passant par la conception de bases de données et les services back-end.",
       bio2:
-        "En tant que développeur Full-Stack passionné, je crée des applications web modernes, responsives et performantes. Je me concentre sur la construction d'architectures évolutives, l'écriture de code propre et optimisé, et la garantie d'une interaction fluide entre le front-end et le back-end pour une expérience utilisateur exceptionnelle.",
-      bio3:
-        "Transformez votre vision en une expérience numérique exceptionnelle : des sites web modernes, responsives et sur-mesure où chaque détail est conçu pour allier performance, esthétique et rapidité. Votre projet, entre de bonnes mains, devient une réalité qui laisse une impression durable.",
+        "Je m'intéresse également au **Machine Learning** et à l'exploitation des données pour développer des applications plus intelligentes et adaptées aux besoins réels. J'accorde une attention particulière à la **qualité du code**, aux **performances** et à la création d'**expériences numériques durables**.",
     },
     portfolio: {
       label: "Projets",
@@ -160,9 +166,6 @@ const translations = {
       prototype: "Prototype Figma & Adobe XD",
       prototypeDesc:
         "Je crée des prototypes avec Figma et Adobe XD, donnant vie aux designs avec des expériences interactives et conviviales.",
-      designSystem: "Système de design",
-      designSystemDesc:
-        "J'utilise un système de design pour rationaliser et améliorer la cohérence de mes créations, garantissant une esthétique homogène et soignée.",
       webInterface: "Création d'interface web",
       webInterfaceDesc:
         "Je transforme votre maquette en un site web moderne et responsive utilisable sur plusieurs appareils.",
@@ -172,6 +175,19 @@ const translations = {
       database: "Base de données optimisée",
       databaseDesc:
         "Je crée une base de données optimisée et bien structurée avec des diagrammes UML.",
+      api: "Développement & Intégration d'API",
+      apiDesc:
+        "Je conçois et développe des API RESTful, et j'intègre des API tierces pour connecter votre application à des services et sources de données externes.",
+      aiMl: "Intégration IA & Machine Learning",
+      aiMlDesc:
+        "J'intègre des fonctionnalités d'IA et de machine learning dans les applications web, transformant les données en automatisations et analyses intelligentes adaptées à votre activité.",
+      deployment: "Déploiement & Hébergement",
+      deploymentDesc:
+        "Je déploie et configure votre application sur des plateformes d'hébergement modernes avec CI/CD, domaines personnalisés et une mise en ligne sans accroc.",
+      ecommerce: "Solutions E-commerce",
+      ecommerceDesc:
+        "Je crée des boutiques en ligne avec gestion des produits, panier d'achat et intégration de paiement sécurisé adaptées à votre activité.",
+      cta: "Voir tous les services",
     },
     templates: {
       pageLabel: "Templates",

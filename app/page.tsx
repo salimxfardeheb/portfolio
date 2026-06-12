@@ -10,8 +10,17 @@ import Toolkit from "./components/sections/toolkit/toolkit";
 import TemplatesTeaser from "./components/sections/templatesTeaser/TemplatesTeaser";
 import { useLanguage } from "./context/LanguageContext";
 
-import { FaChevronUp } from "react-icons/fa";
+import {
+  FaChevronUp,
+  FaUserTie,
+  FaBolt,
+  FaComments,
+  FaCode,
+  FaServer,
+  FaDatabase,
+} from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
 
 const page = () => {
   const [showButton, setShowButton] = useState(true);
@@ -55,43 +64,56 @@ const page = () => {
         <HeroSection />
         <div className="flex flex-col md:flex-row mx-[12%] gap-12 md:absolute top-[90%] my-20 md:my-4 lg:my-0">
           <Card
-            icon="/images/rating-cards/Professional.png"
+            icon={<FaUserTie />}
             title={t.cards.professional}
             description={t.cards.professionalDesc}
+            color="blue"
           />
           <Card
-            icon="/images/rating-cards/Fast.png"
+            icon={<FaBolt />}
             title={t.cards.fast}
             description={t.cards.fastDesc}
+            color="yellow"
           />
           <Card
-            icon="/images/rating-cards/Communications.png"
+            icon={<FaComments />}
             title={t.cards.communication}
             description={t.cards.communicationDesc}
+            color="green"
           />
         </div>
       </header>
       <AboutMe />
       <Portfolio />
       <div
-        className="flex flex-col md:flex-row mx-[12%] gap-12 my-[100px]"
+        className="flex flex-col items-center gap-12 mx-[12%] my-[100px]"
         id="services"
       >
-        <Card
-          icon="/images/Services/Devices.png"
-          title={t.services.desktopMobile}
-          description={t.services.desktopMobileDesc}
-        />
-        <Card
-          icon="/images/Services/webInterface.png"
-          title={t.services.webInterface}
-          description={t.services.webInterfaceDesc}
-        />
-        <Card
-          icon="/images/Services/ServerWeb.png"
-          title={t.services.serverWeb}
-          description={t.services.serverWebDesc}
-        />
+        <div className="flex flex-col md:flex-row gap-12 w-full">
+          <Card
+            icon={<FaCode />}
+            title={t.services.webInterface}
+            description={t.services.webInterfaceDesc}
+            color="cyan"
+          />
+          <Card
+            icon={<FaServer />}
+            title={t.services.serverWeb}
+            description={t.services.serverWebDesc}
+            color="indigo"
+          />
+          <Card
+            icon={<FaDatabase />}
+            title={t.services.database}
+            description={t.services.databaseDesc}
+            color="yellow"
+          />
+        </div>
+        <Link href="/services">
+          <button className="px-9 py-5 text-black hover:text-white text-MobileHeader4 border-2 hover:bg-redOrange duration-200">
+            {t.services.cta}
+          </button>
+        </Link>
       </div>
       <TemplatesTeaser />
       <Toolkit />

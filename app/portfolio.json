@@ -1,42 +1,100 @@
 [
     {
+        "id": 6,
+        "title": "IA Store",
+        "image": "/images/ia-store.png",
+        "description": {
+            "en": [
+                "IA Store is an online clothing store for men, offering a clean and modern shopping experience.",
+                "I designed and developed the platform with a focus on a smooth browsing experience and an intuitive interface for showcasing products."
+            ],
+            "fr": [
+                "IA Store est une boutique de vêtements en ligne pour hommes, offrant une expérience d'achat moderne et épurée.",
+                "J'ai conçu et développé la plateforme en mettant l'accent sur une navigation fluide et une interface intuitive pour la mise en valeur des produits."
+            ]
+        },
+        "link": "https://ia-store.vercel.app/"
+    },
+    {
+        "id": 5,
+        "title": "Flowmerce",
+        "image": "/images/Flowmerce.png",
+        "description": {
+            "en": [
+                "Flowmerce is a SaaS platform that manages product return claims using AI and machine learning, helping e-commerce businesses automate and streamline their returns process.",
+                "I developed the application with a focus on building an intelligent system capable of analyzing return requests and assisting merchants in handling claims efficiently."
+            ],
+            "fr": [
+                "Flowmerce est une plateforme SaaS qui gère les réclamations de retours de produits grâce à l'IA et au machine learning, aidant les entreprises e-commerce à automatiser et simplifier leur processus de retour.",
+                "J'ai développé l'application en me concentrant sur la création d'un système intelligent capable d'analyser les demandes de retour et d'aider les marchands à traiter les réclamations efficacement."
+            ]
+        },
+        "link": "https://flowmerce-web-app.vercel.app/"
+    },
+        {
         "id": 4,
         "title": "Location costume",
         "image": "/images/location-costume.png",
-        "description": [
-            "I designed and developped a multi-functional web application for costume rental management. The concept focuses on providing a comprehensive management system for individual boutiques, including features like adding models, managing reservations/rentals, a dashboard, and an integrated calendar.",
-            "The project uses Figma for the design phase, and is being developed using Next.js for the front-end and Firebase for the back-end infrastructure. This application streamlines rental operations and enhances organizational efficiency for costume businesses."
-        ],
+        "description": {
+            "en": [
+                "I designed and developped a multi-functional web application for costume rental management. The concept focuses on providing a comprehensive management system for individual boutiques, including features like adding models, managing reservations/rentals, a dashboard, and an integrated calendar.",
+                "The project uses Figma for the design phase, and is being developed using Next.js for the front-end and Firebase for the back-end infrastructure. This application streamlines rental operations and enhances organizational efficiency for costume businesses."
+            ],
+            "fr": [
+                "J'ai conçu et développé une application web multifonctionnelle pour la gestion de location de costumes. Le concept se concentre sur la fourniture d'un système de gestion complet pour des boutiques individuelles, incluant des fonctionnalités telles que l'ajout de modèles, la gestion des réservations/locations, un tableau de bord et un calendrier intégré.",
+                "Le projet utilise Figma pour la phase de conception, et est développé avec Next.js pour le front-end et Firebase pour l'infrastructure back-end. Cette application simplifie les opérations de location et améliore l'efficacité organisationnelle des entreprises de location de costumes."
+            ]
+        },
         "link": "https://location-costumes.vercel.app/"
+    },
+
+    {
+        "id": 3,
+        "title": "Play Time Reserve",
+        "image": "/images/Play Time reserve.png",
+        "description": {
+            "en": [
+                "I designed the comprehensive UI/UX for a stadium reservation app that allows users to book football stadiums or join existing matches.",
+                "The project included creating a full design system (color palette, typography, reusable components) and establishing a clear app architecture for intuitive navigation, resulting in a user-friendly platform for football enthusiasts."
+            ],
+            "fr": [
+                "J'ai conçu l'UI/UX complète d'une application de réservation de stades permettant aux utilisateurs de réserver des terrains de football ou de rejoindre des matchs existants.",
+                "Le projet incluait la création d'un système de design complet (palette de couleurs, typographie, composants réutilisables) et l'établissement d'une architecture claire pour une navigation intuitive, aboutissant à une plateforme conviviale pour les passionnés de football."
+            ]
+        },
+        "link": "https://www.figma.com/design/maJ0NtTNrUGbjGPaoG4h3h/reservation-foot?t=HGOzC9payeZNDiO9-0"
     },
     {
         "id": 2,
         "title": "My Portfolio Website",
         "image": "/images/My_Portfolio_website.png",
-        "description": [
-            "I designed my personal portfolio website using Figma, emphasizing UI/UX principles and a responsive design with a cohesive system (color, typography) for better user experience.",
-            "I then developed the site as a full-stack application using React (Next.js). The portfolio efficiently showcases my projects and skills, highlighting my expertise in full-stack development."
-        ],
+        "description": {
+            "en": [
+                "I designed my personal portfolio website using Figma, emphasizing UI/UX principles and a responsive design with a cohesive system (color, typography) for better user experience.",
+                "I then developed the site as a full-stack application using React (Next.js). The portfolio efficiently showcases my projects and skills, highlighting my expertise in full-stack development."
+            ],
+            "fr": [
+                "J'ai conçu mon site portfolio personnel avec Figma, en mettant l'accent sur les principes UI/UX et un design responsive avec un système cohérent (couleurs, typographie) pour une meilleure expérience utilisateur.",
+                "J'ai ensuite développé le site en tant qu'application full-stack avec React (Next.js). Le portfolio met efficacement en valeur mes projets et compétences, illustrant mon expertise en développement full-stack."
+            ]
+        },
         "link": "https://salimxfardeheb.com/"
     },
-    {
-        "id": 3,
-        "title": "Play Time Reserve",
-        "image": "/images/Play Time reserve.png",
-        "description": [
-            "I designed the comprehensive UI/UX for a stadium reservation app that allows users to book football stadiums or join existing matches.",
-            "The project included creating a full design system (color palette, typography, reusable components) and establishing a clear app architecture for intuitive navigation, resulting in a user-friendly platform for football enthusiasts."
-        ],
-        "link": "https://www.figma.com/design/maJ0NtTNrUGbjGPaoG4h3h/reservation-foot?t=HGOzC9payeZNDiO9-0"
-    },
-    {
+
+        {
         "id": 1,
         "title": "FlexFret",
         "image": "/images/FlexFret.png",
-        "description": [
-            "I designed the FlexFret website with a team using Figma, focusing on a user-centered, responsive interface and a comprehensive design system.",
-            "I then collaborated with the development team to build the fully responsive site using HTML, CSS, Tailwind CSS, and Node.js, by converting design mockups into clean, efficient code. This demonstrates my expertise in front-end development."
-        ],
+        "description": {
+            "en": [
+                "I designed the FlexFret website with a team using Figma, focusing on a user-centered, responsive interface and a comprehensive design system.",
+                "I then collaborated with the development team to build the fully responsive site using HTML, CSS, Tailwind CSS, and Node.js, by converting design mockups into clean, efficient code. This demonstrates my expertise in front-end development."
+            ],
+            "fr": [
+                "J'ai conçu le site FlexFret en équipe avec Figma, en me concentrant sur une interface centrée sur l'utilisateur, responsive, et un système de design complet.",
+                "J'ai ensuite collaboré avec l'équipe de développement pour construire le site entièrement responsive en utilisant HTML, CSS, Tailwind CSS et Node.js, en convertissant les maquettes de design en un code propre et efficace. Cela démontre mon expertise en développement front-end."
+            ]
+        },
         "link": "https://www.flexfret.com/"
     }
 ]

@@ -7,12 +7,15 @@ interface Project {
   id: number;
   title: string;
   image: string;
-  description: string[];
+  description: {
+    en: string[];
+    fr: string[];
+  };
   link: string;
 }
 
 const page = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <div className="min-h-screen lg:py-12 pt-48 space-y-11 mx-[12%]">
@@ -38,9 +41,9 @@ const page = () => {
             />
             <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
 
-            {project.description.length > 0 ? (
+            {project.description[lang].length > 0 ? (
               <ul className="text-sm space-y-2 mb-4">
-                {project.description.map((desc, index) => (
+                {project.description[lang].map((desc, index) => (
                   <li key={index}>{desc}</li>
                 ))}
               </ul>
