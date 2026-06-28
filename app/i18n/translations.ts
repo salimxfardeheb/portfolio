@@ -9,9 +9,12 @@ const translations = {
       getInTouch: "Get in Touch",
     },
     hero: {
-      intro: "I'm",
-      description: "Fullstack web developer with Fast and modern tools.",
-      cta: "See My Works",
+      badge: "Available for new projects",
+      title: "I build **custom** web applications for businesses.",
+      subtitle:
+        "Management tools, platforms and automations — built around your workflow and delivered fast.",
+      cta: "See my work",
+      cta2: "Get in touch",
     },
     cards: {
       professional: "Professional",
@@ -118,10 +121,13 @@ const translations = {
       getInTouch: "Me Contacter",
     },
     hero: {
-      intro: "Je suis",
-      description:
-        "Développeur web Fullstack avec des outils rapides et modernes.",
-      cta: "Voir Mes Projets",
+      badge: "Disponible pour de nouveaux projets",
+      title:
+        "Je développe des applications web **sur mesure** pour les entreprises.",
+      subtitle:
+        "Outils de gestion, plateformes et automatisations — conçus pour votre activité et livrés rapidement.",
+      cta: "Voir mes réalisations",
+      cta2: "Me contacter",
     },
     cards: {
       professional: "Professionnel",

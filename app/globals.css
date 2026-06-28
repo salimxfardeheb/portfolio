@@ -92,3 +92,16 @@ body {
 .aboutme_text span{
     @apply text-redOrange font-bold;
 }
+
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-animate {
+    animation: heroFadeUp 0.8s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-animate { animation: none; }
+}

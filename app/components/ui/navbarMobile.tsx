@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const NavbarMobile = () => {
   return (
-    <div className="absolute w-full">
+    <div className="absolute w-full z-50">
       <div className="flex md:hidden justify-between items-center pt-12 mx-[12%] relative">
         <div>
           <Link href="/">

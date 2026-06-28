@@ -13,7 +13,7 @@ const NavbarDesktop = ({ absolute = true }: Props) => {
   const { t, lang, toggleLang } = useLanguage();
 
   return (
-    <div className={`${absolute && "w-full absolute top-0"}`} id="up">
+    <div className={`${absolute && "w-full absolute top-0 z-50"}`} id="up">
       <div className="md:flex justify-between mx-[5%] lg:mx-[12%] pt-[30px] items-baseline hidden">
         <div>
           <Link href="/">
