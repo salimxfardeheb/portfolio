@@ -1,42 +1,47 @@
 'use client'
 import React, { useState } from "react";
 import { menuItems } from "@/app/variables";
-import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaPaperPlane, FaSpinner } from "react-icons/fa";
 import Link from "next/link";
 import { sendEmail } from "@/app/utils/send-email";
 import { useLanguage } from "@/app/context/LanguageContext";
+import SectionHeading from "@/app/components/ui/SectionHeading";
 
 const Footer = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { success } = await sendEmail({ name, email, message });
-    setSuccess(success);
+    setLoading(true);
+    try {
+      const { success } = await sendEmail({ name, email, message });
+      setSuccess(success);
 
-    if (success) {
-      setName("");
-      setEmail("");
-      setMessage("");
+      if (success) {
+        setName("");
+        setEmail("");
+        setMessage("");
+      }
+      setTimeout(() => setSuccess(false), 3000);
+    } finally {
+      setLoading(false);
     }
-    setTimeout(() => setSuccess(false), 3000);
   };
 
   return (
     <div className="bg-black py-24 flex flex-col md:gap-24 gap-12" id="contact">
       <div className="mx-[12%] flex flex-col gap-6">
-        <div>
-          <p className="md:text-Header5 text-MobileHeader5 text-redOrange">
-            {t.footer.contactLabel}
-          </p>
-          <p className="md:text-Header2 text-MobileHeader2 text-white">
-            {t.footer.contactTitle}
-          </p>
-        </div>
+        <SectionHeading
+          variant="dark"
+          align="left"
+          label={t.footer.contactLabel}
+          title={t.footer.contactTitle}
+        />
 
         {success && (
           <p className="text-green-500 font-semibold">
@@ -76,9 +81,20 @@ const Footer = () => {
             ></textarea>
             <button
               type="submit"
-              className="bg-redOrange py-3 hover:opacity-90 duration-150"
+              disabled={loading}
+              className="group flex items-center justify-center gap-2.5 bg-redOrange text-white py-4 rounded-xl font-MobileHeader4 hover:scale-[1.02] hover:shadow-lg hover:shadow-redOrange/30 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none"
             >
-              {t.footer.sendButton}
+              {loading ? (
+                <>
+                  <FaSpinner className="animate-spin" />
+                  {t.footer.sending}
+                </>
+              ) : (
+                <>
+                  {t.footer.sendButton}
+                  <FaPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                </>
+              )}
             </button>
           </div>
         </form>

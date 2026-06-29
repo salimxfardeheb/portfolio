@@ -6,8 +6,9 @@ import HeroSection from "./components/sections/hero-section/heroSection";
 import Portfolio from "./components/sections/portfolioSection/portfolio";
 import Card from "./components/ui/cards";
 import AboutMe from "./components/sections/aboutMe/AboutMe";
-import Toolkit from "./components/sections/toolkit/toolkit";
 import TemplatesTeaser from "./components/sections/templatesTeaser/TemplatesTeaser";
+import Reveal from "./components/ui/Reveal";
+import SectionHeading from "./components/ui/SectionHeading";
 import { useLanguage } from "./context/LanguageContext";
 
 import {
@@ -18,6 +19,7 @@ import {
   FaCode,
   FaServer,
   FaDatabase,
+  FaArrowRight,
 } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
@@ -85,10 +87,15 @@ const page = () => {
       </header>
       <AboutMe />
       <Portfolio />
-      <div
+      <Reveal
         className="flex flex-col items-center gap-12 mx-[12%] my-[100px]"
         id="services"
       >
+        <SectionHeading
+          label={t.nav.services}
+          title={t.services.title}
+          subtitle={t.services.subtitle}
+        />
         <div className="flex flex-col md:flex-row gap-12 w-full">
           <Card
             icon={<FaCode />}
@@ -110,13 +117,13 @@ const page = () => {
           />
         </div>
         <Link href="/services">
-          <button className="px-9 py-5 text-black hover:text-white text-MobileHeader4 border-2 hover:bg-redOrange duration-200">
+          <button className="btn-primary group">
             {t.services.cta}
+            <FaArrowRight className="group-hover:translate-x-1 duration-200" />
           </button>
         </Link>
-      </div>
+      </Reveal>
       <TemplatesTeaser />
-      <Toolkit />
     </div>
   );
 };

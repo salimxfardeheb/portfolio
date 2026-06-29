@@ -9,7 +9,7 @@ const translations = {
       getInTouch: "Get in Touch",
     },
     hero: {
-      badge: "Available for new projects",
+      badge: "Available · 24h response",
       title: "I build **custom** web applications for businesses.",
       subtitle:
         "Management tools, platforms and automations — built around your workflow and delivered fast.",
@@ -33,6 +33,10 @@ const translations = {
     about: {
       label: "About",
       title: "About Me",
+      role: "Full-Stack Web Developer",
+      expValue: "3+",
+      expLabel: "years of experience",
+      cta: "Let's work together",
       bio1:
         "I design and develop **modern web applications** that combine **performance**, **user experience**, and **scalability**. With more than **3 years** of **Full-Stack development** experience, I build **end-to-end solutions**, from software architecture and database design to back-end services and user interfaces.",
       bio2:
@@ -107,6 +111,7 @@ const translations = {
       emailPlaceholder: "Your Email",
       messagePlaceholder: "Your Message",
       sendButton: "Send Your Message",
+      sending: "Sending...",
       successMessage: "✅ Your message has been sent successfully!",
       copyright: "© Copyright by Salim Fardeheb.",
     },
@@ -121,7 +126,7 @@ const translations = {
       getInTouch: "Me Contacter",
     },
     hero: {
-      badge: "Disponible pour de nouveaux projets",
+      badge: "Disponible · Réponse sous 24h",
       title:
         "Je développe des applications web **sur mesure** pour les entreprises.",
       subtitle:
@@ -146,6 +151,10 @@ const translations = {
     about: {
       label: "À propos",
       title: "À propos de moi",
+      role: "Développeur Web Full-Stack",
+      expValue: "3+",
+      expLabel: "ans d'expérience",
+      cta: "Travaillons ensemble",
       bio1:
         "Je conçois et développe des **applications web modernes** qui allient **performance**, **expérience utilisateur** et **évolutivité**. Avec plus de **3 ans d'expérience** en développement **Full-Stack**, je crée des **solutions complètes**, de l'architecture logicielle à l'interface utilisateur, en passant par la conception de bases de données et les services back-end.",
       bio2:
@@ -221,6 +230,7 @@ const translations = {
       emailPlaceholder: "Votre Email",
       messagePlaceholder: "Votre Message",
       sendButton: "Envoyer votre message",
+      sending: "Envoi...",
       successMessage: "✅ Votre message a été envoyé avec succès !",
       copyright: "© Copyright par Salim Fardeheb.",
     },

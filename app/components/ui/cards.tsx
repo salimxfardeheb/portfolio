@@ -61,8 +61,8 @@ const Card = ({ icon, title, description, color = "redOrange" }: Props) => {
   const { badge, icon: iconColor } = colorClasses[color];
 
   return (
-    <div className="group bg-white h-full flex flex-col items-center gap-4 px-6 py-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center">
-      <div className={`flex items-center justify-center w-20 h-20 shrink-0 rounded-full transition-colors duration-300 ${badge}`}>
+    <div className="group bg-white h-full flex flex-col items-center gap-4 px-6 py-8 rounded-2xl border border-black/[0.04] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center">
+      <div className={`flex items-center justify-center w-20 h-20 shrink-0 rounded-full transition-all duration-300 group-hover:scale-110 ${badge}`}>
         {typeof icon === "string" ? (
           <img src={icon} alt={`${title} icon`} className="w-10 h-10 object-contain" />
         ) : (
@@ -70,7 +70,7 @@ const Card = ({ icon, title, description, color = "redOrange" }: Props) => {
         )}
       </div>
       <div className="flex items-center justify-center min-h-[3.5rem]">
-        <p className="text-MobileHeader4 lg:text-Header4 font-Header4 lg:font-Header4">{title}</p>
+        <p className="text-MobileHeader4 lg:text-Header4 font-Header4 lg:font-Header4 transition-colors duration-300 group-hover:text-redOrange">{title}</p>
       </div>
       <div>
         <p className="text-MobileHeader5 lg:text-Header5 text-nevada text-center">

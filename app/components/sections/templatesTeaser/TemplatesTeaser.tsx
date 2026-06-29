@@ -1,7 +1,10 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 import { useLanguage } from "@/app/context/LanguageContext";
+import Reveal from "@/app/components/ui/Reveal";
+import SectionHeading from "@/app/components/ui/SectionHeading";
 
 const enc = (folder: string, name: string) =>
   `/images/maquette/${folder}/${encodeURIComponent(name)}`;
@@ -44,23 +47,20 @@ const TemplatesTeaser = () => {
 
   return (
     <section className="bg-black py-[100px]">
-      <div className="mx-[12%] flex flex-col gap-16">
+      <Reveal className="mx-[12%] flex flex-col gap-16">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="flex flex-col gap-4">
-            <p className="text-redOrange text-MobileHeader5 md:text-Header5 font-Header5">
-              {t.templates.teaserLabel}
-            </p>
-            <h2 className="text-white text-MobileHeader2 md:text-Header2 md:font-Header2 font-MobileHeader2">
-              {t.templates.teaserTitle}
-            </h2>
-            <p className="text-nevada max-w-md text-p">
-              {t.templates.teaserSubtitle}
-            </p>
-          </div>
+          <SectionHeading
+            variant="dark"
+            align="left"
+            label={t.templates.teaserLabel}
+            title={t.templates.teaserTitle}
+            subtitle={t.templates.teaserSubtitle}
+          />
           <Link href="/templates" className="shrink-0">
-            <button className="px-9 py-4 text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-200 text-MobileHeader4 whitespace-nowrap">
-              {t.templates.teaserCta} →
+            <button className="btn-primary group whitespace-nowrap">
+              {t.templates.teaserCta}
+              <FaArrowRight className="group-hover:translate-x-1 duration-200" />
             </button>
           </Link>
         </div>
@@ -110,7 +110,7 @@ const TemplatesTeaser = () => {
             </Link>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 };
