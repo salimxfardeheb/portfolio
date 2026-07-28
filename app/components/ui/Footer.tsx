@@ -115,9 +115,7 @@ const Footer = () => {
             alt="Logo"
             className="md:w-[120px] w-[64.15px] object-contain"
           />
-          <p className="hidden md:block copyRight">
-            {t.footer.copyright}
-          </p>
+          <p className="hidden md:block copyRight">{t.footer.copyright}</p>
           <div className="flex gap-8">
             <a
               href="https://github.com/salimxfardeheb"
@@ -127,7 +125,7 @@ const Footer = () => {
               <FaGithub className="socialMedia" />
             </a>
             <a
-              href="https://www.linkedin.com/in/salim-fardeheb-ba6060256/"
+              href="https://www.linkedin.com/in/salim-fardeheb/"
               target="_blank"
               rel="noopener noreferrer"
             >
