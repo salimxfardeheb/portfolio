@@ -9,10 +9,10 @@ const translations = {
       getInTouch: "Get in Touch",
     },
     hero: {
-      badge: "Available · 24h response",
+      badge: "Contact me for a free quote",
       title: "I build **custom** web applications for businesses.",
       subtitle:
-        "Management tools, platforms and automations — built around your workflow and delivered fast.",
+        "Management tools, SaaS applications, custom e‑commerce websites and automations — built around your workflow and delivered fast.",
       cta: "See my work",
       cta2: "Get in touch",
     },
@@ -126,11 +126,11 @@ const translations = {
       getInTouch: "Me Contacter",
     },
     hero: {
-      badge: "Disponible · Réponse sous 24h",
+      badge: "Contactez-moi pour un devis gratuit",
       title:
         "Je développe des applications web **sur mesure** pour les entreprises.",
       subtitle:
-        "Outils de gestion, plateformes et automatisations — conçus pour votre activité et livrés rapidement.",
+        "Outils de gestion, applications SaaS, sites e‑commerce sur mesure et automatisations — conçus pour votre activité et livrés rapidement.",
       cta: "Voir mes réalisations",
       cta2: "Me contacter",
     },

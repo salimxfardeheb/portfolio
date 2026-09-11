@@ -25,12 +25,12 @@ const HeroSection = () => {
 
       <div className="hero-animate relative z-10 flex flex-col items-center text-center text-white px-6 max-w-4xl mx-auto gap-6 md:gap-8 pt-28 pb-20">
         {/* Titre */}
-        <h1 className="text-MobileHeader1 md:text-Header1 font-MobileHeader1 md:font-Header1 leading-[1.1] tracking-tight">
+        <h1 className="text-balance text-MobileHeader1 md:text-Header1 font-MobileHeader1 md:font-Header1 leading-[1.1] tracking-tight">
           {highlight(t.hero.title)}
         </h1>
 
         {/* Sous-titre */}
-        <p className="max-w-2xl text-MobileHeader4 md:text-Header4 font-MobileHeader4 text-white/80 leading-relaxed">
+        <p className="text-balance max-w-xl md:max-w-2xl text-MobileHeader4 md:text-Header4 font-MobileHeader4 text-white/80 leading-relaxed">
           {t.hero.subtitle}
         </p>
 
