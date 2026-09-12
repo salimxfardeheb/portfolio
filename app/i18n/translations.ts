@@ -7,6 +7,9 @@ const translations = {
       services: "Services",
       templates: "Templates",
       getInTouch: "Get in Touch",
+      menu: "Menu",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
     },
     hero: {
       badge: "Contact me for a free quote",
@@ -110,6 +113,7 @@ const translations = {
       mobile: "Mobile",
       features: "Included features",
       cta: "Get this template",
+      zoom: "Enlarge",
       teaserLabel: "Templates",
       teaserTitle: "Ready-to-Deploy Sites",
       teaserSubtitle:
@@ -140,6 +144,9 @@ const translations = {
       services: "Services",
       templates: "Templates",
       getInTouch: "Me Contacter",
+      menu: "Menu",
+      openMenu: "Ouvrir le menu",
+      closeMenu: "Fermer le menu",
     },
     hero: {
       badge: "Contactez-moi pour un devis gratuit",
@@ -181,7 +188,7 @@ const translations = {
       title: "Mon Portfolio",
       sectionSubtitle:
         "Des produits que j'ai conçus et développés de bout en bout — le problème de départ, ce que j'ai construit, et des captures du produit réel.",
-      cta: "Voir toutes les études de cas",
+      cta: "Toutes les études de cas",
       caseStudy: "Voir l'étude de cas",
       pageLabel: "Mes Projets",
       pageTitle: "Études de cas",
@@ -245,6 +252,7 @@ const translations = {
       mobile: "Mobile",
       features: "Fonctionnalités incluses",
       cta: "Obtenir ce template",
+      zoom: "Agrandir",
       teaserLabel: "Templates",
       teaserTitle: "Sites Clés en Main",
       teaserSubtitle:

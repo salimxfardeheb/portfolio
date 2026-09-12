@@ -38,10 +38,10 @@ const AboutMe = ({ variant = "light" }: Props) => {
     : "bg-black/[0.04] text-nevada border border-black/10";
 
   return (
-    <div className="mb-[100px] pt-[100px]" id="about">
-      <Reveal className="mx-[12%]">
+    <div className="mb-16 pt-16 md:mb-[100px] md:pt-[100px]" id="about">
+      <Reveal className="section-x">
         <div
-          className={`flex flex-col md:flex-row items-center gap-14 md:gap-16 rounded-[2rem] shadow-2xl p-8 md:p-12 lg:p-16 ${cardClasses}`}
+          className={`flex flex-col md:flex-row items-center gap-12 md:gap-16 rounded-3xl md:rounded-[2rem] shadow-xl md:shadow-2xl px-5 pt-8 pb-6 sm:p-8 md:p-12 lg:p-16 ${cardClasses}`}
         >
           {/* Photo — framed, with brand glow + floating stat */}
           <div className="relative shrink-0">
@@ -52,7 +52,7 @@ const AboutMe = ({ variant = "light" }: Props) => {
             <img
               src="/images/profile_picture.png"
               alt={t.about.title}
-              className="relative w-[280px] md:w-[330px] aspect-[3/4] object-cover object-top rounded-3xl shadow-xl grayscale-[15%] hover:grayscale-0 transition-all duration-500"
+              className="relative w-[250px] sm:w-[280px] md:w-[330px] aspect-[3/4] object-cover object-top rounded-3xl shadow-xl grayscale-[15%] hover:grayscale-0 transition-all duration-500"
             />
             {/* Floating experience badge */}
             <div className="absolute -bottom-5 -right-5 flex flex-col items-center justify-center bg-redOrange text-white rounded-2xl px-5 py-3 shadow-xl shadow-redOrange/40">
@@ -111,9 +111,9 @@ const AboutMe = ({ variant = "light" }: Props) => {
               smooth={true}
               duration={600}
               offset={-80}
-              className="w-fit mt-3"
+              className="w-full sm:w-fit mt-3"
             >
-              <button className="btn-primary group">
+              <button className="btn-primary group w-full sm:w-auto whitespace-nowrap">
                 {t.about.cta}
                 <FaArrowRight className="group-hover:translate-x-1 duration-200" />
               </button>

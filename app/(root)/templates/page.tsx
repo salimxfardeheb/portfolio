@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { FaTimes, FaChevronLeft, FaChevronRight, FaDesktop, FaMobileAlt, FaCheck } from "react-icons/fa";
+import { keepHyphenatedWords } from "@/app/components/ui/SectionHeading";
+import { FaTimes, FaChevronLeft, FaChevronRight, FaDesktop, FaMobileAlt, FaCheck, FaExpand } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
 
 const enc = (folder: string, name: string) =>
@@ -139,13 +140,13 @@ export default function TemplatesPage() {
           onClick={closeLightbox}
         >
           <button
-            className="absolute top-5 right-5 text-white hover:text-gray-300 transition-colors"
+            className="absolute top-4 right-4 p-2 text-white hover:text-gray-300 transition-colors"
             onClick={closeLightbox}
           >
             <FaTimes size={28} />
           </button>
           <button
-            className="absolute left-4 text-white hover:text-gray-300 transition-colors p-4"
+            className="absolute left-4 bottom-4 md:bottom-auto p-3 md:p-4 rounded-full bg-white/10 md:bg-transparent text-white hover:text-gray-300 transition-colors"
             onClick={(e) => { e.stopPropagation(); lbPrev(); }}
           >
             <FaChevronLeft size={32} />
@@ -153,36 +154,40 @@ export default function TemplatesPage() {
           <img
             src={lightbox.images[lightbox.index]}
             alt="Preview"
-            className="max-h-[88vh] max-w-[85vw] object-contain shadow-2xl"
+            className="max-h-[72vh] md:max-h-[88vh] max-w-[92vw] md:max-w-[85vw] object-contain shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />
           <button
-            className="absolute right-4 text-white hover:text-gray-300 transition-colors p-4"
+            className="absolute right-4 bottom-4 md:bottom-auto p-3 md:p-4 rounded-full bg-white/10 md:bg-transparent text-white hover:text-gray-300 transition-colors"
             onClick={(e) => { e.stopPropagation(); lbNext(); }}
           >
             <FaChevronRight size={32} />
           </button>
-          <p className="absolute bottom-5 text-gray-400 text-sm">
+          <p className="absolute bottom-8 md:bottom-5 text-gray-400 text-sm">
             {lightbox.index + 1} / {lightbox.images.length}
           </p>
         </div>
       )}
 
       {/* Page header */}
-      <div className="pt-48 lg:pt-32 pb-16 mx-[12%] text-center">
-        <p className="text-redOrange text-MobileHeader5 md:text-Header5 font-Header5 mb-4">
-          {t.templates.pageLabel}
-        </p>
-        <h1 className="text-MobileHeader2 md:text-Header2 md:font-Header2 font-MobileHeader2 mb-6">
-          {t.templates.pageTitle}
+      <div className="pt-28 md:pt-16 lg:pt-32 pb-12 md:pb-16 mx-5 sm:mx-[8%] md:mx-[12%] flex flex-col items-center gap-5 text-center">
+        <div className="flex items-center gap-3">
+          <span className="h-[2px] w-8 bg-redOrange" />
+          <span className="text-redOrange text-MobileHeader5 md:text-Header5 font-Header5 uppercase tracking-widest">
+            {t.templates.pageLabel}
+          </span>
+          <span className="h-[2px] w-8 bg-redOrange" />
+        </div>
+        <h1 className="text-MobileHeader2 md:text-Header2 md:font-Header2 font-MobileHeader2 leading-tight">
+          {keepHyphenatedWords(t.templates.pageTitle)}
         </h1>
-        <p className="text-nevada max-w-2xl mx-auto text-p">
+        <p className="text-white/60 max-w-2xl text-p leading-relaxed">
           {t.templates.pageSubtitle}
         </p>
       </div>
 
       {/* Template sections */}
-      <div className="flex flex-col gap-32 pb-24 mx-[12%]">
+      <div className="flex flex-col gap-20 md:gap-32 pb-16 md:pb-24 mx-5 sm:mx-[8%] md:mx-[12%]">
         {templates.map((tpl, ti) => {
           const tab = activeTabs[ti];
           const activeIdx = activeIndexes[ti];
@@ -192,7 +197,7 @@ export default function TemplatesPage() {
           return (
             <section key={tpl.id}>
               {/* Template header */}
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-6 md:mb-10">
                 <div>
                   <span
                     className="text-sm font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
@@ -208,23 +213,23 @@ export default function TemplatesPage() {
                   </h2>
                 </div>
                 {/* Tab switcher */}
-                <div className="flex gap-2">
+                <div className="flex gap-1 p-1 rounded-lg border border-white/15 bg-white/[0.04] w-full sm:w-auto">
                   <button
                     onClick={() => setTab(ti, "desktop")}
-                    className={`flex items-center gap-2 px-4 py-2 text-sm border transition-colors duration-200 ${
+                    className={`flex flex-1 sm:flex-none items-center justify-center gap-2 h-10 px-4 text-sm rounded-md transition-colors duration-200 ${
                       tab === "desktop"
-                        ? "text-white border-white"
-                        : "text-nevada border-nevada hover:border-white hover:text-white"
+                        ? "bg-white text-black"
+                        : "text-white/60 hover:text-white"
                     }`}
                   >
                     <FaDesktop size={13} /> {t.templates.desktop}
                   </button>
                   <button
                     onClick={() => setTab(ti, "mobile")}
-                    className={`flex items-center gap-2 px-4 py-2 text-sm border transition-colors duration-200 ${
+                    className={`flex flex-1 sm:flex-none items-center justify-center gap-2 h-10 px-4 text-sm rounded-md transition-colors duration-200 ${
                       tab === "mobile"
-                        ? "text-white border-white"
-                        : "text-nevada border-nevada hover:border-white hover:text-white"
+                        ? "bg-white text-black"
+                        : "text-white/60 hover:text-white"
                     }`}
                   >
                     <FaMobileAlt size={13} /> {t.templates.mobile}
@@ -233,7 +238,7 @@ export default function TemplatesPage() {
               </div>
 
               {/* Main content: gallery + info */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-10">
                 {/* Gallery — 2/3 width */}
                 <div className="lg:col-span-2 flex flex-col gap-4">
                   {/* Main image */}
@@ -245,18 +250,22 @@ export default function TemplatesPage() {
                       src={mainImg}
                       alt={tpl.name}
                       className={`w-full object-cover rounded-xl transition-all duration-500 group-hover:brightness-90 ${
-                        tab === "mobile" ? "max-h-[500px] object-top" : "h-[380px] lg:h-[440px]"
+                        tab === "mobile" ? "max-h-[460px] md:max-h-[500px] object-top" : "aspect-[16/10] md:aspect-auto md:h-[380px] lg:h-[440px]"
                       }`}
                     />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <span className="bg-black/60 text-white px-4 py-2 rounded-full text-sm">
-                        Agrandir
+                        {t.templates.zoom}
                       </span>
                     </div>
+                    {/* Touch screens have no hover: keep the zoom hint visible */}
+                    <span className="md:hidden absolute bottom-3 right-3 flex items-center gap-1.5 bg-black/70 text-white text-xs px-3 py-1.5 rounded-full">
+                      <FaExpand size={10} /> {t.templates.zoom}
+                    </span>
                   </div>
 
                   {/* Thumbnails */}
-                  <div className="flex gap-3 overflow-x-auto pb-1">
+                  <div className="flex gap-3 overflow-x-auto pb-1 no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
                     {images.map((img, idx) => (
                       <button
                         key={idx}
@@ -306,7 +315,7 @@ export default function TemplatesPage() {
 
                   <ScrollLink to="contact" smooth={true} duration={600} offset={-80}>
                     <button
-                      className="w-full py-4 text-white font-semibold transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
+                      className="w-full py-4 rounded-md text-white font-semibold transition-all duration-200 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
                       style={{ backgroundColor: tpl.accent }}
                     >
                       {t.templates.cta}

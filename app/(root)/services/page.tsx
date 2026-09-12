@@ -13,25 +13,28 @@ import {
   FaServer,
   FaDatabase,
   FaPlug,
+  FaArrowRight,
 } from "react-icons/fa";
 
 const page = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="flex flex-col justify-center items-center lg:py-20 py-48 gap-6 mx-[12%] lg:mx-0">
-      <p className="uppercase tracking-[0.15em] text-redOrange text-MobileHeader5 font-Header5 text-center">
-        {t.services.tagline}
-      </p>
-      <div className="flex flex-col justify-center items-center w-full">
-        <p className="text-white text-Header2 flex flex-col-reverse gap-4 text-center leading-tight tracking-wide">
-          <span className="text-redOrange md:text-Header5 text-MobileHeader5 mx-4">
-            {t.services.subtitle}
-          </span>{" "}
-          {t.services.title}
+    <div className="flex flex-col justify-center items-center pt-28 pb-16 md:py-20 gap-6 mx-5 sm:mx-[8%] md:mx-[12%] lg:mx-0">
+      <div className="flex flex-col items-center gap-4 text-center">
+        <p className="uppercase tracking-[0.15em] text-redOrange text-MobileHeader5 font-Header5 text-balance">
+          {t.services.tagline}
         </p>
+        <h1 className="text-white text-MobileHeader2 font-MobileHeader2 md:text-Header2 md:font-Header2 leading-tight">
+          {t.services.title}
+        </h1>
+        <p className="text-white/60 text-p max-w-xl leading-relaxed">
+          {t.services.subtitle}
+        </p>
+      </div>
+      <div className="flex flex-col justify-center items-center w-full">
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-20 w-full max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 my-10 md:my-20 w-full max-w-6xl mx-auto"
           id="services"
         >
           <Card
@@ -90,9 +93,10 @@ const page = () => {
           />
         </div>
 
-        <ScrollLink to="contact" smooth={true} duration={600} offset={-80} className="w-fit">
-          <button className="px-9 py-5 text-white text-MobileHeader4 border-2 hover:bg-redOrange hover:scale-105 duration-200">
+        <ScrollLink to="contact" smooth={true} duration={600} offset={-80} className="w-full sm:w-fit">
+          <button className="btn-primary group w-full sm:w-auto">
             {t.footer.contactLabel}
+            <FaArrowRight className="group-hover:translate-x-1 duration-200" />
           </button>
         </ScrollLink>
       </div>

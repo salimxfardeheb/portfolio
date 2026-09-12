@@ -64,7 +64,7 @@ const page = () => {
         <NavbarDesktop />
         <NavbarMobile />
         <HeroSection />
-        <div className="flex flex-col md:flex-row mx-[12%] gap-12 md:absolute top-[90%] my-20 md:my-4 lg:my-0">
+        <div className="section-x flex flex-col md:flex-row gap-3 md:gap-12 md:absolute top-[90%] my-12 md:my-4 lg:my-0">
           <Card
             icon={<FaUserTie />}
             title={t.cards.professional}
@@ -89,7 +89,7 @@ const page = () => {
       <Portfolio />
       <TemplatesTeaser />
       <Reveal
-        className="flex flex-col items-center gap-12 mx-[12%] my-[100px]"
+        className="section-x flex flex-col items-center gap-10 md:gap-12 my-16 md:my-[100px]"
         id="services"
       >
         <SectionHeading
@@ -97,7 +97,7 @@ const page = () => {
           title={t.services.title}
           subtitle={t.services.subtitle}
         />
-        <div className="flex flex-col md:flex-row gap-12 w-full">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-12 w-full">
           <Card
             icon={<FaCode />}
             title={t.services.webInterface}
@@ -117,8 +117,8 @@ const page = () => {
             color="yellow"
           />
         </div>
-        <Link href="/services">
-          <button className="btn-primary group">
+        <Link href="/services" className="w-full sm:w-auto">
+          <button className="btn-primary group w-full sm:w-auto">
             {t.services.cta}
             <FaArrowRight className="group-hover:translate-x-1 duration-200" />
           </button>

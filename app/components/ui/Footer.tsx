@@ -34,8 +34,8 @@ const Footer = () => {
   };
 
   return (
-    <div className="bg-black py-24 flex flex-col md:gap-24 gap-12" id="contact">
-      <div className="mx-[12%] flex flex-col gap-6">
+    <div className="bg-black py-16 md:py-24 flex flex-col md:gap-24 gap-12" id="contact">
+      <div className="section-x flex flex-col gap-6">
         <SectionHeading
           variant="dark"
           align="left"
@@ -73,7 +73,7 @@ const Footer = () => {
               name="message"
               cols={30}
               rows={10}
-              className="inputContact"
+              className="inputContact h-44 md:h-auto"
               placeholder={t.footer.messagePlaceholder}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -100,23 +100,23 @@ const Footer = () => {
         </form>
       </div>
 
-      <div className="mx-[17%]">
-        <ul className="text-white flex flex-col md:flex-row md:justify-around items-center text-Header5 border-y-2 border-nevada md:py-12 gap-6 py-5 mx-[25%] md:mx-auto">
+      <div className="mx-5 sm:mx-[8%] md:mx-[17%]">
+        <ul className="text-white flex flex-wrap md:flex-nowrap justify-center md:justify-around items-center text-MobileHeader4 md:text-Header5 border-y border-white/15 md:border-y-2 md:border-nevada gap-x-6 gap-y-1 md:gap-6 py-5 md:py-12">
           {menuItems.map((data) => (
             <li key={data.id} className="hover:text-redOrange">
-              <Link href={data.link}>{t.nav[data.key]}</Link>
+              <Link href={data.link} className="inline-block py-2">{t.nav[data.key]}</Link>
             </li>
           ))}
         </ul>
 
-        <div className="flex justify-between items-center md:mt-[100px] mt-12">
+        <div className="flex justify-between items-center md:mt-[100px] mt-10">
           <img
             src="/images/logo-SF.png"
             alt="Logo"
             className="md:w-[120px] w-[64.15px] object-contain"
           />
           <p className="hidden md:block copyRight">{t.footer.copyright}</p>
-          <div className="flex gap-8">
+          <div className="flex gap-5 md:gap-8">
             <a
               href="https://github.com/salimxfardeheb"
               target="_blank"
@@ -141,7 +141,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-10 md:hidden w-full flex justify-center">
+        <div className="pt-8 md:hidden w-full flex justify-center">
           <p className="copyRight">{t.footer.copyright}</p>
         </div>
       </div>

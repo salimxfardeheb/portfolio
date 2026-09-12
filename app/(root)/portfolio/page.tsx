@@ -50,9 +50,9 @@ const PortfolioPage = () => {
   }, [lightbox, close, prev, next]);
 
   return (
-    <div className="min-h-screen bg-black text-white lg:py-12 pt-48 pb-24">
+    <div className="min-h-screen bg-black text-white pt-28 pb-20 md:pt-12 md:pb-24 lg:py-12">
       {/* ---------- Page header ---------- */}
-      <div className="mx-[8%] lg:mx-[12%] flex flex-col items-center gap-6 text-center">
+      <div className="mx-5 sm:mx-[8%] lg:mx-[12%] flex flex-col items-center gap-6 text-center">
         <div className="flex items-center gap-3">
           <span className="h-[2px] w-8 bg-redOrange" />
           <span className="text-redOrange text-MobileHeader5 md:text-Header5 font-Header5 uppercase tracking-widest">
@@ -85,15 +85,15 @@ const PortfolioPage = () => {
       </div>
 
       {/* ---------- Case studies ---------- */}
-      <div className="mx-[8%] lg:mx-[12%] flex flex-col gap-28 mt-24">
+      <div className="mx-5 sm:mx-[8%] lg:mx-[12%] flex flex-col gap-20 md:gap-28 mt-16 md:mt-24">
         {portfolioProjects.map((project, index) => (
           <article
             key={project.slug}
             id={project.slug}
-            className="scroll-mt-32 flex flex-col gap-10"
+            className="scroll-mt-28 md:scroll-mt-32 flex flex-col gap-8 md:gap-10"
           >
             {/* Heading */}
-            <header className="flex flex-col gap-4 border-t border-white/10 pt-10">
+            <header className="flex flex-col gap-4 border-t border-white/10 pt-8 md:pt-10">
               <div className="flex items-center gap-3 flex-wrap">
                 <span className="text-white/25 text-MobileHeader3 font-MobileHeader3 tabular-nums">
                   {String(index + 1).padStart(2, "0")}
@@ -130,7 +130,7 @@ const PortfolioPage = () => {
               </div>
 
               {/* Meta strip */}
-              <dl className="grid sm:grid-cols-3 gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-6 mt-2">
+              <dl className="grid md:grid-cols-3 gap-5 md:gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:p-6 mt-2">
                 <div className="flex flex-col gap-1">
                   <dt className="text-[11px] uppercase tracking-widest text-white/40">
                     {t.portfolio.duration}
@@ -191,8 +191,8 @@ const PortfolioPage = () => {
             </p>
 
             {/* Challenge / Solution */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 flex flex-col gap-3">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:p-7 flex flex-col gap-3">
                 <h3 className="text-redOrange text-[11px] uppercase tracking-widest">
                   {t.portfolio.challenge}
                 </h3>
@@ -200,7 +200,7 @@ const PortfolioPage = () => {
                   {project.challenge[lang]}
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 flex flex-col gap-3">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:p-7 flex flex-col gap-3">
                 <h3 className="text-redOrange text-[11px] uppercase tracking-widest">
                   {t.portfolio.solution}
                 </h3>
@@ -236,14 +236,18 @@ const PortfolioPage = () => {
                 <div key={group.title.en} className="flex flex-col gap-4">
                   <p className="text-[11px] uppercase tracking-widest text-white/40">
                     {group.title[lang]}
+                    <span className="text-white/25"> · {group.shots.length}</span>
                   </p>
-                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+                  {/* Swipe row on phones, grid from sm up */}
+                  <div className="flex sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-5 sm:scroll-px-0 no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
                     {group.shots.map((shot, i) => (
                       <button
                         key={shot.src}
                         type="button"
                         onClick={() => setLightbox({ shots: group.shots, index: i })}
-                        className="group text-left flex flex-col gap-3 cursor-zoom-in"
+                        className={`group text-left flex flex-col gap-3 cursor-zoom-in shrink-0 snap-start sm:w-auto ${
+                          group.shots.length > 1 ? "w-[80%]" : "w-full"
+                        }`}
                       >
                         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] group-hover:border-redOrange/60 transition-colors duration-300">
                           <Image
@@ -269,7 +273,7 @@ const PortfolioPage = () => {
       </div>
 
       {/* ---------- Closing CTA ---------- */}
-      <div className="mx-[8%] lg:mx-[12%] mt-28 rounded-2xl border border-white/10 bg-white/[0.03] p-10 md:p-14 flex flex-col items-center text-center gap-5">
+      <div className="mx-5 sm:mx-[8%] lg:mx-[12%] mt-20 md:mt-28 rounded-2xl border border-white/10 bg-white/[0.03] p-7 md:p-14 flex flex-col items-center text-center gap-5">
         <h2 className="text-MobileHeader2 font-MobileHeader2 md:text-Header3 md:font-Header3">
           {t.portfolio.ctaTitle}
         </h2>
@@ -313,7 +317,7 @@ const PortfolioPage = () => {
           </div>
 
           <div
-            className="flex-1 overflow-y-auto px-4 pb-6"
+            className="flex-1 overflow-y-auto px-4 pb-24 md:pb-6"
             onClick={(e) => e.stopPropagation()}
           >
             <img
@@ -332,7 +336,7 @@ const PortfolioPage = () => {
                   prev();
                 }}
                 aria-label={t.portfolio.previous}
-                className="absolute left-3 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/70 border border-white/15 hover:border-redOrange transition-colors"
+                className="absolute left-4 bottom-5 md:left-3 md:bottom-auto md:top-1/2 md:-translate-y-1/2 p-3.5 md:p-3 rounded-full bg-black/80 border border-white/15 hover:border-redOrange transition-colors"
               >
                 <FaChevronLeft className="text-white" />
               </button>
@@ -343,7 +347,7 @@ const PortfolioPage = () => {
                   next();
                 }}
                 aria-label={t.portfolio.next}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/70 border border-white/15 hover:border-redOrange transition-colors"
+                className="absolute right-4 bottom-5 md:right-3 md:bottom-auto md:top-1/2 md:-translate-y-1/2 p-3.5 md:p-3 rounded-full bg-black/80 border border-white/15 hover:border-redOrange transition-colors"
               >
                 <FaChevronRight className="text-white" />
               </button>

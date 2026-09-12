@@ -16,7 +16,7 @@ const Myworks = () => {
 
   return (
     <section
-      className="py-[100px] mx-[12%] flex flex-col justify-center items-center gap-20"
+      className="py-16 md:py-[100px] section-x flex flex-col justify-center items-center gap-12 md:gap-20"
       id="portfolio"
     >
       <Reveal className="w-full flex justify-center">
@@ -27,17 +27,21 @@ const Myworks = () => {
         />
       </Reveal>
 
-      <div className="flex flex-col gap-24 md:gap-28 w-full">
+      <div className="flex flex-col gap-16 md:gap-28 w-full">
         {homeProjects.map((project, index) => {
           const flipped = index % 2 === 1;
 
           return (
             <Reveal
               key={project.slug}
-              className="grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center w-full"
+              className="grid md:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center w-full"
             >
               {/* Screenshot */}
-              <div className={flipped ? "md:order-2" : ""}>
+              <Link
+                href={`/portfolio#${project.slug}`}
+                aria-label={project.name}
+                className={`block ${flipped ? "md:order-2" : ""}`}
+              >
                 <BrowserFrame host={project.host ?? project.name} accent={project.accent}>
                   <div className="relative aspect-[16/11] w-full">
                     <Image
@@ -49,7 +53,7 @@ const Myworks = () => {
                     />
                   </div>
                 </BrowserFrame>
-              </div>
+              </Link>
 
               {/* Explanation */}
               <div className={`flex flex-col gap-5 ${flipped ? "md:order-1" : ""}`}>
@@ -79,7 +83,7 @@ const Myworks = () => {
                   {project.summary[lang]}
                 </p>
 
-                <ul className="flex flex-col gap-2.5">
+                <ul className="hidden md:flex flex-col gap-2.5">
                   {project.highlights[lang].slice(0, 3).map((item) => (
                     <li key={item} className="flex gap-3 text-p leading-relaxed">
                       <FaCheck className="text-redOrange mt-1.5 shrink-0 text-[12px]" />
@@ -88,7 +92,7 @@ const Myworks = () => {
                   ))}
                 </ul>
 
-                <dl className="flex flex-wrap gap-x-10 gap-y-3 pt-1">
+                <dl className="hidden md:flex flex-wrap gap-x-10 gap-y-3 pt-1">
                   <div className="flex flex-col gap-0.5">
                     <dt className="text-[11px] uppercase tracking-widest text-nevada/70">
                       {t.portfolio.duration}
@@ -103,10 +107,10 @@ const Myworks = () => {
                   </div>
                 </dl>
 
-                <div className="flex flex-wrap items-center gap-4 pt-2">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-4 pt-2">
                   <Link
                     href={`/portfolio#${project.slug}`}
-                    className="btn-primary group !text-MobileHeader5 !py-3 !px-6"
+                    className="btn-primary group !text-MobileHeader5 !py-3 !px-6 w-full sm:w-auto"
                   >
                     {t.portfolio.caseStudy}
                     <FaArrowRight className="group-hover:translate-x-1 duration-200" />
@@ -116,7 +120,7 @@ const Myworks = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-p font-medium border-b-2 border-transparent hover:border-redOrange hover:text-redOrange transition-colors duration-200 py-1"
+                      className="inline-flex items-center justify-center gap-2 text-p font-medium border-b-2 border-transparent hover:border-redOrange hover:text-redOrange transition-colors duration-200 py-3 sm:py-1"
                     >
                       {t.portfolio.visitProject}
                       <FaExternalLinkAlt className="text-[12px]" />
@@ -129,9 +133,9 @@ const Myworks = () => {
         })}
       </div>
 
-      <Reveal>
-        <Link href="/portfolio">
-          <button className="btn-primary group">
+      <Reveal className="w-full sm:w-auto">
+        <Link href="/portfolio" className="block">
+          <button className="btn-primary group w-full sm:w-auto">
             {t.portfolio.cta}
             <FaArrowRight className="group-hover:translate-x-1 duration-200" />
           </button>

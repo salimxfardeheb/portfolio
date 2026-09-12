@@ -61,19 +61,20 @@ const Card = ({ icon, title, description, color = "redOrange" }: Props) => {
   const { badge, icon: iconColor } = colorClasses[color];
 
   return (
-    <div className="group bg-white h-full flex flex-col items-center gap-4 px-6 py-8 rounded-2xl border border-black/[0.04] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center">
-      <div className={`flex items-center justify-center w-20 h-20 shrink-0 rounded-full transition-all duration-300 group-hover:scale-110 ${badge}`}>
+    // Compact row on phones (icon beside text), centered column from md up
+    <div className="group bg-white h-full flex flex-row md:flex-col items-start md:items-center gap-4 p-5 md:px-6 md:py-8 rounded-2xl border border-black/[0.04] shadow-md md:shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left md:text-center">
+      <div className={`flex items-center justify-center w-12 h-12 md:w-20 md:h-20 shrink-0 rounded-xl md:rounded-full transition-all duration-300 group-hover:scale-110 ${badge}`}>
         {typeof icon === "string" ? (
-          <img src={icon} alt={`${title} icon`} className="w-10 h-10 object-contain" />
+          <img src={icon} alt={`${title} icon`} className="w-6 h-6 md:w-10 md:h-10 object-contain" />
         ) : (
-          <span className={`flex items-center justify-center text-4xl ${iconColor}`}>{icon}</span>
+          <span className={`flex items-center justify-center text-xl md:text-4xl ${iconColor}`}>{icon}</span>
         )}
       </div>
-      <div className="flex items-center justify-center min-h-[3.5rem]">
-        <p className="text-MobileHeader4 lg:text-Header4 font-Header4 lg:font-Header4 transition-colors duration-300 group-hover:text-redOrange">{title}</p>
-      </div>
-      <div>
-        <p className="text-MobileHeader5 lg:text-Header5 text-nevada text-center">
+      <div className="flex flex-col gap-1 md:gap-4 min-w-0">
+        <div className="flex items-center md:justify-center md:min-h-[3.5rem]">
+          <p className="text-MobileHeader4 lg:text-Header4 font-Header4 lg:font-Header4 leading-snug transition-colors duration-300 group-hover:text-redOrange">{title}</p>
+        </div>
+        <p className="text-MobileHeader5 lg:text-Header5 text-nevada leading-relaxed">
           {description}
         </p>
       </div>

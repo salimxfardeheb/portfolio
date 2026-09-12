@@ -46,10 +46,10 @@ const TemplatesTeaser = () => {
   const { t, lang } = useLanguage();
 
   return (
-    <section className="bg-black py-[100px]">
-      <Reveal className="mx-[12%] flex flex-col gap-16">
+    <section className="bg-black py-16 md:py-[100px]">
+      <Reveal className="section-x grid grid-cols-1 md:grid-cols-[1fr_auto] gap-y-10 md:gap-y-16 md:gap-x-6">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="md:col-start-1 md:row-start-1">
           <SectionHeading
             variant="dark"
             align="left"
@@ -57,18 +57,27 @@ const TemplatesTeaser = () => {
             title={t.templates.teaserTitle}
             subtitle={t.templates.teaserSubtitle}
           />
-          <Link href="/templates" className="shrink-0">
-            <button className="btn-primary group whitespace-nowrap">
-              {t.templates.teaserCta}
-              <FaArrowRight className="group-hover:translate-x-1 duration-200" />
-            </button>
-          </Link>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* CTA — below the cards on phones, beside the heading from md up */}
+        <Link
+          href="/templates"
+          className="order-last md:order-none md:col-start-2 md:row-start-1 md:self-end"
+        >
+          <button className="btn-primary group whitespace-nowrap w-full md:w-auto">
+            {t.templates.teaserCta}
+            <FaArrowRight className="group-hover:translate-x-1 duration-200" />
+          </button>
+        </Link>
+
+        {/* Cards — swipe row on phones, 3-column grid from md up */}
+        <div className="md:col-span-2 md:row-start-2 min-w-0 flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-px-5 sm:scroll-px-0 no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
           {previews.map((p) => (
-            <Link key={p.name} href="/templates">
+            <Link
+              key={p.name}
+              href="/templates"
+              className="w-[82%] sm:w-[46%] md:w-auto shrink-0 snap-start"
+            >
               <div className="group relative overflow-hidden rounded-2xl cursor-pointer">
                 {/* Desktop screenshot */}
                 <img
