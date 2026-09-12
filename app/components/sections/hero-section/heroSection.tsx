@@ -19,13 +19,13 @@ const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="bg-hero relative min-h-screen bg-cover bg-center flex flex-col justify-center items-center overflow-hidden">
+    <div className="bg-hero relative min-h-[100dvh] bg-cover bg-center flex flex-col justify-center items-center overflow-hidden">
       {/* Calque de contraste pour la lisibilité + profondeur */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/80 pointer-events-none" />
 
       <div className="hero-animate relative z-10 flex flex-col items-center text-center text-white px-6 max-w-4xl mx-auto gap-6 md:gap-8 pt-28 pb-20">
         {/* Titre */}
-        <h1 className="text-balance text-MobileHeader1 md:text-Header1 font-MobileHeader1 md:font-Header1 leading-[1.1] tracking-tight">
+        <h1 className="text-balance text-[2.4rem] sm:text-MobileHeader1 md:text-Header1 font-MobileHeader1 md:font-Header1 leading-[1.1] tracking-tight">
           {highlight(t.hero.title)}
         </h1>
 
@@ -56,7 +56,7 @@ const HeroSection = () => {
               offset={-80}
               className="w-full sm:w-fit"
             >
-              <button className="w-full sm:w-fit px-8 py-4 border-2 border-white/40 text-white text-MobileHeader4 font-MobileHeader4 rounded-md hover:border-white hover:bg-white/10 duration-200">
+              <button className="w-full sm:w-fit px-6 sm:px-8 py-4 border-2 border-white/40 text-white text-MobileHeader5 sm:text-MobileHeader4 font-MobileHeader4 rounded-md active:scale-[0.98] hover:border-white hover:bg-white/10 duration-200">
                 {t.hero.cta2}
               </button>
             </ScrollLink>

@@ -13,7 +13,7 @@ export default function RootLayout({
           <NavbarDesktop absolute={false} />
           <NavbarMobile />
         </header>
-        <main>{children}</main>\
+        <main>{children}</main>
       </div>
   );
 }

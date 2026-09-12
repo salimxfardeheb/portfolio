@@ -1,5 +1,20 @@
 import React from "react";
 
+/**
+ * Keeps hyphenated words ("Ready-to-Deploy") from wrapping at the hyphen.
+ * Below 375px the word can be wider than the column, so it may wrap there.
+ */
+export const keepHyphenatedWords = (text: string) =>
+  text.split(/(\S+-\S+)/g).map((part, index) =>
+    index % 2 === 1 ? (
+      <span key={index} className="min-[375px]:whitespace-nowrap">
+        {part}
+      </span>
+    ) : (
+      part
+    )
+  );
+
 interface Props {
   label: string;
   title: string;
@@ -39,7 +54,7 @@ const SectionHeading = ({
       <h2
         className={`text-MobileHeader2 font-MobileHeader2 md:text-Header2 md:font-Header2 leading-tight ${titleColor}`}
       >
-        {title}
+        {keepHyphenatedWords(title)}
       </h2>
       {subtitle && <p className={`text-p max-w-xl ${subtitleColor}`}>{subtitle}</p>}
     </div>
