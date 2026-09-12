@@ -81,14 +81,6 @@ body {
     @apply text-redOrange md:text-Header5 text-MobileHeader5 mx-4;
 }
 
-.aboutme_text{
-    @apply text-p text-left md:text-justify;
-}
-
-.aboutme_text span{
-    @apply text-redOrange font-bold;
-}
-
 @keyframes heroFadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }

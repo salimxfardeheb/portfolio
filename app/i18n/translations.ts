@@ -36,14 +36,21 @@ const translations = {
     about: {
       label: "About",
       title: "About Me",
-      role: "Full-Stack Web Developer",
+      role: "Software Development Engineer",
       expValue: "3+",
       expLabel: "years of experience",
       cta: "Let's work together",
-      bio1:
-        "I design and develop **modern web applications** that combine **performance**, **user experience**, and **scalability**. With more than **3 years** of **Full-Stack development** experience, I build **end-to-end solutions**, from software architecture and database design to back-end services and user interfaces.",
-      bio2:
-        "I am also interested in **Machine Learning** and **data-driven technologies**, leveraging data to create smarter applications tailored to real-world needs. I place strong emphasis on **code quality**, **performance**, and building **sustainable digital experiences** that deliver long-term value.",
+      expertise: {
+        saas: "SaaS",
+        business: "Business tools",
+        ecommerce: "E-commerce",
+        ai: "AI & Machine Learning",
+        booking: "Booking platforms",
+        api: "APIs & integrations",
+        automation: "Automation",
+      },
+      bio1: "I design and develop **modern web applications** that combine **performance**, **user experience**, and **scalability**. With more than **3 years** of **Full-Stack development** experience, I build **end-to-end solutions**, from software architecture and database design to back-end services and user interfaces.",
+      bio2: "I am also interested in **Machine Learning** and **data-driven technologies**, leveraging data to create smarter applications tailored to real-world needs. I place strong emphasis on **code quality**, **performance**, and building **sustainable digital experiences** that deliver long-term value.",
     },
     portfolio: {
       label: "Works",
@@ -174,14 +181,21 @@ const translations = {
     about: {
       label: "À propos",
       title: "À propos de moi",
-      role: "Développeur Web Full-Stack",
+      role: "Ingénieur Développement Logiciel",
       expValue: "3+",
       expLabel: "ans d'expérience",
       cta: "Travaillons ensemble",
-      bio1:
-        "Je conçois et développe des **applications web modernes** qui allient **performance**, **expérience utilisateur** et **évolutivité**. Avec plus de **3 ans d'expérience** en développement **Full-Stack**, je crée des **solutions complètes**, de l'architecture logicielle à l'interface utilisateur, en passant par la conception de bases de données et les services back-end.",
-      bio2:
-        "Je m'intéresse également au **Machine Learning** et à l'exploitation des données pour développer des applications plus intelligentes et adaptées aux besoins réels. J'accorde une attention particulière à la **qualité du code**, aux **performances** et à la création d'**expériences numériques durables**.",
+      expertise: {
+        saas: "SaaS",
+        business: "Outils de gestion",
+        ecommerce: "E-commerce",
+        ai: "IA & Machine Learning",
+        booking: "Plateformes de réservation",
+        api: "API & intégrations",
+        automation: "Automatisation",
+      },
+      bio1: "Je conçois et développe des **applications web modernes** qui allient **performance**, **expérience utilisateur** et **évolutivité**. Avec plus de **3 ans d'expérience** en développement **Full-Stack**, je crée des **solutions complètes**, de l'architecture logicielle à l'interface utilisateur, en passant par la conception de bases de données et les services back-end.",
+      bio2: "Je m'intéresse également au **Machine Learning** et à l'exploitation des données pour développer des applications plus intelligentes et adaptées aux besoins réels. J'accorde une attention particulière à la **qualité du code**, aux **performances** et à la création d'**expériences numériques durables**.",
     },
     portfolio: {
       label: "Projets",
