@@ -1,68 +1,143 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image";
+import { FaArrowRight, FaCheck, FaExternalLinkAlt } from "react-icons/fa";
 import { useLanguage } from "@/app/context/LanguageContext";
 import Reveal from "@/app/components/ui/Reveal";
 import SectionHeading from "@/app/components/ui/SectionHeading";
-import portfolioData from "@/app/portfolio.json";
+import BrowserFrame from "@/app/components/ui/BrowserFrame";
+import { homeProjects } from "@/app/data/portfolio";
 
 const Myworks = () => {
-  const { t } = useLanguage();
-  const featured = portfolioData.slice(0, 3);
+  const { t, lang } = useLanguage();
+
+  if (homeProjects.length === 0) return null;
 
   return (
-    <Reveal
-      className="py-[100px] mx-[12%] flex flex-col justify-center items-center gap-14"
+    <section
+      className="py-[100px] mx-[12%] flex flex-col justify-center items-center gap-20"
       id="portfolio"
     >
-      <SectionHeading
-        label={t.portfolio.label}
-        title={t.portfolio.title}
-        subtitle={t.portfolio.asFullstack}
-      />
+      <Reveal className="w-full flex justify-center">
+        <SectionHeading
+          label={t.portfolio.label}
+          title={t.portfolio.title}
+          subtitle={t.portfolio.sectionSubtitle}
+        />
+      </Reveal>
 
-      {/* Project cards grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-        {featured.map((project) => (
-          <a
-            key={project.id}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-[300px] object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            {/* Permanent gradient keeps the title readable */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-            {/* Title + reveal-on-hover CTA */}
-            <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col gap-1.5">
-              <h3 className="text-white text-MobileHeader4 md:text-Header4 font-semibold">
-                {project.title}
-              </h3>
-              <span className="flex items-center gap-2 text-redOrange text-p font-medium opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                {t.portfolio.visitProject}
-                <FaArrowRight className="text-sm" />
-              </span>
-            </div>
-            {/* Brand ring on hover */}
-            <div className="absolute inset-0 rounded-2xl ring-2 ring-redOrange/0 group-hover:ring-redOrange/70 transition-all duration-300 pointer-events-none" />
-          </a>
-        ))}
+      <div className="flex flex-col gap-24 md:gap-28 w-full">
+        {homeProjects.map((project, index) => {
+          const flipped = index % 2 === 1;
+
+          return (
+            <Reveal
+              key={project.slug}
+              className="grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center w-full"
+            >
+              {/* Screenshot */}
+              <div className={flipped ? "md:order-2" : ""}>
+                <BrowserFrame host={project.host ?? project.name} accent={project.accent}>
+                  <div className="relative aspect-[16/11] w-full">
+                    <Image
+                      src={project.cover}
+                      alt={project.name}
+                      fill
+                      sizes="(max-width: 900px) 88vw, 44vw"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                </BrowserFrame>
+              </div>
+
+              {/* Explanation */}
+              <div className={`flex flex-col gap-5 ${flipped ? "md:order-1" : ""}`}>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="text-nevada/50 text-MobileHeader3 font-MobileHeader3 tabular-nums">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/[0.04] text-black/70 text-[12px] font-medium tracking-wide">
+                    <span
+                      className="w-1.5 h-1.5 rounded-full"
+                      style={{ backgroundColor: project.accent }}
+                    />
+                    {project.category[lang]}
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-MobileHeader2 font-MobileHeader2 md:text-Header3 md:font-Header3 leading-tight">
+                    {project.name}
+                  </h3>
+                  <p className="text-redOrange text-MobileHeader4 font-MobileHeader4">
+                    {project.tagline[lang]}
+                  </p>
+                </div>
+
+                <p className="text-p text-nevada leading-relaxed">
+                  {project.summary[lang]}
+                </p>
+
+                <ul className="flex flex-col gap-2.5">
+                  {project.highlights[lang].slice(0, 3).map((item) => (
+                    <li key={item} className="flex gap-3 text-p leading-relaxed">
+                      <FaCheck className="text-redOrange mt-1.5 shrink-0 text-[12px]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <dl className="flex flex-wrap gap-x-10 gap-y-3 pt-1">
+                  <div className="flex flex-col gap-0.5">
+                    <dt className="text-[11px] uppercase tracking-widest text-nevada/70">
+                      {t.portfolio.duration}
+                    </dt>
+                    <dd className="text-p font-medium">{project.duration[lang]}</dd>
+                  </div>
+                  <div className="flex flex-col gap-0.5 max-w-xs">
+                    <dt className="text-[11px] uppercase tracking-widest text-nevada/70">
+                      {t.portfolio.role}
+                    </dt>
+                    <dd className="text-p font-medium">{project.role[lang]}</dd>
+                  </div>
+                </dl>
+
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <Link
+                    href={`/portfolio#${project.slug}`}
+                    className="btn-primary group !text-MobileHeader5 !py-3 !px-6"
+                  >
+                    {t.portfolio.caseStudy}
+                    <FaArrowRight className="group-hover:translate-x-1 duration-200" />
+                  </Link>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-p font-medium border-b-2 border-transparent hover:border-redOrange hover:text-redOrange transition-colors duration-200 py-1"
+                    >
+                      {t.portfolio.visitProject}
+                      <FaExternalLinkAlt className="text-[12px]" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </Reveal>
+          );
+        })}
       </div>
 
-      {/* CTA */}
-      <Link href="/portfolio">
-        <button className="btn-primary group">
-          {t.portfolio.cta}
-          <FaArrowRight className="group-hover:translate-x-1 duration-200" />
-        </button>
-      </Link>
-    </Reveal>
+      <Reveal>
+        <Link href="/portfolio">
+          <button className="btn-primary group">
+            {t.portfolio.cta}
+            <FaArrowRight className="group-hover:translate-x-1 duration-200" />
+          </button>
+        </Link>
+      </Reveal>
+    </section>
   );
 };
 

@@ -87,6 +87,7 @@ const page = () => {
       </header>
       <AboutMe />
       <Portfolio />
+      <TemplatesTeaser />
       <Reveal
         className="flex flex-col items-center gap-12 mx-[12%] my-[100px]"
         id="services"
@@ -123,7 +124,6 @@ const page = () => {
           </button>
         </Link>
       </Reveal>
-      <TemplatesTeaser />
     </div>
   );
 };
