@@ -69,8 +69,9 @@ body {
     @apply w-10 h-10 text-nevada object-contain hover:text-redOrange;
 }
 
+/* Sits in the same corner column as the chatbot launcher, stacked above it. */
 .buttonUP {
-    @apply rounded-full bg-redOrange flex p-3 w-fit justify-center items-center cursor-pointer fixed z-40 shadow-md md:bottom-10 bottom-5 ease-in-out duration-500;
+    @apply rounded-full bg-redOrange flex p-3 w-fit justify-center items-center cursor-pointer fixed z-40 shadow-md md:bottom-[120px] bottom-[84px] ease-in-out duration-500;
 }
 
 .services_text{
@@ -118,6 +119,114 @@ body {
 /* Shared primary call-to-action */
 .btn-primary {
     @apply inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-4 bg-redOrange text-white text-MobileHeader5 sm:text-MobileHeader4 font-MobileHeader4 rounded-md shadow-lg shadow-redOrange/30 hover:scale-105 hover:shadow-redOrange/50 active:scale-[0.98] transition-all duration-200;
+}
+
+/* Chatbot — panel entrance, message entrance, typing dots */
+@keyframes chatPanelIn {
+    from { opacity: 0; transform: translateY(14px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.chat-panel-in {
+    animation: chatPanelIn 0.22s ease-out both;
+}
+
+@keyframes chatEntryIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.chat-entry-in {
+    animation: chatEntryIn 0.18s ease-out both;
+}
+
+@keyframes chatDot {
+    0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+    40%           { opacity: 1;   transform: translateY(-3px); }
+}
+
+.chat-dot {
+    animation: chatDot 1.1s ease-in-out infinite;
+}
+
+/* Chatbot mascot — idle bob, blink, antenna/chest pulse, hello wave */
+@keyframes chatRobotBob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+}
+
+.chat-robot-bob {
+    animation: chatRobotBob 3.2s ease-in-out infinite;
+}
+
+@keyframes chatRobotBlink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95%           { transform: scaleY(0.1); }
+}
+
+.chat-robot-eyes {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: chatRobotBlink 4.5s ease-in-out infinite;
+}
+
+@keyframes chatRobotPing {
+    0%, 100% { opacity: 1;   transform: scale(1); }
+    50%      { opacity: 0.5; transform: scale(1.3); }
+}
+
+.chat-robot-ping {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: chatRobotPing 2.2s ease-in-out infinite;
+}
+
+@keyframes chatRobotWave {
+    0%, 100% { transform: rotate(0deg); }
+    25%      { transform: rotate(-24deg); }
+    60%      { transform: rotate(12deg); }
+}
+
+.chat-robot-arm {
+    transform-box: fill-box;
+    transform-origin: top center;
+    animation: chatRobotWave 1.3s ease-in-out 2;
+}
+
+@keyframes chatRobotIn {
+    from { opacity: 0; transform: translateY(16px) scale(0.9); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.chat-robot-in {
+    animation: chatRobotIn 0.3s ease-out both;
+}
+
+@keyframes chatTeaserIn {
+    from { opacity: 0; transform: translateX(12px) scale(0.94); }
+    to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.chat-teaser-in {
+    animation: chatTeaserIn 0.28s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .chat-panel-in,
+    .chat-entry-in,
+    .chat-robot-bob,
+    .chat-robot-eyes,
+    .chat-robot-arm,
+    .chat-robot-in,
+    .chat-teaser-in {
+        animation: none;
+    }
+
+    .chat-dot,
+    .chat-robot-ping {
+        animation: none;
+        opacity: 0.6;
+    }
 }
 
 /* Page gutter — 20px on phones, the original 12% from the md breakpoint (900px) up */

@@ -36,6 +36,6 @@ export const portfolio: PortfolioEntry[] = [
   { project: flowmerce,       visible: true,  home: true },
   { project: locationCostume, visible: true,  home: true },
   { project: iaStore,         visible: true,  home: true },
-  { project: almasseBeauty,   visible: true,  home: true },
-  { project: liudor,          visible: false, home: false },
+  { project: almasseBeauty,   visible: true,  home: false },
+  { project: liudor,          visible: true, home: false },
 ];

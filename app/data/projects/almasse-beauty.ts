@@ -8,7 +8,7 @@ const almasseBeauty: Project = {
   name: "Almasse Beauty",
   accent: "#EC1A80",
   host: "almasse-beauty.vercel.app",
-  link: "https://almasse-beauty.vercel.app/",
+  link: "https://almasse-beauty-1.vercel.app/",
   category: {
     en: "Custom e-commerce · Beauty",
     fr: "E-commerce sur mesure · Beauté",

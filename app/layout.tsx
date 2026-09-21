@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/ui/Footer";
+import Chatbot from "./components/chatbot/Chatbot";
 import { LanguageProvider } from "./context/LanguageContext";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         <LanguageProvider>
           <main>{children}</main>
           <Footer />
+          <Chatbot />
         </LanguageProvider>
         <Analytics />
       </body>
