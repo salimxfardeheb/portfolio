@@ -8,7 +8,7 @@ const almasseBeauty: Project = {
   name: "Almasse Beauty",
   accent: "#EC1A80",
   host: "almasse-beauty.vercel.app",
-  link: "https://almasse-beauty-1.vercel.app/",
+  link: "https://almasse-beauty.com/",
   category: {
     en: "Custom e-commerce · Beauty",
     fr: "E-commerce sur mesure · Beauté",
@@ -32,7 +32,7 @@ const almasseBeauty: Project = {
     fr: "Sur un marché saturé de contrefaçons, les clientes ne paient pas d'avance des cosmétiques qu'elles ne peuvent pas vérifier. La boutique devait gagner la confiance avant de pouvoir vendre : prouver que les produits sont authentiques, nommer les marques distribuées, et permettre de ne régler qu'une fois le colis en main.",
   },
   solution: {
-    en: "I built the storefront around that promise — a brand wall of the houses actually stocked, an authenticity guarantee, cash on delivery, and delivery to the 58 wilayas with 77 pickup desks, all stated above the fold. The catalogue filters by brand and by status (new, best sellers, sale) and goes down to the individual shade. The admin space gives the owner a monthly read on orders and revenue, a status pipeline from \"to confirm\" to \"in preparation\", a low-stock watchlist per variant, and product, pack and customer management.",
+    en: 'I built the storefront around that promise — a brand wall of the houses actually stocked, an authenticity guarantee, cash on delivery, and delivery to the 58 wilayas with 77 pickup desks, all stated above the fold. The catalogue filters by brand and by status (new, best sellers, sale) and goes down to the individual shade. The admin space gives the owner a monthly read on orders and revenue, a status pipeline from "to confirm" to "in preparation", a low-stock watchlist per variant, and product, pack and customer management.',
     fr: "J'ai construit la vitrine autour de cette promesse : un mur des marques réellement distribuées, une garantie d'authenticité, le paiement à la livraison, et la livraison dans les 58 wilayas avec 77 bureaux de retrait, le tout annoncé dès le premier écran. Le catalogue se filtre par marque et par statut (nouveautés, best-sellers, promotions) et descend jusqu'à la teinte. L'espace d'administration donne à la gérante une lecture mensuelle des commandes et du chiffre d'affaires, une file de statuts de « à confirmer » à « en préparation », une surveillance des stocks faibles par déclinaison, et la gestion des produits, des packs et des clientes.",
   },
   highlights: {
@@ -53,7 +53,12 @@ const almasseBeauty: Project = {
       "Gestion des produits, des packs et des comptes clientes",
     ],
   },
-  stack: ["Custom e-commerce", "API integration", "Admin dashboard", "Responsive"],
+  stack: [
+    "Custom e-commerce",
+    "API integration",
+    "Admin dashboard",
+    "Responsive",
+  ],
   gallery: [
     {
       title: { en: "Storefront", fr: "Vitrine" },
