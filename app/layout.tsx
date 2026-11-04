@@ -5,6 +5,7 @@ import Footer from "./components/ui/Footer";
 import Chatbot from "./components/chatbot/Chatbot";
 import { LanguageProvider } from "./context/LanguageContext";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,6 +36,11 @@ export default function RootLayout({
           <Chatbot />
         </LanguageProvider>
         <Analytics />
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="e80b0366-078a-4eac-9094-4a823a0f7e51"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
