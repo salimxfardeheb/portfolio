@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "salimxfardeheb",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    // Généré par `next build` (output: "export")
+    "directory": "./out",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  // Email Routing : envoi uniquement vers des adresses de destination vérifiées.
+  "send_email": [{ "name": "SEND_EMAIL" }],
+  "vars": {
+    "CONTACT_FROM": "site@salimxfardeheb.com"
+  },
+  // CONTACT_TO est un secret : `npx wrangler secret put CONTACT_TO`
+  // Pas de "routes" pour l'instant : le domaine reste sur Vercel tant que le Worker
+  // n'est pas vérifié sur son URL *.workers.dev.
+  "observability": { "enabled": true }
+}

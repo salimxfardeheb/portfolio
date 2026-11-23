@@ -1,59 +1,41 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter_Tight } from "next/font/google";
 import "./globals.css";
-import Footer from "./components/ui/Footer";
-import Chatbot from "./components/chatbot/Chatbot";
-import { LanguageProvider } from "./context/LanguageContext";
-import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
+import { SITE_NAME, SITE_URL } from "@/content/site";
 
-const poppins = Poppins({
+const interTight = Inter_Tight({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
-  variable: "--font-poppins",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter-tight",
 });
 
 export const metadata: Metadata = {
-  title: "SALIM FARDEHEB",
-  description: "Développeur web Oran / Algérie",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — Sites et logiciels sur mesure à Oran`,
+    template: `%s — ${SITE_NAME}`,
+  },
+  description:
+    "Agence web à Oran : boutiques en ligne, sites vitrines, menus QR et logiciels de gestion sur mesure pour les commerces en Algérie. Paiement unique, sans abonnement.",
+  openGraph: {
+    type: "website",
+    locale: "fr_DZ",
+    siteName: SITE_NAME,
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="fr">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className={` ${poppins.variable} antialiased`}>
-        <LanguageProvider>
-          <main>{children}</main>
-          <Footer />
-          <Chatbot />
-        </LanguageProvider>
-        <Analytics />
-        <Script
-          src="https://cloud.umami.is/script.js"
-          data-website-id="e80b0366-078a-4eac-9094-4a823a0f7e51"
-          strategy="afterInteractive"
-        />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-0VGKBGHCTD"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+};
 
-            gtag('config', 'G-0VGKBGHCTD');
-          `}
-        </Script>
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="fr" className={interTight.variable}>
+      <body className="font-sans antialiased">
+        {children}
+        {/* Chatbot masqué en attendant sa refonte : app/components/chatbot/ est conservé tel quel.
+            Pour le réafficher : importer Chatbot et LanguageProvider puis les monter ici. */}
       </body>
     </html>
   );

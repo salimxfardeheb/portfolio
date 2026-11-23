@@ -1,126 +1,84 @@
 @import "tailwindcss";
 
-
 @theme {
-  /* 🌍 Breakpoints */
-  --breakpoint-sm: 600px;
-  --breakpoint-md: 900px;
-  --breakpoint-lg: 1441px;
+  /* Palette du design 2026 (design-ref/) */
+  --color-ink: #0a0a0a;
+  --color-paper: #ffffff;
+  --color-cream: #f4f3ee;
+  --color-line: #e5e3db;
+  --color-muted: #6f6e6a;
+  --color-body: #2a2a2a;
+  --color-accent: #e5341b;
+  --color-accent-strong: #c92a14;
+  --color-accent-soft: #ff6a4d;
+  /* Tons sur fond noir */
+  --color-dim: #a9a79f;
+  --color-dim-light: #c9c7bf;
+  --color-graphite: #2a2a2a;
+  --color-iron: #4a4a46;
 
-  /* 🎨 colors */
-  --color-redOrange: #FF302F;
-  --color-nevada: #676869;
-  --color-white: #FFFFFF;
-  --color-black: #000000;
+  /* Utilisé uniquement par le chatbot (masqué, à redesigner) */
+  --color-redOrange: #ff302f;
 
-  /* 🖋️ text font */
-  --font-poppins: "Poppins", sans-serif;
-
-  /* Test sizes */
-  --text-Header1: 55px;
-  --text-Header2: 45px;
-  --text-Header3: 35px;
-  --text-Header4: 25px;
-  --text-Header5: 18px;
-  --text-MobileHeader1: 45px;
-  --text-MobileHeader2: 35px;
-  --text-MobileHeader3: 25px;
-  --text-MobileHeader32: 20px;
-  --text-MobileHeader4: 18px;
-  --text-MobileHeader5: 16px;
-  --text-p: 16px;
-
-  /* 🧱 Font weights */
-  --font-weight-Header1: 800;
-  --font-weight-Header2: 800;
-  --font-weight-Header3: 800;
-  --font-weight-Header4: 500;
-  --font-weight-Header5: 300;
-  --font-weight-MobileHeader1: 800;
-  --font-weight-MobileHeader2: 800;
-  --font-weight-MobileHeader3: 800;
-  --font-weight-MobileHeader32: 800;
-  --font-weight-MobileHeader4: 500;
-  --font-weight-MobileHeader5: 300;
-  --font-weight-p: 400;
-
-  --background-image-hero: url("/images/Herosection.png");
+  --font-sans: var(--font-inter-tight), system-ui, sans-serif;
 }
 
-:root {
-  font-family: var(--font-poppins);
+/* Largeur de page : 1280 px max, gouttière 20 px sur mobile, 32 px ensuite */
+@utility page-x {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
 }
 
-body {
-  font-family: var(--font-poppins);
-  background-color: var(--color-white);
-  color: var(--color-black);
+/* Petites capitales du design : 12 px, medium, espacement 0.04em */
+@utility caps {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.inputContact {
-    @apply rounded-[20px] bg-black border-2 border-white placeholder:text-white focus:border-redOrange focus:outline-none transition-colors duration-200 p-5;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-.copyRight {
-    @apply text-nevada text-p;
-}
-
-.socialMedia{
-    @apply w-10 h-10 text-nevada object-contain hover:text-redOrange;
-}
-
-/* Sits in the same corner column as the chatbot launcher, stacked above it. */
-.buttonUP {
-    @apply rounded-full bg-redOrange flex p-3 w-fit justify-center items-center cursor-pointer fixed z-40 shadow-md md:bottom-[120px] bottom-[84px] ease-in-out duration-500;
-}
-
-.services_text{
-    @apply text-white text-Header2;
-}
-
-.services_text span{
-    @apply text-redOrange md:text-Header5 text-MobileHeader5 mx-4;
-}
-
-@keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.hero-animate {
-    animation: heroFadeUp 0.8s ease-out both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .hero-animate { animation: none; }
-}
-
-/* Scroll reveal — shared entrance feel across sections */
-.reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .reveal,
-    .reveal-visible {
-        opacity: 1;
-        transform: none;
-        transition: none;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
     }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p, li {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  input, select, textarea, button {
+    font: inherit;
+  }
 }
 
-/* Shared primary call-to-action */
-.btn-primary {
-    @apply inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-4 bg-redOrange text-white text-MobileHeader5 sm:text-MobileHeader4 font-MobileHeader4 rounded-md shadow-lg shadow-redOrange/30 hover:scale-105 hover:shadow-redOrange/50 active:scale-[0.98] transition-all duration-200;
-}
-
+/* ------------------------------------------------------------------
+   Chatbot — masqué (non monté dans app/layout.tsx), conservé tel quel
+   en attendant sa refonte.
+   ------------------------------------------------------------------ */
 /* Chatbot — panel entrance, message entrance, typing dots */
 @keyframes chatPanelIn {
     from { opacity: 0; transform: translateY(14px) scale(0.98); }
@@ -229,40 +187,3 @@ body {
     }
 }
 
-/* Page gutter — 20px on phones, the original 12% from the md breakpoint (900px) up */
-@utility section-x {
-    margin-inline: 1.25rem;
-    @media (width >= 600px) {
-        margin-inline: 8%;
-    }
-    @media (width >= 900px) {
-        margin-inline: 12%;
-    }
-}
-
-/* Horizontal swipe rows without a visible scrollbar */
-@utility no-scrollbar {
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-}
-
-@layer base {
-    h1, h2, h3 {
-        text-wrap: balance;
-    }
-
-    p, li {
-        text-wrap: pretty;
-    }
-
-    :focus-visible {
-        outline: 2px solid var(--color-redOrange);
-        outline-offset: 3px;
-    }
-
-    a, button {
-        -webkit-tap-highlight-color: transparent;
-    }
-}
