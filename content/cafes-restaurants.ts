@@ -1,8 +1,9 @@
 import type { AccentTitle, Benefit, ContactContent, Plan, Service } from "./types";
+import type { Project } from "./site";
 
 export const hero: { title: AccentTitle; lead: string } = {
   title: { before: "Le site de votre ", accent: "café ou restaurant", after: ", avant même de payer." },
-  lead: "Nous créons une démo au design de votre établissement. Vous l’essayez 7 jours : satisfait, vous payez ; sinon, nous la retirons, sans frais.",
+  lead: "Nous créons une démo au design de votre établissement. Vous l'essayez 7 jours : satisfait, vous payez ; sinon, nous la retirons, sans frais.",
 };
 
 const starterFeatures = [
@@ -46,7 +47,7 @@ export const plans: Plan[] = [
 ];
 
 export const plansNote =
-  "Starter et Plus : démo gratuite, essai 7 jours, paiement unique. Premium : sur devis, 40 % à la commande, 60 % à la livraison, garantie d’un mois. Nom de domaine au nom du client.";
+  "Starter et Plus : démo gratuite, essai 7 jours, paiement unique. Premium : sur devis, 40 % à la commande, 60 % à la livraison, garantie d'un mois. Nom de domaine au nom du client.";
 
 export const benefits: Benefit[] = [
   {
@@ -86,6 +87,13 @@ export const services: Service[] = [
     text: "Une carte numérique sur le téléphone du client pour le faire revenir.",
   },
 ];
+
+/**
+ * Projets affichés dans « 03 Projets similaires ». Vide pour l'instant : la section n'affiche
+ * que son label. Ajoute un projet ici (ex. `projects.xxx` de ./site, ou un objet Project)
+ * et il apparaîtra automatiquement, numéroté P.01, P.02…
+ */
+export const similarProjects: Project[] = [];
 
 export const contact: ContactContent = {
   title: { before: "Recevez la démo de votre ", accent: "établissement", after: "." },

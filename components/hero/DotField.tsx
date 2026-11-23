@@ -4,10 +4,12 @@ import { useEffect, useRef } from "react";
 
 /**
  * Grille de points qui suit la souris derrière le hero (port de design-ref/dot-field-reference.js).
- * - Se place en absolu dans son parent (qui doit être `relative`) et écoute la souris sur ce parent.
- * - Apparaît quand la souris bouge, s'efface quand elle s'arrête ou sort.
- * - Inactif sur les écrans tactiles ; sans lissage si `prefers-reduced-motion`.
- * - La boucle d'animation s'arrête dès que l'effet est invisible.
+ *
+ * - Canvas en absolu dans son parent (qui doit être `relative`) ; la souris est écoutée sur ce parent.
+ * - Invisible au repos. Quand la souris bouge, les points apparaissent dans un rayon `size`
+ *   avec un effet de loupe (poussés vers l'extérieur), puis s'effacent quand elle s'arrête ou sort.
+ * - `prefers-reduced-motion: reduce` ou écran sans souris : rien n'est affiché ni écouté.
+ * - La boucle `requestAnimationFrame` ne tourne que pendant l'animation, et s'arrête au démontage.
  */
 export function DotField({
   dotColor = "#4CB944",
@@ -27,20 +29,31 @@ export function DotField({
     const host = canvas?.parentElement;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !host || !ctx) return;
-    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let target: { x: number; y: number } | null = null;
-    let current: { x: number; y: number } | null = null;
-    let energy = 0;
-    let raf = 0;
+    const hasMouse = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const enabled = () => hasMouse.matches && !reducedMotion.matches;
 
     const R = size;
     const sigma = R * 0.45; // zone de déformation
     const push = R * 0.18; // force de la loupe
 
-    function tick() {
+    let target: { x: number; y: number } | null = null;
+    let current: { x: number; y: number } | null = null;
+    let energy = 0;
+    let raf = 0;
+
+    function clear() {
       if (!canvas || !ctx) return;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function tick() {
+      raf = 0;
+      if (!canvas || !ctx) return;
+
+      // Taille du canvas = taille affichée × devicePixelRatio (suit aussi le redimensionnement).
       const dpr = window.devicePixelRatio || 1;
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
@@ -51,16 +64,17 @@ export function DotField({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
 
+      // Position de repos, comme dans la référence : le centre y part et y revient.
       const home = { x: w * 0.68, y: h * 0.5 };
-      const goal = target ?? home;
       if (!current) current = { ...home };
+      const goal = target ?? home;
       const prev = { ...current };
-      const follow = reduce ? 1 : 0.14;
-      current.x += (goal.x - current.x) * follow;
-      current.y += (goal.y - current.y) * follow;
+      current.x += (goal.x - current.x) * 0.14;
+      current.y += (goal.y - current.y) * 0.14;
       const speed = Math.hypot(current.x - prev.x, current.y - prev.y);
 
-      const want = target ? Math.min(1, 0.25 + speed * 0.08) : 0;
+      // Visible tant que le curseur (lissé) bouge, s'efface quand il s'arrête ou sort.
+      const want = target && speed > 0.3 ? Math.min(1, 0.25 + speed * 0.08) : 0;
       energy += (want - energy) * (want > energy ? 0.12 : 0.03);
 
       if (energy > 0.005) {
@@ -86,38 +100,55 @@ export function DotField({
           }
         }
         ctx.globalAlpha = 1;
-      }
-
-      // Plus rien à dessiner : on arrête la boucle jusqu'au prochain mouvement.
-      if (!target && energy <= 0.005) {
-        energy = 0;
-        raf = 0;
+        raf = requestAnimationFrame(tick);
         return;
       }
-      raf = requestAnimationFrame(tick);
+
+      // Effacé et immobile : on arrête la boucle jusqu'au prochain mouvement.
+      energy = 0;
+      if (speed > 0.3) raf = requestAnimationFrame(tick);
     }
 
     function start() {
       if (!raf) raf = requestAnimationFrame(tick);
     }
 
+    function stop() {
+      cancelAnimationFrame(raf);
+      raf = 0;
+      target = null;
+      current = null;
+      energy = 0;
+      clear();
+    }
+
     function onMove(event: PointerEvent) {
-      if (!canvas) return;
+      if (event.pointerType !== "mouse" || !enabled() || !canvas) return;
       const rect = canvas.getBoundingClientRect();
       target = { x: event.clientX - rect.left, y: event.clientY - rect.top };
       start();
     }
 
     function onLeave() {
+      if (!target) return;
       target = null;
       start();
     }
 
+    // L'utilisateur active « réduire les animations » ou débranche la souris en cours de route.
+    function onPreferenceChange() {
+      if (!enabled()) stop();
+    }
+
     host.addEventListener("pointermove", onMove);
     host.addEventListener("pointerleave", onLeave);
+    hasMouse.addEventListener("change", onPreferenceChange);
+    reducedMotion.addEventListener("change", onPreferenceChange);
     return () => {
       host.removeEventListener("pointermove", onMove);
       host.removeEventListener("pointerleave", onLeave);
+      hasMouse.removeEventListener("change", onPreferenceChange);
+      reducedMotion.removeEventListener("change", onPreferenceChange);
       cancelAnimationFrame(raf);
     };
   }, [dotColor, size, gap]);

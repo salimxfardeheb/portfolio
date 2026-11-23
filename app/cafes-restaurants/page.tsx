@@ -5,8 +5,18 @@ import { LandingHero } from "@/components/sections/LandingHero";
 import { Offers } from "@/components/sections/Offers";
 import { CareSection } from "@/components/sections/CareSection";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { ProjectList } from "@/components/sections/ProjectList";
 import { ContactFooter } from "@/components/sections/ContactFooter";
-import { benefits, care, contact, hero, plans, plansNote, services } from "@/content/cafes-restaurants";
+import {
+  benefits,
+  care,
+  contact,
+  hero,
+  plans,
+  plansNote,
+  services,
+  similarProjects,
+} from "@/content/cafes-restaurants";
 
 export const metadata: Metadata = {
   title: "Site et menu QR pour cafés et restaurants",
@@ -15,11 +25,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cafes-restaurants" },
 };
 
-// Pas de section projets sur cette page : « Projets » mène aux réalisations de l'accueil.
 const nav = [
   { label: "Offres", href: "#offres" },
   { label: "Services", href: "#services" },
-  { label: "Projets", href: "/#realisations" },
+  { label: "Projets", href: "#projets" },
 ];
 
 export default function CafesRestaurantsPage() {
@@ -36,6 +45,12 @@ export default function CafesRestaurantsPage() {
           <div className="mt-6">
             <ServicesGrid services={services} border="bottom" />
           </div>
+        </section>
+
+        {/* Vide tant que content/cafes-restaurants.ts → similarProjects est vide. */}
+        <section id="projets" className="page-x pb-24 md:pb-[120px]">
+          <SectionLabel index="03">Projets similaires</SectionLabel>
+          <ProjectList projects={similarProjects} />
         </section>
       </main>
       <ContactFooter contact={contact} source="Cafés & restaurants" />

@@ -62,7 +62,7 @@ export const team: TeamMember[] = [
   {
     name: "Salim Fardeheb",
     role: "Fondateur · Développeur",
-    bio: "Titulaire d’un Master en Systèmes d’Information et Données, il conçoit et développe chaque projet, de la maquette à la mise en ligne.",
+    bio: "Titulaire d'un Master en Systèmes d'Information et Données, il conçoit et développe chaque projet, de la maquette à la mise en ligne.",
     photo: "/images/team/salim-fardeheb.jpg",
   },
   {
