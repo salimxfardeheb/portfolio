@@ -6,7 +6,7 @@ const linkClass = "transition-colors hover:text-accent-strong";
 
 export function SiteHeader({ links }: { links: NavLink[] }) {
   return (
-    <header className="bg-paper">
+    <header className="sticky top-0 z-10 bg-paper">
       <nav
         aria-label="Navigation principale"
         className="page-x text-[13px] font-medium uppercase tracking-[0.02em]"

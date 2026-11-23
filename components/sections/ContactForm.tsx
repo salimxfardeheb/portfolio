@@ -20,7 +20,7 @@ type Fields = {
 
 const labelClass = "caps flex flex-col gap-2 text-dim";
 const fieldClass =
-  "border-0 border-b border-iron bg-transparent py-3 text-base font-normal normal-case tracking-normal text-cream placeholder:text-muted focus:border-cream focus:outline-none";
+  "border-0 border-b border-iron bg-transparent py-3 text-base font-normal normal-case tracking-normal text-cream placeholder:text-hint focus:border-cream focus:outline-none";
 
 function readFields(form: HTMLFormElement): Fields {
   const data = new FormData(form);

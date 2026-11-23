@@ -16,6 +16,8 @@
   --color-dim-light: #c9c7bf;
   --color-graphite: #2a2a2a;
   --color-iron: #4a4a46;
+  /* Texte indicatif des champs sur fond noir (5.96:1 ; #6F6E6A n'atteint que 3.88:1) */
+  --color-hint: #8f8d86;
 
   /* Utilisé uniquement par le chatbot (masqué, à redesigner) */
   --color-redOrange: #ff302f;
@@ -23,14 +25,11 @@
   --font-sans: var(--font-inter-tight), system-ui, sans-serif;
 }
 
-/* Largeur de page : 1280 px max, gouttière 20 px sur mobile, 32 px ensuite */
+/* Largeur de page : 1280 px max, gouttière 32 px à toutes les tailles */
 @utility page-x {
   max-width: 1280px;
   margin-inline: auto;
-  padding-inline: 1.25rem;
-  @media (width >= 40rem) {
-    padding-inline: 2rem;
-  }
+  padding-inline: 2rem;
 }
 
 /* Petites capitales du design : 12 px, medium, espacement 0.04em */
@@ -44,6 +43,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Les ancres ne passent pas sous le header sticky (2 lignes sur mobile) */
+    scroll-padding-top: 6.5rem;
+    @media (width >= 40rem) {
+      scroll-padding-top: 4.5rem;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

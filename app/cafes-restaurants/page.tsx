@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cafes-restaurants" },
 };
 
-// La section projets n'existe pas sur cette page : le lien pointe vers le contact.
+// Pas de section projets sur cette page : « Projets » mène aux réalisations de l'accueil.
 const nav = [
   { label: "Offres", href: "#offres" },
   { label: "Services", href: "#services" },
-  { label: "Démo", href: "#contact" },
+  { label: "Projets", href: "/#realisations" },
 ];
 
 export default function CafesRestaurantsPage() {
