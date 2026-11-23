@@ -4,7 +4,14 @@ import { SITE_NAME } from "@/content/site";
 
 const linkClass = "transition-colors hover:text-accent-strong";
 
-export function SiteHeader({ links }: { links: NavLink[] }) {
+export function SiteHeader({
+  links,
+  quoteHref = "#contact",
+}: {
+  links: NavLink[];
+  /** Cible du lien « Demander un devis » (la 404 n'a pas de formulaire : "/#contact"). */
+  quoteHref?: string;
+}) {
   return (
     <header className="sticky top-0 z-10 bg-paper">
       <nav
@@ -24,7 +31,7 @@ export function SiteHeader({ links }: { links: NavLink[] }) {
               </li>
             ))}
           </ul>
-          <a href="#contact" className={linkClass}>
+          <a href={quoteHref} className={linkClass}>
             Demander un devis ↗
           </a>
         </div>

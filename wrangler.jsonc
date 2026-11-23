@@ -2,21 +2,31 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "salimxfardeheb",
   "main": "worker/index.ts",
-  "compatibility_date": "2026-10-01",
+  "compatibility_date": "2026-11-23",
   "assets": {
     // Généré par `next build` (output: "export")
     "directory": "./out",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
+    // Seul POST /api/contact passe par le Worker ; tout le reste est servi par les assets.
     "run_worker_first": ["/api/*"]
   },
-  // Email Routing : envoi uniquement vers des adresses de destination vérifiées.
-  "send_email": [{ "name": "SEND_EMAIL" }],
+  "send_email": [
+    {
+      "name": "EMAIL",
+      // Expéditeur verrouillé sur l'adresse du domaine.
+      "allowed_sender_addresses": ["formulaire@salimxfardeheb.com"],
+      // `wrangler dev` envoie de vrais emails (sinon il les simule dans un fichier local).
+      "remote": true
+    }
+  ],
   "vars": {
-    "CONTACT_FROM": "site@salimxfardeheb.com"
+    "SENDER_EMAIL": "formulaire@salimxfardeheb.com"
   },
-  // CONTACT_TO est un secret : `npx wrangler secret put CONTACT_TO`
-  // Pas de "routes" pour l'instant : le domaine reste sur Vercel tant que le Worker
-  // n'est pas vérifié sur son URL *.workers.dev.
+  // DESTINATION_EMAIL (ton adresse vérifiée dans Email Routing) n'est PAS ici :
+  //   - en production : `npx wrangler secret put DESTINATION_EMAIL`
+  //   - en local      : fichier `.dev.vars` (ignoré par git), voir `.dev.vars.example`
+  // Pas de "routes" : le domaine reste sur Vercel tant que le Worker n'est pas vérifié
+  // sur son URL *.workers.dev.
   "observability": { "enabled": true }
 }

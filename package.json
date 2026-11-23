@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "prebuild": "node -e \"for (const d of ['.next','out']) require('fs').rmSync(d, { recursive: true, force: true })\"",
     "build": "next build --turbopack",
     "typecheck": "tsc --noEmit && tsc --noEmit -p worker",
-    "preview": "next build --turbopack && wrangler dev",
-    "deploy": "next build --turbopack && wrangler deploy"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "wrangler deploy",
+    "cf-typegen": "wrangler types worker/worker-configuration.d.ts --env-file .dev.vars.example"
   },
   "dependencies": {
     "next": "15.5.9",
@@ -23,5 +25,8 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "wrangler": "^4.167.0"
+  },
+  "allowScripts": {
+    "workerd@1.20261123.1": true
   }
 }

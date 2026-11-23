@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { LandingHero } from "@/components/sections/LandingHero";
@@ -18,12 +19,12 @@ import {
   similarProjects,
 } from "@/content/cafes-restaurants";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Site et menu QR pour cafés et restaurants",
   description:
     "Le site de votre café ou restaurant avec menu QR et carte de fidélité. Démo gratuite au design de votre établissement, essai 7 jours avant de payer.",
-  alternates: { canonical: "/cafes-restaurants" },
-};
+  path: "/cafes-restaurants",
+});
 
 const nav = [
   { label: "Offres", href: "#offres" },

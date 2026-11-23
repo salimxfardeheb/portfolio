@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { SITE_NAME, SITE_URL } from "@/content/site";
+import { DEFAULT_TITLE } from "@/content/seo";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -13,16 +14,10 @@ const interTight = Inter_Tight({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Sites et logiciels sur mesure à Oran`,
+    default: DEFAULT_TITLE,
     template: `%s — ${SITE_NAME}`,
   },
-  description:
-    "Agence web à Oran : boutiques en ligne, sites vitrines, menus QR et logiciels de gestion sur mesure pour les commerces en Algérie. Paiement unique, sans abonnement.",
-  openGraph: {
-    type: "website",
-    locale: "fr_DZ",
-    siteName: SITE_NAME,
-  },
+  // Chaque page définit sa description et son Open Graph via pageMetadata() (content/seo.ts).
 };
 
 export const viewport: Viewport = {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { LandingHero } from "@/components/sections/LandingHero";
@@ -18,12 +19,12 @@ import {
   similarProjects,
 } from "@/content/e-commercants";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Boutique en ligne sur mesure pour e-commerçants",
   description:
     "Boutique en ligne au design de votre marque : livraison intégrée, administration, Google Sheets et tracking Facebook / TikTok après confirmation. Paiement unique.",
-  alternates: { canonical: "/e-commercants" },
-};
+  path: "/e-commercants",
+});
 
 const nav = [
   { label: "Offres", href: "#offres" },

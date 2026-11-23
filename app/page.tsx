@@ -10,11 +10,15 @@ import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { ProjectList } from "@/components/sections/ProjectList";
 import { ContactFooter } from "@/components/sections/ContactFooter";
 import { team } from "@/content/site";
+import { pageMetadata } from "@/content/seo";
 import { contact, hero, realisations, services } from "@/content/accueil";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: null,
+  description:
+    "Agence web à Oran : boutiques en ligne, sites vitrines, menus QR et logiciels de gestion sur mesure pour les commerces en Algérie. Paiement unique, sans abonnement.",
+  path: "/",
+});
 
 const nav = [
   { label: "Services", href: "#services" },

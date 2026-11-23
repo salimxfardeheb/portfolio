@@ -34,11 +34,6 @@ function readFields(form: HTMLFormElement): Fields {
   };
 }
 
-function isValidPhone(phone: string) {
-  const digits = phone.replace(/\D/g, "");
-  return digits.length >= 9 && digits.length <= 15;
-}
-
 export function ContactForm({
   selectLabel,
   options,
@@ -73,34 +68,35 @@ export function ContactForm({
   }
 
   // Bouton secondaire : envoie la demande par email via le Worker (/api/contact).
+  // La validation (nom et téléphone obligatoires, longueurs) est faite par le Worker,
+  // qui renvoie un message en français affiché sous le formulaire.
   async function sendEmail(form: HTMLFormElement) {
     const fields = readFields(form);
-    if (!fields.name) {
-      setStatus({ kind: "error", message: "Indiquez votre nom." });
-      return;
-    }
-    if (!isValidPhone(fields.phone)) {
-      setStatus({
-        kind: "error",
-        message: "Indiquez un numéro de téléphone valide pour que nous puissions vous rappeler.",
-      });
-      return;
-    }
     setStatus({ kind: "sending" });
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...fields, source }),
+        body: JSON.stringify({ ...fields, needLabel: selectLabel, page: source }),
       });
       const result = (await response.json().catch(() => null)) as { error?: string } | null;
-      if (!response.ok) throw new Error(result?.error ?? "Envoi impossible");
-      form.reset();
-      setStatus({ kind: "sent" });
+      if (response.ok) {
+        form.reset();
+        setStatus({ kind: "sent" });
+        return;
+      }
+      // 4xx : le serveur explique ce qui ne va pas (champ manquant, trop long…).
+      const serverMessage = response.status < 500 ? result?.error : undefined;
+      setStatus({
+        kind: "error",
+        message:
+          serverMessage ??
+          "L’envoi par email a échoué. Réessayez ou écrivez-nous directement sur WhatsApp.",
+      });
     } catch {
       setStatus({
         kind: "error",
-        message: "L’envoi par email a échoué. Réessayez ou écrivez-nous directement sur WhatsApp.",
+        message: "Connexion impossible. Réessayez ou écrivez-nous directement sur WhatsApp.",
       });
     }
   }
@@ -116,7 +112,7 @@ export function ContactForm({
             type="text"
             name="name"
             required
-            maxLength={80}
+            maxLength={100}
             autoComplete="name"
             placeholder="Votre nom"
             className={fieldClass}
@@ -180,7 +176,9 @@ export function ContactForm({
 
       <p role="status" aria-live="polite" className="min-h-6 text-sm">
         {status.kind === "sent" && (
-          <span className="text-cream">Demande envoyée. Nous revenons vers vous rapidement.</span>
+          <span className="text-cream">
+            Merci, votre demande a bien été envoyée. Nous vous recontactons très vite.
+          </span>
         )}
         {status.kind === "error" && <span className="text-accent-soft">{status.message}</span>}
       </p>

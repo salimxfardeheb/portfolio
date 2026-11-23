@@ -1,5 +1,12 @@
-# Anciennes pages (avant la refonte 2026) → accueil
-/about        /   301
-/portfolio    /   301
-/services     /   301
-/templates    /   301
+# Anciennes adresses (site avant la refonte 2026) → sections du nouveau site.
+# Format : source  destination  code. L'ordre compte : la première règle qui correspond gagne.
+# Doc : https://developers.cloudflare.com/workers/static-assets/redirects/
+
+/about          /#equipe         301
+/about/*        /#equipe         301
+/portfolio      /#realisations   301
+/portfolio/*    /#realisations   301
+/services       /#services       301
+/services/*     /#services       301
+/templates      /                301
+/templates/*    /                301
