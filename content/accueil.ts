@@ -6,7 +6,7 @@ export const hero: { title: AccentTitle; lead: string } = {
     accent: "Sites et logiciels",
     after: " sur mesure pour les commerces qui veulent vendre plus",
   },
-  lead: "Nous concevons chaque projet de zéro, au design de votre marque : boutiques en ligne, sites vitrines et outils de gestion. Paiement unique, sans abonnement.",
+  lead: "Nous concevons chaque projet de zéro, au design de votre marque : boutiques en ligne, sites vitrines et outils de gestion. Paiement unique, sans abonnement.",
 };
 
 export const services: Service[] = [
@@ -31,7 +31,7 @@ export const services: Service[] = [
 export const realisations = [projects.flowmerce, projects.costumia, projects.iaStore];
 
 export const contact: ContactContent = {
-  title: { before: "Un projet pour votre ", accent: "commerce", after: " ?" },
+  title: { before: "Un projet pour votre ", accent: "commerce", after: " ?" },
   lead: "Décrivez votre besoin, nous revenons vers vous avec une proposition.",
   selectLabel: "Votre besoin",
   options: ["Boutique en ligne", "Site vitrine / menu QR", "Logiciel de gestion", "Autre"],

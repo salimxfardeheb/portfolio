@@ -1,7 +1,7 @@
 import type { Plan } from "@/content/types";
 import { ButtonLink } from "./Button";
 
-export function PlanCard({ code, plan }: { code: string; plan: Plan }) {
+export function PlanCard({ plan }: { plan: Plan }) {
   const dark = plan.featured;
   return (
     <div
@@ -9,10 +9,7 @@ export function PlanCard({ code, plan }: { code: string; plan: Plan }) {
         dark ? "bg-ink text-cream" : "bg-paper text-ink"
       } border-b border-line last:border-b-0 lg:border-r lg:border-b-0 lg:last:border-r-0`}
     >
-      <div className={`flex items-baseline justify-between gap-3 ${dark ? "text-dim" : "text-muted"}`}>
-        <span className="text-[13px] font-medium">{code}</span>
-        <span className="label">{plan.badge}</span>
-      </div>
+      <span className={`label ${dark ? "text-dim" : "text-muted"}`}>{plan.badge}</span>
       <h3 className="text-[40px] font-medium leading-tight tracking-[-0.03em]">{plan.name}</h3>
       <p className={`leading-[1.55] ${dark ? "text-dim" : "text-muted"}`}>{plan.summary}</p>
       <ul className="flex flex-col">

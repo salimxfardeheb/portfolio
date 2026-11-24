@@ -1,7 +1,3 @@
-import { Tag } from "@/components/ui/Tag";
-
-const TAGS = ["Surveillance", "Connexion sécurisée HTTPS", "Mises à jour de sécurité", "Intervention rapide"];
-
 /** Bandeau crème « Suivi & sécurité ». */
 export function CareSection({ title, text }: { title: string; text: string }) {
   return (
@@ -15,14 +11,7 @@ export function CareSection({ title, text }: { title: string; text: string }) {
             {title}
           </h2>
         </div>
-        <div className="flex min-w-0 flex-[1_1_480px] flex-col gap-5">
-          <p className="text-[17px] leading-[1.6] text-body">{text}</p>
-          <ul className="flex flex-wrap gap-2.5">
-            {TAGS.map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
-            ))}
-          </ul>
-        </div>
+        <p className="min-w-0 flex-[1_1_480px] text-[17px] leading-[1.6] text-body">{text}</p>
       </div>
     </section>
   );

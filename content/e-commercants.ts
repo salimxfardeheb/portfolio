@@ -3,7 +3,7 @@ import { projects } from "./site";
 
 export const hero: { title: AccentTitle; lead: string } = {
   title: { before: "Votre ", accent: "boutique en ligne", after: ", conçue pour vendre et livrer" },
-  lead: "Développement sur mesure : boutique, livraison, administration et tracking publicitaire réunis au même endroit, au design de votre marque.",
+  lead: "Développement sur mesure : boutique, livraison, administration et tracking publicitaire réunis au même endroit, au design de votre marque.",
 };
 
 export const plans: Plan[] = [
@@ -12,9 +12,9 @@ export const plans: Plan[] = [
     badge: "Pour démarrer",
     summary: "L’essentiel pour vendre en ligne et expédier vos commandes.",
     features: [
-      "Livraison : transporteurs, frais et envoi des commandes",
-      "Boutique essentielle : catalogue, commande directe, témoignages",
-      "Administration : commandes, produits, stocks, promotions",
+      "Livraison : transporteurs, frais et envoi des commandes",
+      "Boutique essentielle : catalogue, commande directe, témoignages",
+      "Administration : commandes, produits, stocks, promotions",
       "Pixel Facebook et TikTok",
     ],
   },
@@ -38,7 +38,7 @@ export const plans: Plan[] = [
       "Livraison complète avec suivi des colis",
       "Boutique complète, bilingue français / arabe, avec packs",
       "Administration complète avec tableau de bord des ventes",
-      "Tracking complet : achat compté après confirmation",
+      "Tracking complet : achat compté après confirmation",
     ],
   },
 ];
@@ -88,7 +88,7 @@ export const services: Service[] = [
 export const similarProjects = [projects.iaStore, projects.flowmerce];
 
 export const contact: ContactContent = {
-  title: { before: "Prêt à lancer votre ", accent: "boutique", after: " ?" },
+  title: { before: "Prêt à lancer votre ", accent: "boutique", after: " ?" },
   lead: "Décrivez votre activité, nous revenons vers vous avec un devis.",
   selectLabel: "Offre souhaitée",
   options: ["Starter", "Plus", "Premium", "Je ne sais pas encore"],

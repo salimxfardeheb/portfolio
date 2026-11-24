@@ -3,7 +3,7 @@ import type { Project } from "./site";
 
 export const hero: { title: AccentTitle; lead: string } = {
   title: { before: "Le site de votre ", accent: "café ou restaurant", after: ", avant même de payer" },
-  lead: "Nous créons une démo au design de votre établissement. Vous l'essayez 7 jours : satisfait, vous payez ; sinon, nous la retirons, sans frais.",
+  lead: "Nous créons une démo au design de votre établissement. Vous l'essayez 7 jours : satisfait, vous payez ; sinon, nous la retirons, sans frais.",
 };
 
 const starterFeatures = [
@@ -47,7 +47,7 @@ export const plans: Plan[] = [
 ];
 
 export const plansNote =
-  "Starter et Plus : démo gratuite, essai 7 jours, paiement unique. Premium : sur devis, 40 % à la commande, 60 % à la livraison, garantie d'un mois. Nom de domaine au nom du client.";
+  "Starter et Plus : démo gratuite, essai 7 jours, paiement unique. Premium : sur devis, 40 % à la commande, 60 % à la livraison, garantie d'un mois. Nom de domaine au nom du client.";
 
 export const benefits: Benefit[] = [
   {

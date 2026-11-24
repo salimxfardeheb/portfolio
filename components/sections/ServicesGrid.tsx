@@ -1,8 +1,6 @@
 import type { Service } from "@/content/types";
 import { ServiceItem } from "@/components/ui/ServiceItem";
 
-const LETTERS = "ABCDEFGH";
-
 export function ServicesGrid({
   services,
   border = "top",
@@ -12,8 +10,8 @@ export function ServicesGrid({
 }) {
   return (
     <div className="grid gap-x-12 md:grid-cols-2">
-      {services.map((service, i) => (
-        <ServiceItem key={service.title} letter={LETTERS[i]} service={service} border={border} />
+      {services.map((service) => (
+        <ServiceItem key={service.title} service={service} border={border} />
       ))}
     </div>
   );

@@ -23,7 +23,7 @@ export function Segments({ segments }: { segments: Segment[] }) {
           <ul className="flex flex-col border-t border-line">
             {segment.points.map((point) => (
               <li key={point} className="flex gap-3 border-b border-line py-3 text-body">
-                <span aria-hidden="true" className="text-accent">+</span>
+                <span aria-hidden="true" className="text-muted">+</span>
                 {point}
               </li>
             ))}
