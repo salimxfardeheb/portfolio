@@ -4,7 +4,7 @@ import { projects } from "./site";
 export const hero: { title: AccentTitle; lead: string } = {
   title: {
     accent: "Sites et logiciels",
-    after: " sur mesure pour les commerces qui veulent vendre plus.",
+    after: " sur mesure pour les commerces qui veulent vendre plus",
   },
   lead: "Nous concevons chaque projet de zéro, au design de votre marque : boutiques en ligne, sites vitrines et outils de gestion. Paiement unique, sans abonnement.",
 };
@@ -51,7 +51,7 @@ export const segments: Segment[] = [
   {
     id: "e-commercants",
     label: "E-commerçants",
-    title: "Vendez en ligne, livrez sans effort.",
+    title: "Vendez en ligne, livrez sans effort",
     text: "Une boutique au design de votre marque, reliée à votre société de livraison et à vos campagnes Facebook et TikTok.",
     points: [
       "Commande en paiement à la livraison",
@@ -63,7 +63,7 @@ export const segments: Segment[] = [
   {
     id: "pme",
     label: "PME · Cafés & restaurants",
-    title: "Soyez visible, faites revenir vos clients.",
+    title: "Soyez visible, faites revenir vos clients",
     text: "Un site à l’image de votre établissement, avec votre menu QR et une démo gratuite à essayer 7 jours avant de payer.",
     points: [
       "Menu, horaires, adresse et WhatsApp au même endroit",

@@ -13,8 +13,8 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
         className="size-[72px] shrink-0 rounded-full bg-cream object-cover"
       />
       <div>
-        <p className="mb-0.5 text-lg font-medium tracking-[-0.01em]">{member.name}</p>
-        <p className="caps mb-2 text-[11px] text-muted">{member.role}</p>
+        <p className="mb-1 text-lg font-medium">{member.name}</p>
+        <p className="caps mb-2 text-muted">{member.role}</p>
         <p className="max-w-[460px] text-sm leading-[1.5] text-body">{member.bio}</p>
       </div>
     </div>

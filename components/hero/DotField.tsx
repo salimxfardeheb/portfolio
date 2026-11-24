@@ -12,7 +12,7 @@ import { useEffect, useRef } from "react";
  * - La boucle `requestAnimationFrame` ne tourne que pendant l'animation, et s'arrête au démontage.
  */
 export function DotField({
-  dotColor = "#4CB944",
+  dotColor = "#0a0a0a",
   size = 220,
   gap = 20,
 }: {
@@ -93,7 +93,7 @@ export function DotField({
             const off = push * g;
             const alpha = energy * Math.pow(1 - d / R, 1.4);
             if (alpha < 0.01) continue;
-            ctx.globalAlpha = alpha;
+            ctx.globalAlpha = alpha * 0.35;
             ctx.beginPath();
             ctx.arc(gx + (dx / d) * off, gy + (dy / d) * off, 1.1 + 0.9 * g, 0, Math.PI * 2);
             ctx.fill();

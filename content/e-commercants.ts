@@ -2,7 +2,7 @@ import type { AccentTitle, Benefit, ContactContent, Plan, Service } from "./type
 import { projects } from "./site";
 
 export const hero: { title: AccentTitle; lead: string } = {
-  title: { before: "Votre ", accent: "boutique en ligne", after: ", conçue pour vendre et livrer." },
+  title: { before: "Votre ", accent: "boutique en ligne", after: ", conçue pour vendre et livrer" },
   lead: "Développement sur mesure : boutique, livraison, administration et tracking publicitaire réunis au même endroit, au design de votre marque.",
 };
 
@@ -62,7 +62,7 @@ export const benefits: Benefit[] = [
 ];
 
 export const care = {
-  title: "Nous veillons sur votre boutique après la mise en ligne.",
+  title: "Nous veillons sur votre boutique après la mise en ligne",
   text: "Votre site reste disponible, rapide et protégé. Nous surveillons son fonctionnement, appliquons les mises à jour de sécurité et intervenons rapidement en cas de problème, pour que vos ventes ne s'arrêtent jamais.",
 };
 

@@ -17,9 +17,9 @@ export function SiteHeader({
     <header className="sticky top-0 z-10 bg-paper">
       <nav
         aria-label="Navigation principale"
-        className="page-x text-[13px] font-medium uppercase tracking-[0.02em]"
+        className="page-x text-sm font-medium"
       >
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-b border-ink py-[18px]">
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-b border-ink py-4">
           <Link href="/" className={`font-semibold ${linkClass}`}>
             {SITE_NAME}
           </Link>

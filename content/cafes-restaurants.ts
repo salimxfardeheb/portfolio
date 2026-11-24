@@ -2,7 +2,7 @@ import type { AccentTitle, Benefit, ContactContent, Plan, Service } from "./type
 import type { Project } from "./site";
 
 export const hero: { title: AccentTitle; lead: string } = {
-  title: { before: "Le site de votre ", accent: "café ou restaurant", after: ", avant même de payer." },
+  title: { before: "Le site de votre ", accent: "café ou restaurant", after: ", avant même de payer" },
   lead: "Nous créons une démo au design de votre établissement. Vous l'essayez 7 jours : satisfait, vous payez ; sinon, nous la retirons, sans frais.",
 };
 
@@ -65,7 +65,7 @@ export const benefits: Benefit[] = [
 ];
 
 export const care = {
-  title: "Nous veillons sur votre site après la mise en ligne.",
+  title: "Nous veillons sur votre site après la mise en ligne",
   text: "Votre site reste disponible, rapide et protégé. Nous surveillons son fonctionnement, appliquons les mises à jour de sécurité et intervenons rapidement en cas de problème, pour que vos clients trouvent toujours votre menu.",
 };
 
@@ -96,7 +96,7 @@ export const services: Service[] = [
 export const similarProjects: Project[] = [];
 
 export const contact: ContactContent = {
-  title: { before: "Recevez la démo de votre ", accent: "établissement", after: "." },
+  title: { before: "Recevez la démo de votre ", accent: "établissement" },
   lead: "Donnez-nous le nom de votre café ou restaurant, nous préparons votre démo gratuite.",
   selectLabel: "Offre souhaitée",
   options: ["Starter", "Plus", "Premium", "Je ne sais pas encore"],

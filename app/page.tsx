@@ -52,16 +52,16 @@ export default function HomePage() {
           </section>
         </div>
         <section id="services" className="page-x pb-24 md:pb-[120px]">
-          <SectionLabel index="02">Nos services</SectionLabel>
+          <SectionLabel index="01">Nos services</SectionLabel>
           <p className="my-14 max-w-[760px] text-[clamp(32px,3.6vw,48px)] leading-[1.05] font-medium tracking-[-0.03em]">
-            Ce que nous réalisons pour vous.
+            Ce que nous réalisons pour vous
           </p>
           <ServicesGrid services={services} border="top" />
         </section>
         <section id="solutions" className="page-x pb-24 md:pb-[120px]">
-          <SectionLabel index="01">Pour qui</SectionLabel>
+          <SectionLabel index="02">Pour qui</SectionLabel>
           <p className="mt-14 max-w-[760px] text-[clamp(32px,3.6vw,48px)] leading-[1.05] font-medium tracking-[-0.03em]">
-            Une offre adaptée à votre activité.
+            Une offre adaptée à votre activité
           </p>
           <Segments segments={segments} />
         </section>
@@ -75,7 +75,7 @@ export default function HomePage() {
           <SectionLabel index="04">Qui sommes-nous</SectionLabel>
           <div className="mt-9 flex flex-wrap items-start gap-x-12 gap-y-8">
             <p className="flex-[1_1_260px] text-2xl leading-[1.15] font-medium tracking-[-0.02em]">
-              Une petite équipe, un interlocuteur direct.
+              Une petite équipe, un interlocuteur direct
             </p>
             <div className="flex min-w-0 flex-[999_1_640px] flex-wrap gap-8">
               {team.map((member) => (

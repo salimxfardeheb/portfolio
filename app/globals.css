@@ -99,15 +99,6 @@
     animation: chatDot 1.1s ease-in-out infinite;
 }
 
-@keyframes chatPing {
-    0%, 100% { opacity: 1;   transform: scale(1); }
-    50%      { opacity: 0.5; transform: scale(1.3); }
-}
-
-.chat-ping {
-    animation: chatPing 2.2s ease-in-out infinite;
-}
-
 @keyframes chatTeaserIn {
     from { opacity: 0; transform: translateX(12px); }
     to   { opacity: 1; transform: translateX(0); }
@@ -124,8 +115,7 @@
         animation: none;
     }
 
-    .chat-dot,
-    .chat-ping {
+    .chat-dot {
         animation: none;
         opacity: 0.6;
     }

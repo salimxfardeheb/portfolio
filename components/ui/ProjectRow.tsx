@@ -9,7 +9,7 @@ export function ProjectRow({ code, project }: { code: string; project: Project }
       className="group flex flex-wrap items-start gap-x-8 gap-y-4 border-b border-line py-9"
     >
       <span className="w-14 shrink-0 text-[13px] font-medium text-muted">{code}</span>
-      <div className="flex min-w-0 flex-[999_1_420px] flex-col gap-2.5">
+      <div className="flex min-w-0 flex-[999_1_420px] flex-col gap-2">
         <h3 className="text-[clamp(26px,2.6vw,34px)] font-medium tracking-[-0.03em] transition-colors group-hover:text-accent-strong">
           {project.name}
         </h3>

@@ -5,7 +5,7 @@ import { Arrow } from "@/components/ui/Arrow";
 /** Bandeau sous la navigation : contexte à gauche, information à droite. */
 export function TopBar({ left, right }: { left: ReactNode; right: ReactNode }) {
   return (
-    <div className="caps flex flex-wrap justify-between gap-3 py-[18px] text-muted">
+    <div className="caps flex flex-wrap justify-between gap-3 py-4 text-muted">
       {left}
       {right}
     </div>

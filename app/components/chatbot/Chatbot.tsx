@@ -84,7 +84,7 @@ const Chatbot = () => {
           onFocus={prefetch}
           aria-label="Ouvrir l'assistant"
           aria-expanded={false}
-          className="fixed right-5 bottom-5 z-[45] flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-ink text-white shadow-lg shadow-black/20 transition-transform duration-150 hover:scale-105 active:scale-95 md:right-10 md:bottom-10"
+          className="fixed right-5 bottom-5 z-[45] flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-ink text-white shadow-lg shadow-black/20 transition-[transform,background-color] duration-150 hover:bg-accent-strong active:scale-95 md:right-10 md:bottom-10"
         >
           <svg
             viewBox="0 0 24 24"
@@ -102,7 +102,7 @@ const Chatbot = () => {
           {nudging && (
             <span
               aria-hidden="true"
-              className="chat-ping absolute top-1 right-1 h-2.5 w-2.5 rounded-full bg-accent-strong ring-2 ring-paper"
+              className="absolute top-1 right-1 h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-paper"
             />
           )}
         </button>

@@ -15,7 +15,7 @@ export function SectionLabel({
   as?: "h2" | "p";
 }) {
   return (
-    <Tag id={id} className="caps flex items-center gap-3.5 border-b border-ink pb-3.5">
+    <Tag id={id} className="caps flex items-center gap-3 border-b border-ink pb-4">
       <span>{index}</span>
       <span aria-hidden="true" className="h-px w-7 bg-ink" />
       <span>{children}</span>

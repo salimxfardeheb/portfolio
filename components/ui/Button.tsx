@@ -3,7 +3,7 @@ import type { ComponentProps } from "react";
 type Variant = "primary" | "outline" | "inverse" | "inverse-outline";
 
 const base =
-  "inline-flex min-h-12 items-center justify-center px-[22px] py-4 text-[13px] font-medium uppercase tracking-[0.02em] transition-colors";
+  "inline-flex min-h-12 items-center justify-center gap-2 px-6 py-3 text-sm font-medium transition-colors";
 
 const variants: Record<Variant, string> = {
   primary: "bg-ink text-paper hover:bg-accent-strong",
