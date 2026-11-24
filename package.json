@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit && tsc --noEmit -p worker",
     "lint": "eslint .",
     "preview": "npm run build && wrangler dev",
+    "predeploy": "npm run build",
     "deploy": "wrangler deploy",
     "cf-typegen": "wrangler types worker/worker-configuration.d.ts --env-file .dev.vars.example"
   },
