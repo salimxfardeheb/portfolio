@@ -16,8 +16,10 @@ export default function NotFound() {
   return (
     <>
       <SiteHeader links={pages.slice(1)} quoteHref="/#contact" />
-      <main className="page-x pt-12 pb-24 md:pt-16 md:pb-[120px]">
-        <SectionLabel index="404">Page introuvable</SectionLabel>
+      <main id="contenu" className="page-x pt-12 pb-24 md:pt-16 md:pb-[120px]">
+        <SectionLabel index="404" as="p">
+          Page introuvable
+        </SectionLabel>
         <h1 className="mt-14 max-w-[800px] text-[clamp(40px,5vw,64px)] leading-none font-medium tracking-[-0.04em]">
           Cette page <span className="text-accent">n’existe pas</span>.
         </h1>

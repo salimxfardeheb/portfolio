@@ -7,6 +7,7 @@
     "prebuild": "node -e \"for (const d of ['.next','out']) require('fs').rmSync(d, { recursive: true, force: true })\"",
     "build": "next build --turbopack",
     "typecheck": "tsc --noEmit && tsc --noEmit -p worker",
+    "lint": "eslint .",
     "preview": "npm run build && wrangler dev",
     "deploy": "wrangler deploy",
     "cf-typegen": "wrangler types worker/worker-configuration.d.ts --env-file .dev.vars.example"
@@ -18,10 +19,13 @@
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.9",
     "tailwindcss": "^4",
     "typescript": "^5",
     "wrangler": "^4.167.0"

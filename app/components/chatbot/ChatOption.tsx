@@ -1,32 +1,32 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { FaArrowRight, FaChevronRight, FaExternalLinkAlt } from "react-icons/fa";
-import { useLanguage } from "@/app/context/LanguageContext";
 import type { ChatOption as Option } from "@/app/types/chatbot";
 
-/** Shared skin, so a link option and a branch option read as the same control. */
+/** Même apparence pour un lien et un choix de branche. */
 export const optionClass =
-  "flex min-h-11 w-full items-center justify-between gap-3 rounded-xl border border-black/10 bg-black/[0.02] px-3.5 py-2.5 text-left text-[13.5px] font-medium text-black/85 transition-colors duration-150 hover:border-redOrange hover:bg-redOrange/5 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-black/10 disabled:hover:bg-black/[0.02]";
+  "flex min-h-11 w-full cursor-pointer items-center justify-between gap-3 border border-ink bg-paper px-3.5 py-2.5 text-left text-[14px] text-ink transition-colors duration-150 hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-paper disabled:hover:text-ink";
 
-const iconClass = "shrink-0 text-[11px] text-black/30";
+const Mark = ({ children }: { children: string }) => (
+  <span aria-hidden="true" className="shrink-0 text-[13px]">
+    {children}
+  </span>
+);
 
 interface Props {
   option: Option;
   disabled?: boolean;
   onSelect: (option: Option) => void;
-  /** Called when a page anchor is followed, so the panel can step aside. */
+  /** Appelé quand un lien de page est suivi, pour que le panneau s'efface. */
   onLeave: () => void;
 }
 
 /**
- * A single choice. Options carrying `href` are rendered as real links — an
- * external site, an internal route, or an anchor on the current page.
+ * Un choix. Les options avec `href` sont de vrais liens — site externe,
+ * route interne (avec ou sans ancre) ou ancre de la page courante.
  */
 const ChatOption = ({ option, disabled = false, onSelect, onLeave }: Props) => {
-  const { lang } = useLanguage();
-  const label = option.label[lang];
-  const href = option.href;
+  const { label, href } = option;
 
   if (href?.startsWith("#")) {
     const target = href.slice(1);
@@ -37,13 +37,11 @@ const ChatOption = ({ option, disabled = false, onSelect, onLeave }: Props) => {
         onClick={(event) => {
           event.preventDefault();
           onLeave();
-          document
-            .getElementById(target)
-            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+          document.getElementById(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
         }}
       >
         {label}
-        <FaArrowRight className={iconClass} />
+        <Mark>→</Mark>
       </a>
     );
   }
@@ -52,17 +50,17 @@ const ChatOption = ({ option, disabled = false, onSelect, onLeave }: Props) => {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={optionClass}>
         {label}
-        <FaExternalLinkAlt className={iconClass} />
+        <Mark>↗</Mark>
       </a>
     );
   }
 
-  // Internal route: client-side navigation keeps the conversation alive.
+  // Route interne : navigation côté client, la conversation est conservée.
   if (href) {
     return (
-      <Link href={href} className={optionClass}>
+      <Link href={href} onClick={onLeave} className={optionClass}>
         {label}
-        <FaArrowRight className={iconClass} />
+        <Mark>→</Mark>
       </Link>
     );
   }
@@ -70,7 +68,7 @@ const ChatOption = ({ option, disabled = false, onSelect, onLeave }: Props) => {
   return (
     <button type="button" disabled={disabled} className={optionClass} onClick={() => onSelect(option)}>
       {label}
-      <FaChevronRight className={iconClass} />
+      <Mark>›</Mark>
     </button>
   );
 };

@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { FaPaperPlane } from "react-icons/fa";
-import { useLanguage } from "@/app/context/LanguageContext";
 
 interface Props {
   placeholder: string;
@@ -10,11 +8,10 @@ interface Props {
 }
 
 /**
- * Free-text field. Only rendered when the current node asks for prose — the
- * rest of the conversation runs on predefined choices.
+ * Champ de texte libre. Affiché uniquement quand le nœud courant le demande —
+ * le reste de la conversation passe par des choix prédéfinis.
  */
 const ChatInput = ({ placeholder, disabled, onSubmit }: Props) => {
-  const { t } = useLanguage();
   const [value, setValue] = useState("");
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -28,7 +25,9 @@ const ChatInput = ({ placeholder, disabled, onSubmit }: Props) => {
     <form onSubmit={handleSubmit} className="flex items-center gap-2">
       <input
         autoFocus
-        className="min-h-11 w-full rounded-xl border border-black/15 bg-black/[0.02] px-3 py-2 text-[13.5px] text-black placeholder:text-black/40 focus:border-redOrange focus:outline-none"
+        aria-label={placeholder}
+        maxLength={2000}
+        className="min-h-11 w-full border border-ink bg-paper px-3 py-2 text-[14px] text-ink placeholder:text-muted focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent"
         placeholder={placeholder}
         value={value}
         onChange={(event) => setValue(event.target.value)}
@@ -36,11 +35,11 @@ const ChatInput = ({ placeholder, disabled, onSubmit }: Props) => {
       />
       <button
         type="submit"
-        aria-label={t.chatbot.send}
+        aria-label="Envoyer"
         disabled={disabled || !value.trim()}
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-redOrange text-white transition-opacity duration-150 disabled:cursor-not-allowed disabled:opacity-40"
+        className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center bg-ink text-paper transition-opacity duration-150 disabled:cursor-not-allowed disabled:opacity-40"
       >
-        <FaPaperPlane className="text-[13px]" />
+        <span aria-hidden="true">→</span>
       </button>
     </form>
   );

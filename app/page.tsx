@@ -12,6 +12,7 @@ import { ContactFooter } from "@/components/sections/ContactFooter";
 import { team } from "@/content/site";
 import { pageMetadata } from "@/content/seo";
 import { contact, hero, realisations, services } from "@/content/accueil";
+import { Arrow } from "@/components/ui/Arrow";
 
 export const metadata: Metadata = pageMetadata({
   title: null,
@@ -30,7 +31,7 @@ export default function HomePage() {
   return (
     <>
       <SiteHeader links={nav} />
-      <main>
+      <main id="contenu">
         <div className="relative overflow-hidden">
           <DotField />
           <section className="page-x relative z-[1]">
@@ -41,7 +42,7 @@ export default function HomePage() {
             <div className="mt-12 flex flex-wrap items-end justify-between gap-8 pb-24 md:mt-[72px]">
               <p className="max-w-[460px] leading-[1.55] text-body">{hero.lead}</p>
               <div className="flex flex-wrap gap-3">
-                <ButtonLink href="#contact">Demander un devis ↗</ButtonLink>
+                <ButtonLink href="#contact">Demander un devis <Arrow /></ButtonLink>
                 <ButtonLink href="#realisations" variant="outline">
                   Voir nos réalisations
                 </ButtonLink>

@@ -1,49 +1,34 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import {
-  WELCOME_ID,
-  brokenLinks,
-  conversation,
-} from "@/app/data/chatbot/conversation";
-import type { Localized } from "@/app/data/projects/types";
-import translations from "@/app/i18n/translations";
-import type {
-  ChatEntry,
-  ChatNode,
-  ChatOption,
-  LeadDraft,
-  LeadField,
-} from "@/app/types/chatbot";
+import { WELCOME_ID, brokenLinks, conversation } from "@/app/data/chatbot/conversation";
+import type { ChatEntry, ChatNode, ChatOption, LeadDraft, LeadField } from "@/app/types/chatbot";
 
-/** Short beat before an answer lands, so the exchange reads like a conversation. */
+/** Court délai avant chaque réponse, pour que l'échange se lise comme une conversation. */
 const BOT_DELAY_MS = 420;
 
-/** Navigation labels come from the UI dictionary — one source of truth. */
-const navLabel = (key: "back" | "home"): Localized => ({
-  en: translations.en.chatbot[key],
-  fr: translations.fr.chatbot[key],
-});
+export const BACK_LABEL = "Retour";
+export const HOME_LABEL = "Accueil";
 
 export interface Chatbot {
-  /** The transcript, oldest first. */
+  /** L'historique, du plus ancien au plus récent. */
   entries: ChatEntry[];
-  /** Node the visitor is on — it owns the live options and widget. */
+  /** Nœud courant — il porte les options et le widget actifs. */
   node: ChatNode;
   isTyping: boolean;
   canGoBack: boolean;
-  /** Answers gathered along the way, used to prefill the contact form. */
+  /** Réponses recueillies, envoyées avec le formulaire. */
   lead: LeadDraft;
   select: (option: ChatOption) => void;
   submitText: (text: string) => void;
   goBack: () => void;
   goHome: () => void;
-  /** Jump to a node without echoing a visitor message (form outcomes). */
+  /** Aller à un nœud sans message du visiteur (issue du formulaire). */
   advance: (nodeId: string) => void;
 }
 
 /**
- * Drives the conversation: transcript, cursor, visited-node stack and the
- * qualification brief. Holds no copy and no markup — the tree lives in
+ * Pilote la conversation : historique, curseur, pile des nœuds visités et
+ * réponses recueillies. Ne contient ni texte ni balisage — l'arbre est dans
  * app/data/chatbot/conversation.ts.
  */
 export function useChatbot(): Chatbot {
@@ -57,7 +42,7 @@ export function useChatbot(): Chatbot {
   const [isTyping, setIsTyping] = useState(false);
   const [lead, setLead] = useState<LeadDraft>({});
 
-  /** Authoritative cursor, so handlers never read a stale node id. */
+  /** Curseur de référence, pour que les gestionnaires ne lisent jamais un id périmé. */
   const cursor = useRef<string>(WELCOME_ID);
   const seq = useRef(0);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -69,12 +54,12 @@ export function useChatbot(): Chatbot {
     []
   );
 
-  // A typo in `next` would strand the visitor: surface it while developing.
+  // Une faute de frappe dans `next` bloquerait le visiteur : la signaler en développement.
   useEffect(() => {
     if (process.env.NODE_ENV === "production") return;
     const broken = brokenLinks();
     if (broken.length) {
-      console.warn("[chatbot] options pointing at a missing node:", broken);
+      console.warn("[chatbot] options pointant vers un nœud inexistant :", broken);
     }
   }, []);
 
@@ -105,12 +90,8 @@ export function useChatbot(): Chatbot {
     [push]
   );
 
-  const record = useCallback((field: LeadField, label: Localized) => {
-    setLead((prev) => {
-      const next: LeadDraft = { ...prev };
-      next[field] = label;
-      return next;
-    });
+  const record = useCallback((field: LeadField, label: string) => {
+    setLead((prev) => ({ ...prev, [field]: label }));
   }, []);
 
   const select = useCallback(
@@ -133,7 +114,7 @@ export function useChatbot(): Chatbot {
       const value = text.trim();
       if (!value) return;
 
-      push({ author: "user", text: { en: value, fr: value } });
+      push({ author: "user", text: value });
       setLead((prev) => ({ ...prev, description: value }));
       goTo(node.widget.next);
     },
@@ -146,14 +127,16 @@ export function useChatbot(): Chatbot {
     if (!previous) return;
 
     setHistory((prev) => prev.slice(0, -1));
-    push({ author: "user", text: navLabel("back") });
+    push({ author: "user", text: BACK_LABEL });
     goTo(previous, false);
   }, [goTo, history, isTyping, push]);
 
   const goHome = useCallback(() => {
     if (isTyping || cursor.current === WELCOME_ID) return;
     setHistory([]);
-    push({ author: "user", text: navLabel("home") });
+    // Nouveau départ : les réponses d'une autre branche ne doivent pas partir dans l'email.
+    setLead({});
+    push({ author: "user", text: HOME_LABEL });
     goTo(WELCOME_ID, false);
   }, [goTo, isTyping, push]);
 

@@ -6,6 +6,11 @@
  * - POST /api/contact envoie la demande du formulaire par email (binding `send_email`,
  *   API structurée `env.EMAIL.send()`), de SENDER_EMAIL vers DESTINATION_EMAIL.
  *
+ * - Anti-spam : champ piège `website`, plus Cloudflare Turnstile quand TURNSTILE_SECRET_KEY
+ *   est défini (sinon le jeton n'est pas exigé).
+ * - Les emails sont en texte brut (pas de HTML) ; les champs d'une ligne sont ramenés
+ *   sur une seule ligne pour qu'aucun retour à la ligne n'altère le sujet ou le corps.
+ *
  * Aucune donnée personnelle (nom, téléphone, message, adresse) n'est écrite dans les logs.
  * Types : `worker/worker-configuration.d.ts`, généré par `npm run cf-typegen`.
  */
@@ -15,8 +20,13 @@ const ALLOWED_ORIGINS = new Set([
   "https://www.salimxfardeheb.com",
 ]);
 
-const MAX = { name: 100, phone: 20, need: 80, needLabel: 40, message: 2000, page: 60 } as const;
+const MAX = { name: 100, phone: 20, email: 254, need: 80, needLabel: 40, message: 2000, page: 60 } as const;
 type Field = keyof typeof MAX;
+
+/** Réponses de l'assistant (source "chatbot") : question → réponse. */
+const ANSWERS_MAX = { count: 12, question: 120, answer: 2000 } as const;
+const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export default {
   async fetch(request, env): Promise<Response> {
@@ -59,7 +69,9 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
     return json({ ok: true });
   }
 
-  const raw = (key: Field) => (typeof data[key] === "string" ? (data[key] as string).trim() : "");
+  const str = (key: Field) => (typeof data[key] === "string" ? (data[key] as string).trim() : "");
+  // Champs d'une ligne : tout retour à la ligne ou espace multiple devient un seul espace.
+  const raw = (key: Field) => (key === "message" ? str(key) : oneLine(str(key)));
 
   const errors: string[] = [];
   if (!raw("name")) errors.push("Le nom est obligatoire.");
@@ -71,7 +83,24 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
   if (raw("phone") && (phoneDigits.length < 9 || phoneDigits.length > 15)) {
     errors.push("Le numéro de téléphone n'est pas valide.");
   }
+  if (raw("email") && !EMAIL_PATTERN.test(raw("email"))) {
+    errors.push("L'adresse e-mail n'est pas valide.");
+  }
+
+  const fromChatbot = data.source === "chatbot";
+  const answers = fromChatbot ? readAnswers(data.answers, errors) : [];
   if (errors.length > 0) return json({ error: errors.join(" ") }, 400);
+
+  if (env.TURNSTILE_SECRET_KEY) {
+    const token = typeof data.turnstileToken === "string" ? data.turnstileToken : "";
+    if (!token || token.length > 2048) {
+      return json({ error: "Vérification anti-spam manquante. Rechargez la page et réessayez." }, 400);
+    }
+    const verified = await verifyTurnstile(token, env.TURNSTILE_SECRET_KEY, request.headers.get("CF-Connecting-IP"));
+    if (!verified) {
+      return json({ error: "Vérification anti-spam échouée. Rechargez la page et réessayez." }, 403);
+    }
+  }
 
   const name = raw("name");
   const phone = raw("phone");
@@ -85,24 +114,49 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
     return json({ error: "Le formulaire n'est pas encore configuré." }, 500);
   }
 
-  const text = [
-    `Nouvelle demande depuis la page « ${page} » de salimxfardeheb.com`,
-    "",
-    `Nom : ${name}`,
-    `Téléphone / WhatsApp : ${phone}`,
-    `${needLabel} : ${need}`,
-    "",
-    "Message :",
-    message,
-    "",
-    `Répondre sur WhatsApp : https://wa.me/${toInternational(phoneDigits)}`,
-  ].join("\n");
+  const email = raw("email");
+  const whatsapp = `Répondre sur WhatsApp : https://wa.me/${toInternational(phoneDigits)}`;
+
+  const text = fromChatbot
+    ? [
+        `Nouvelle demande envoyée depuis l'assistant, page « ${page} » de salimxfardeheb.com`,
+        "Source : chatbot",
+        "",
+        `Nom : ${name}`,
+        `Téléphone / WhatsApp : ${phone}`,
+        `E-mail : ${email || "—"}`,
+        "",
+        "Description :",
+        message,
+        "",
+        "— Réponses données dans l'assistant —",
+        ...(answers.length > 0 ? answers.map(([question, answer]) => `• ${question}\n  → ${answer.replace(/\n/g, "\n    ")}`) : ["—"]),
+        "",
+        whatsapp,
+      ].join("\n")
+    : [
+        `Nouvelle demande depuis la page « ${page} » de salimxfardeheb.com`,
+        "Source : formulaire du site",
+        "",
+        `Nom : ${name}`,
+        `Téléphone / WhatsApp : ${phone}`,
+        `${needLabel} : ${need}`,
+        "",
+        "Message :",
+        message,
+        "",
+        whatsapp,
+      ].join("\n");
+
+  const subject = fromChatbot
+    ? `[Chatbot] Nouvelle demande — ${page} — ${name}`
+    : `Nouvelle demande — ${page} — ${name}`;
 
   try {
     await env.EMAIL.send({
       from: { name: "Formulaire Info Expertise", email: env.SENDER_EMAIL },
       to: env.DESTINATION_EMAIL,
-      subject: `Nouvelle demande — ${page} — ${name}`,
+      subject,
       text,
     });
   } catch (error) {
@@ -113,6 +167,56 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
   }
 
   return json({ ok: true });
+}
+
+/** Valide l'objet `answers` du chatbot ; les erreurs sont ajoutées à `errors`. */
+function readAnswers(value: unknown, errors: string[]): [string, string][] {
+  if (value === undefined) return [];
+  if (typeof value !== "object" || value === null || Array.isArray(value)) {
+    errors.push("Les réponses de l'assistant sont invalides.");
+    return [];
+  }
+  const entries = Object.entries(value as Record<string, unknown>);
+  if (entries.length > ANSWERS_MAX.count) {
+    errors.push("Trop de réponses de l'assistant.");
+    return [];
+  }
+  const answers: [string, string][] = [];
+  for (const [question, answer] of entries) {
+    const q = oneLine(question.trim());
+    const a = typeof answer === "string" ? answer.trim() : "";
+    if (!q || !a || q.length > ANSWERS_MAX.question || a.length > ANSWERS_MAX.answer) {
+      errors.push("Les réponses de l'assistant sont invalides.");
+      return [];
+    }
+    answers.push([q, a]);
+  }
+  return answers;
+}
+
+/** Vérifie un jeton Turnstile auprès de Cloudflare. Toute erreur réseau = refus. */
+async function verifyTurnstile(token: string, secret: string, ip: string | null): Promise<boolean> {
+  const form = new FormData();
+  form.append("secret", secret);
+  form.append("response", token);
+  if (ip) form.append("remoteip", ip);
+  try {
+    const response = await fetch(TURNSTILE_VERIFY_URL, { method: "POST", body: form });
+    const result = (await response.json()) as { success?: boolean; "error-codes"?: string[] };
+    if (!result.success) {
+      // Codes d'erreur Cloudflare uniquement (ex. timeout-or-duplicate), aucune donnée personnelle.
+      console.error(`contact: Turnstile refusé (${(result["error-codes"] ?? []).join(", ") || "inconnu"})`);
+    }
+    return result.success === true;
+  } catch {
+    console.error("contact: Turnstile injoignable");
+    return false;
+  }
+}
+
+/** Ramène une valeur sur une seule ligne (sujet et lignes « Clé : valeur » de l'email). */
+function oneLine(value: string) {
+  return value.replace(/\s+/g, " ");
 }
 
 function isSameHost(origin: string, requestUrl: string) {

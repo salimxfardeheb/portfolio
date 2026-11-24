@@ -1,50 +1,43 @@
-import type { Localized } from "@/app/data/projects/types";
-
 /**
- * Rule-based chatbot — types.
+ * Assistant à règles — types.
  *
- * The whole assistant is a graph of static nodes: no AI, no network call, no
- * generated text. Adding a branch means adding a node in
- * app/data/chatbot/conversation.ts, never touching a component.
+ * L'assistant est un graphe de nœuds statiques : aucune IA, aucun appel réseau,
+ * aucun texte généré. Ajouter une branche = ajouter un nœud dans
+ * app/data/chatbot/conversation.ts, sans toucher aux composants.
  */
 
-/** Shelves the assistant can show projects from. "all" matches every visible project. */
-export type ProjectTag = "saas" | "ecommerce" | "management" | "all";
+/** Réponses mises de côté pendant la conversation, envoyées avec le formulaire. */
+export type LeadField = "store" | "ads" | "business" | "need" | "plan" | "projectType" | "budget";
 
-/** Answers kept aside during the qualification branch to prefill the lead form. */
-export type LeadField = "projectType" | "stage" | "priority" | "budget";
-
-/** An extra block rendered by a node, on top of its message and options. */
+/** Bloc ajouté par un nœud, en plus de son message et de ses options. */
 export type ChatWidget =
-  /** A shelf of real portfolio projects. */
-  | { kind: "projects"; tag: ProjectTag }
-  /** A free-text field — the only place the visitor types prose. */
-  | { kind: "text"; placeholder: Localized; next: string }
-  /** The contact form, sent through the site's existing /api/email route. */
+  /** Champ de texte libre — le seul endroit où le visiteur rédige. */
+  | { kind: "text"; placeholder: string; next: string }
+  /** Formulaire de coordonnées, envoyé par POST /api/contact. */
   | { kind: "leadForm"; next: string };
 
 export interface ChatOption {
-  /** Button label, also echoed as the visitor's message. */
-  label: Localized;
-  /** Node to move to when picked. */
+  /** Libellé du bouton, repris comme message du visiteur. */
+  label: string;
+  /** Nœud suivant. */
   next?: string;
   /**
-   * Link to follow instead of moving in the tree: an internal route
-   * ("/portfolio"), a page anchor ("#contact") or an external URL.
-   * Link options are actions, so they leave the conversation where it is.
+   * Lien à suivre au lieu d'avancer dans l'arbre : route interne avec ou sans
+   * ancre ("/e-commercants#offres"), ancre de la page ("#contact") ou URL externe.
+   * La conversation reste où elle est.
    */
   href?: string;
 }
 
 export interface ChatNode {
   id: string;
-  /** Bot message. "\n" is preserved when rendered. */
-  message: Localized;
+  /** Message du bot. Les "\n" sont conservés à l'affichage. */
+  message: string;
   options?: ChatOption[];
   widget?: ChatWidget;
-  /** Store the picked option's label under this field of the lead brief. */
+  /** Enregistre le libellé choisi dans ce champ du brief. */
   collect?: LeadField;
-  /** Drop the automatic "Back / Home" row — the welcome node only. */
+  /** Retire la rangée « Retour / Accueil » — nœud d'accueil uniquement. */
   hideNav?: boolean;
 }
 
@@ -52,24 +45,17 @@ export type Conversation = Record<string, ChatNode>;
 
 export type ChatAuthor = "bot" | "user";
 
-/**
- * One line of the transcript. Text is stored localized, not resolved, so
- * switching language mid-conversation translates the history too.
- */
+/** Une ligne de l'historique. */
 export interface ChatEntry {
   key: string;
   author: ChatAuthor;
-  text: Localized;
-  /** Bot lines only — the node that produced it; the last one owns the live options. */
+  text: string;
+  /** Lignes du bot uniquement : le nœud qui l'a produite. */
   nodeId?: string;
 }
 
-/** What the qualification branch gathered, used to prefill the lead form. */
-export interface LeadDraft {
-  projectType?: Localized;
-  stage?: Localized;
-  priority?: Localized;
-  budget?: Localized;
-  /** Free text typed by the visitor. */
+/** Ce que la conversation a recueilli (tous les champs sont facultatifs). */
+export type LeadDraft = Partial<Record<LeadField, string>> & {
+  /** Texte libre saisi par le visiteur. */
   description?: string;
-}
+};

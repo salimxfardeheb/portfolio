@@ -1,44 +1,40 @@
 "use client";
 import React from "react";
-import { FaTimes } from "react-icons/fa";
-import { useLanguage } from "@/app/context/LanguageContext";
 
 interface Props {
   onOpen: () => void;
   onDismiss: () => void;
+  /** Précharge le panneau quand le visiteur s'approche de l'invitation. */
+  onPrefetch: () => void;
 }
 
 /**
- * The nudge that pops next to the launcher a few seconds after arrival.
- * Tapping it opens the assistant; the × silences it for the session.
+ * L'invitation qui apparaît près du bouton quelques secondes après l'arrivée,
+ * sur écran ≥ 768 px uniquement. Un clic ouvre l'assistant ; × la masque pour la session.
  */
-const ChatTeaser = ({ onOpen, onDismiss }: Props) => {
-  const { t } = useLanguage();
-
-  return (
-    <div className="chat-teaser-in fixed bottom-[28px] right-[84px] z-[45] flex max-w-[200px] items-start gap-1 rounded-2xl rounded-br-md border border-black/10 bg-white py-2 pl-3 pr-1.5 shadow-xl shadow-black/20 md:bottom-[52px] md:right-[114px] md:max-w-[230px]">
-      <button
-        type="button"
-        onClick={onOpen}
-        className="text-left text-[12.5px] font-medium leading-snug text-black/85 transition-colors duration-150 hover:text-black"
-      >
-        {t.chatbot.teaser}
-      </button>
-      <button
-        type="button"
-        onClick={onDismiss}
-        aria-label={t.chatbot.dismiss}
-        className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-black/40 transition-colors duration-150 hover:bg-black/5 hover:text-black"
-      >
-        <FaTimes className="text-[10px]" />
-      </button>
-      {/* Tail pointing at the launcher */}
-      <span
-        aria-hidden="true"
-        className="absolute -right-[6px] bottom-3.5 h-3 w-3 rotate-45 border-b border-r border-black/10 bg-white"
-      />
-    </div>
-  );
-};
+const ChatTeaser = ({ onOpen, onDismiss, onPrefetch }: Props) => (
+  <div className="chat-teaser-in fixed right-[104px] bottom-[44px] z-[45] hidden max-w-[260px] items-start gap-2 border border-ink bg-paper py-2.5 pr-1.5 pl-3 shadow-lg shadow-black/10 md:flex">
+    <span aria-hidden="true" className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent-strong" />
+    <button
+      type="button"
+      onClick={onOpen}
+      onPointerEnter={onPrefetch}
+      onFocus={onPrefetch}
+      className="cursor-pointer text-left text-[14px] leading-snug text-ink"
+    >
+      Une question sur votre projet ? Nous vous orientons en 30 secondes.
+    </button>
+    <button
+      type="button"
+      onClick={onDismiss}
+      aria-label="Masquer ce message"
+      className="-my-2.5 flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center text-muted transition-colors duration-150 hover:text-ink"
+    >
+      <svg viewBox="0 0 12 12" aria-hidden="true" focusable="false" className="h-2.5 w-2.5" stroke="currentColor" strokeWidth="1.6">
+        <path d="M1 1l10 10M11 1L1 11" />
+      </svg>
+    </button>
+  </div>
+);
 
 export default ChatTeaser;

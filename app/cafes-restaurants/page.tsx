@@ -36,7 +36,7 @@ export default function CafesRestaurantsPage() {
   return (
     <>
       <SiteHeader links={nav} />
-      <main>
+      <main id="contenu">
         <LandingHero category="Cafés & restaurants" title={hero.title} lead={hero.lead} />
         <Offers plans={plans} note={plansNote} benefits={benefits} />
         <CareSection title={care.title} text={care.text} />

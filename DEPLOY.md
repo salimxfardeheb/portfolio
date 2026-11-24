@@ -69,6 +69,9 @@ curl -sI $D | grep -i server                                              # clou
 - [ ] Les 3 pages s'affichent (desktop + mobile), l'effet de points marche sur l'accueil.
 - [ ] Formulaire « Envoyer par email » → email reçu ; « Envoyer sur WhatsApp » ouvre la conversation.
 - [ ] Email entrant vers `@salimxfardeheb.com` toujours transféré (Email Routing).
+- [ ] PageSpeed Insights (https://pagespeed.web.dev) en **mobile** sur les 3 pages : performance ≥ 90
+      (en local, avec compression brotli simulée : 100/100/100/100).
+- [ ] `https://salimxfardeheb.com/projects/flowmerce/details.md` → 404 (exclu par `.assetsignore`).
 - [ ] Google Search Console : soumettre `https://salimxfardeheb.com/sitemap.xml`.
 - [ ] Logs : Workers & Pages → `salimxfardeheb` → Observability (erreurs du formulaire = code
       seulement, aucune donnée personnelle).

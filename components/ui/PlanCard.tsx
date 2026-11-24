@@ -1,5 +1,6 @@
 import type { Plan } from "@/content/types";
 import { ButtonLink } from "./Button";
+import { Arrow } from "@/components/ui/Arrow";
 
 export function PlanCard({ code, plan }: { code: string; plan: Plan }) {
   const dark = plan.featured;
@@ -30,7 +31,7 @@ export function PlanCard({ code, plan }: { code: string; plan: Plan }) {
         variant={dark ? "inverse" : "primary"}
         className="mt-auto font-semibold"
       >
-        Demander un devis ↗
+        Demander un devis <Arrow />
       </ButtonLink>
     </div>
   );

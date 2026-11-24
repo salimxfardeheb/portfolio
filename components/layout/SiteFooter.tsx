@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { pages, socials, SITE_NAME } from "@/content/site";
+import { Arrow } from "@/components/ui/Arrow";
 
 const linkClass = "text-cream transition-colors hover:text-accent-soft";
 
@@ -25,7 +26,7 @@ export function SiteFooter({ note }: { note?: string }) {
                 rel="noopener noreferrer"
                 className={linkClass}
               >
-                {social.label} ↗
+                {social.label} <Arrow />
               </a>
             ))}
           </FooterColumn>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Arrow } from "@/components/ui/Arrow";
 
 /** Bandeau sous la navigation : contexte à gauche, information à droite. */
 export function TopBar({ left, right }: { left: ReactNode; right: ReactNode }) {
@@ -14,7 +15,7 @@ export function TopBar({ left, right }: { left: ReactNode; right: ReactNode }) {
 export function BackHome() {
   return (
     <Link href="/" className="transition-colors hover:text-ink">
-      ← Accueil
+      <Arrow dir="back" /> Accueil
     </Link>
   );
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { NavLink } from "@/content/site";
 import { SITE_NAME } from "@/content/site";
+import { Arrow } from "@/components/ui/Arrow";
 
 const linkClass = "transition-colors hover:text-accent-strong";
 
@@ -32,7 +33,7 @@ export function SiteHeader({
             ))}
           </ul>
           <a href={quoteHref} className={linkClass}>
-            Demander un devis ↗
+            Demander un devis <Arrow />
           </a>
         </div>
       </nav>

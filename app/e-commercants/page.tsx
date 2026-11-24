@@ -36,7 +36,7 @@ export default function EcommercantsPage() {
   return (
     <>
       <SiteHeader links={nav} />
-      <main>
+      <main id="contenu">
         <LandingHero category="E-commerçants" title={hero.title} lead={hero.lead} />
         <Offers plans={plans} note={plansNote} benefits={benefits} />
         <CareSection title={care.title} text={care.text} />

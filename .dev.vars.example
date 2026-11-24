@@ -1,1 +1,3 @@
 DESTINATION_EMAIL=salimfardeheb442@gmail.com
+# Clé secrète Turnstile (laisser vide pour désactiver la vérification)
+TURNSTILE_SECRET_KEY=

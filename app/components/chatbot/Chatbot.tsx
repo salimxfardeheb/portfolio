@@ -1,48 +1,73 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { useLanguage } from "@/app/context/LanguageContext";
-import ChatRobot from "./ChatRobot";
+import dynamic from "next/dynamic";
 import ChatTeaser from "./ChatTeaser";
-import ChatWindow from "./ChatWindow";
-import { useChatbot } from "./useChatbot";
 
 /**
- * Quiet on arrival, then the nudge — on every page load, and it stays until
- * the visitor dismisses it or opens the assistant. Nothing is remembered
- * between visits: a returning visitor is invited again.
+ * Discret à l'arrivée, puis l'invitation. Une fois fermée, elle ne revient plus
+ * pendant la session (sessionStorage) ; une nouvelle visite l'affiche à nouveau.
  */
 const TEASER_DELAY_MS = 4000;
+/** L'invitation n'apparaît jamais sur mobile. */
+const TEASER_MEDIA = "(min-width: 768px)";
+const TEASER_STORAGE_KEY = "chatbot-teaser-dismissed";
+
+/** Le moteur, l'arbre et le panneau ne sont téléchargés qu'au survol, au focus ou au clic. */
+const loadPanel = () => import("./ChatPanel");
+const ChatPanel = dynamic(loadPanel, { ssr: false });
+
+function teaserDismissed() {
+  try {
+    return sessionStorage.getItem(TEASER_STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
 
 /**
- * Rule-based assistant: a floating mascot and a panel driven by the static
- * tree in app/data/chatbot/conversation.ts. Mounted once in app/layout.tsx, so
- * the conversation survives navigation. Nothing is sent anywhere until the
- * visitor submits the contact form.
+ * Assistant à règles : au départ, seul le bouton flottant (et l'invitation) est
+ * chargé. Monté une seule fois dans app/layout.tsx, la conversation suit donc la
+ * navigation. Rien n'est envoyé tant que le visiteur n'a pas validé le formulaire.
  */
 const Chatbot = () => {
-  const { t } = useLanguage();
   const [open, setOpen] = useState(false);
+  /** Devient vrai au premier clic et le reste : le panneau garde la conversation. */
+  const [loaded, setLoaded] = useState(false);
   const [teasing, setTeasing] = useState(false);
   const [teaserDone, setTeaserDone] = useState(false);
   const launcherRef = useRef<HTMLButtonElement>(null);
-  const chat = useChatbot();
 
   useEffect(() => {
-    const show = setTimeout(() => setTeasing(true), TEASER_DELAY_MS);
+    if (teaserDismissed()) return;
+    const show = setTimeout(() => {
+      if (window.matchMedia(TEASER_MEDIA).matches) setTeasing(true);
+    }, TEASER_DELAY_MS);
     return () => clearTimeout(show);
   }, []);
 
-  /** Hidden for the rest of this visit — browsing on to another page keeps it quiet. */
-  const silenceTeaser = () => setTeaserDone(true);
+  /** Masquée pour le reste de la session. */
+  const silenceTeaser = () => {
+    setTeaserDone(true);
+    try {
+      sessionStorage.setItem(TEASER_STORAGE_KEY, "1");
+    } catch {
+      // Stockage indisponible (navigation privée stricte) : masquée pour cette page seulement.
+    }
+  };
+
+  const prefetch = () => {
+    void loadPanel();
+  };
 
   const openChat = () => {
+    setLoaded(true);
     setOpen(true);
     silenceTeaser();
   };
 
   const close = () => {
     setOpen(false);
-    // The launcher remounts on close — hand focus back once it is there.
+    // Le bouton est remonté à la fermeture : lui rendre le focus une fois présent.
     setTimeout(() => launcherRef.current?.focus(), 0);
   };
 
@@ -55,23 +80,37 @@ const Chatbot = () => {
           ref={launcherRef}
           type="button"
           onClick={openChat}
-          aria-label={t.chatbot.open}
+          onPointerEnter={prefetch}
+          onFocus={prefetch}
+          aria-label="Ouvrir l'assistant"
           aria-expanded={false}
-          className="fixed bottom-5 right-5 z-[45] flex h-14 w-14 items-center justify-center rounded-full bg-redOrange text-white shadow-lg shadow-redOrange/30 transition-all duration-200 hover:scale-105 hover:shadow-redOrange/50 active:scale-95 md:bottom-10 md:right-10 md:h-16 md:w-16"
+          className="fixed right-5 bottom-5 z-[45] flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-ink text-white shadow-lg shadow-black/20 transition-transform duration-150 hover:scale-105 active:scale-95 md:right-10 md:bottom-10"
         >
-          <ChatRobot variant="head" className="h-8 w-8 md:h-9 md:w-9" />
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+            className="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M4 5h16v11H9l-5 4V5Z" />
+          </svg>
           {nudging && (
             <span
               aria-hidden="true"
-              className="chat-robot-ping absolute right-0.5 top-0.5 h-3 w-3 rounded-full bg-white"
+              className="chat-ping absolute top-1 right-1 h-2.5 w-2.5 rounded-full bg-accent-strong ring-2 ring-paper"
             />
           )}
         </button>
       )}
 
-      {nudging && <ChatTeaser onOpen={openChat} onDismiss={silenceTeaser} />}
+      {nudging && <ChatTeaser onOpen={openChat} onDismiss={silenceTeaser} onPrefetch={prefetch} />}
 
-      {open && <ChatWindow chat={chat} onClose={close} />}
+      {loaded && <ChatPanel open={open} onClose={close} />}
     </>
   );
 };

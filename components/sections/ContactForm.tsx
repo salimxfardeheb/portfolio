@@ -3,6 +3,8 @@
 import { useState, type FormEvent } from "react";
 import { WHATSAPP_NUMBER } from "@/content/site";
 import { buttonClass } from "@/components/ui/Button";
+import { Arrow } from "@/components/ui/Arrow";
+import { Turnstile, turnstileEnabled } from "@/components/ui/Turnstile";
 
 type Status =
   | { kind: "idle" }
@@ -20,7 +22,7 @@ type Fields = {
 
 const labelClass = "caps flex flex-col gap-2 text-dim";
 const fieldClass =
-  "border-0 border-b border-iron bg-transparent py-3 text-base font-normal normal-case tracking-normal text-cream placeholder:text-hint focus:border-cream focus:outline-none";
+  "border-0 border-b border-iron bg-transparent py-3 text-base font-normal normal-case tracking-normal text-cream placeholder:text-hint focus:border-cream";
 
 function readFields(form: HTMLFormElement): Fields {
   const data = new FormData(form);
@@ -47,6 +49,8 @@ export function ContactForm({
   source: string;
 }) {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [token, setToken] = useState<string | null>(null);
+  const [resetSignal, setResetSignal] = useState(0);
 
   // Bouton principal : ouvre WhatsApp avec la demande pré-remplie.
   function sendWhatsApp(event: FormEvent<HTMLFormElement>) {
@@ -72,13 +76,24 @@ export function ContactForm({
   // qui renvoie un message en français affiché sous le formulaire.
   async function sendEmail(form: HTMLFormElement) {
     const fields = readFields(form);
+    if (turnstileEnabled && !token) {
+      setStatus({ kind: "error", message: "Vérification anti-spam en cours. Réessayez dans un instant." });
+      return;
+    }
     setStatus({ kind: "sending" });
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...fields, needLabel: selectLabel, page: source }),
+        body: JSON.stringify({
+          ...fields,
+          needLabel: selectLabel,
+          page: source,
+          turnstileToken: token ?? undefined,
+        }),
       });
+      // Le jeton Turnstile ne sert qu'une fois : en demander un nouveau.
+      setResetSignal((n) => n + 1);
       const result = (await response.json().catch(() => null)) as { error?: string } | null;
       if (response.ok) {
         form.reset();
@@ -94,6 +109,7 @@ export function ContactForm({
           "L’envoi par email a échoué. Réessayez ou écrivez-nous directement sur WhatsApp.",
       });
     } catch {
+      setResetSignal((n) => n + 1);
       setStatus({
         kind: "error",
         message: "Connexion impossible. Réessayez ou écrivez-nous directement sur WhatsApp.",
@@ -157,9 +173,11 @@ export function ContactForm({
         </label>
       </div>
 
+      <Turnstile onToken={setToken} resetSignal={resetSignal} />
+
       <div className="flex flex-wrap gap-3">
         <button type="submit" className={buttonClass("inverse", "cursor-pointer px-[26px]")}>
-          Envoyer sur WhatsApp ↗
+          Envoyer sur WhatsApp <Arrow />
         </button>
         <button
           type="button"

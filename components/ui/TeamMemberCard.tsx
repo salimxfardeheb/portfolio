@@ -6,7 +6,7 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
       {/* eslint-disable-next-line @next/next/no-img-element -- export statique, image déjà dimensionnée */}
       <img
         src={member.photo}
-        alt={`Portrait de ${member.name}`}
+        alt=""
         width={72}
         height={72}
         loading="lazy"
