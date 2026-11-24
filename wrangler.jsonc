@@ -26,7 +26,8 @@
   // DESTINATION_EMAIL (ton adresse vérifiée dans Email Routing) n'est PAS ici :
   //   - en production : `npx wrangler secret put DESTINATION_EMAIL`
   //   - en local      : fichier `.dev.vars` (ignoré par git), voir `.dev.vars.example`
-  // Pas de "routes" : le domaine reste sur Vercel tant que le Worker n'est pas vérifié
-  // sur son URL *.workers.dev.
+  // Custom Domain : Cloudflare crée l'enregistrement DNS et le certificat HTTPS au déploiement.
+  // www → apex se fait par une Redirect Rule (voir DEPLOY.md § 4).
+  "routes": [{ "pattern": "salimxfardeheb.com", "custom_domain": true }],
   "observability": { "enabled": true }
 }
