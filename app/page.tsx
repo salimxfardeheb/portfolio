@@ -53,14 +53,14 @@ export default function HomePage() {
         <section id="services" className="page-x pb-24 md:pb-[120px]">
           <SectionLabel>Nos services</SectionLabel>
           <p className="my-14 max-w-[760px] text-[clamp(32px,3.6vw,48px)] leading-[1.05] font-medium tracking-[-0.03em]">
-            Ce que nous réalisons pour vous
+            De la boutique en ligne au menu QR
           </p>
           <ServicesGrid services={services} border="top" />
         </section>
         <section id="solutions" className="page-x pb-24 md:pb-[120px]">
           <SectionLabel>Pour qui</SectionLabel>
           <p className="mt-14 max-w-[760px] text-[clamp(32px,3.6vw,48px)] leading-[1.05] font-medium tracking-[-0.03em]">
-            Une offre adaptée à votre activité
+            Vous vendez en ligne, ou vous recevez vos clients ?
           </p>
           <Segments segments={segments} />
         </section>

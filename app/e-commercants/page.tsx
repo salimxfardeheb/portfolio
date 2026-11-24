@@ -42,7 +42,7 @@ export default function EcommercantsPage() {
         <CareSection title={care.title} text={care.text} />
 
         <section id="services" className="page-x py-24 md:py-[120px]">
-          <SectionLabel>Services principaux</SectionLabel>
+          <SectionLabel>Ce que comprend votre boutique</SectionLabel>
           <div className="mt-6">
             <ServicesGrid services={services} border="bottom" />
           </div>

@@ -66,7 +66,7 @@ export const benefits: Benefit[] = [
 
 export const care = {
   title: "Nous veillons sur votre site après la mise en ligne",
-  text: "Votre site reste disponible, rapide et protégé. Nous surveillons son fonctionnement, appliquons les mises à jour de sécurité et intervenons rapidement en cas de problème, pour que vos clients trouvent toujours votre menu.",
+  text: "Nous surveillons votre site, appliquons les mises à jour de sécurité et intervenons rapidement en cas de problème, pour que vos clients trouvent toujours votre menu.",
 };
 
 export const services: Service[] = [
