@@ -23,8 +23,6 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const nav = [
-  { label: "E-commerçants", href: "#e-commercants" },
-  { label: "PME", href: "#pme" },
   { label: "Services", href: "#services" },
   { label: "Réalisations", href: "#realisations" },
   { label: "Équipe", href: "#equipe" },
