@@ -47,7 +47,7 @@ export const plans: Plan[] = [
 ];
 
 export const plansNote =
-  "Starter et Plus : démo gratuite, essai 7 jours, paiement unique. Premium : sur devis, 40 % à la commande, 60 % à la livraison, garantie d'un mois. Nom de domaine au nom du client.";
+  "Starter et Plus : démo gratuite, essai 7 jours. Premium : sur devis, 40 % à la commande, 60 % à la livraison, garantie d'un mois. Nom de domaine au nom du client.";
 
 export const benefits: Benefit[] = [
   {

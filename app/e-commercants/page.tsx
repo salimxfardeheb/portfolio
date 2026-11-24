@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Boutique en ligne sur mesure pour e-commerçants",
   description:
-    "Boutique en ligne au design de votre marque : livraison intégrée, administration, Google Sheets et tracking Facebook / TikTok après confirmation. Paiement unique.",
+    "Boutique en ligne au design de votre marque : livraison intégrée, administration, Google Sheets et tracking Facebook / TikTok après confirmation.",
   path: "/e-commercants",
 });
 
