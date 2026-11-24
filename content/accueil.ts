@@ -37,3 +37,39 @@ export const contact: ContactContent = {
   options: ["Boutique en ligne", "Site vitrine / menu QR", "Logiciel de gestion", "Autre"],
   messagePlaceholder: "Parlez-nous de votre commerce",
 };
+
+export type Segment = {
+  id: string;
+  label: string;
+  title: string;
+  text: string;
+  points: string[];
+  href: string;
+};
+
+export const segments: Segment[] = [
+  {
+    id: "e-commercants",
+    label: "E-commerçants",
+    title: "Vendez en ligne, livrez sans effort.",
+    text: "Une boutique au design de votre marque, reliée à votre société de livraison et à vos campagnes Facebook et TikTok.",
+    points: [
+      "Commande en paiement à la livraison",
+      "Administration des produits, stocks et commandes",
+      "Pixel et API de conversion",
+    ],
+    href: "/e-commercants#offres",
+  },
+  {
+    id: "pme",
+    label: "PME · Cafés & restaurants",
+    title: "Soyez visible, faites revenir vos clients.",
+    text: "Un site à l’image de votre établissement, avec votre menu QR et une démo gratuite à essayer 7 jours avant de payer.",
+    points: [
+      "Menu, horaires, adresse et WhatsApp au même endroit",
+      "Menu QR à imprimer pour vos tables",
+      "Carte de fidélité numérique",
+    ],
+    href: "/cafes-restaurants#offres",
+  },
+];

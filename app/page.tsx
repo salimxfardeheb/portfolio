@@ -6,12 +6,13 @@ import { AccentText } from "@/components/ui/AccentText";
 import { ButtonLink } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { TeamMemberCard } from "@/components/ui/TeamMemberCard";
+import { Segments } from "@/components/sections/Segments";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { ProjectList } from "@/components/sections/ProjectList";
 import { ContactFooter } from "@/components/sections/ContactFooter";
 import { team } from "@/content/site";
 import { pageMetadata } from "@/content/seo";
-import { contact, hero, realisations, services } from "@/content/accueil";
+import { contact, hero, realisations, segments, services } from "@/content/accueil";
 import { Arrow } from "@/components/ui/Arrow";
 
 export const metadata: Metadata = pageMetadata({
@@ -22,6 +23,8 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const nav = [
+  { label: "E-commerçants", href: "#e-commercants" },
+  { label: "PME", href: "#pme" },
   { label: "Services", href: "#services" },
   { label: "Réalisations", href: "#realisations" },
   { label: "Équipe", href: "#equipe" },
@@ -43,29 +46,35 @@ export default function HomePage() {
               <p className="max-w-[460px] leading-[1.55] text-body">{hero.lead}</p>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="#contact">Demander un devis <Arrow /></ButtonLink>
-                <ButtonLink href="#realisations" variant="outline">
-                  Voir nos réalisations
+                <ButtonLink href="#solutions" variant="outline">
+                  Voir nos offres
                 </ButtonLink>
               </div>
             </div>
           </section>
         </div>
-
         <section id="services" className="page-x pb-24 md:pb-[120px]">
-          <SectionLabel index="01">Nos services</SectionLabel>
+          <SectionLabel index="02">Nos services</SectionLabel>
           <p className="my-14 max-w-[760px] text-[clamp(32px,3.6vw,48px)] leading-[1.05] font-medium tracking-[-0.03em]">
             Ce que nous réalisons pour vous.
           </p>
           <ServicesGrid services={services} border="top" />
         </section>
+        <section id="solutions" className="page-x pb-24 md:pb-[120px]">
+          <SectionLabel index="01">Pour qui</SectionLabel>
+          <p className="mt-14 max-w-[760px] text-[clamp(32px,3.6vw,48px)] leading-[1.05] font-medium tracking-[-0.03em]">
+            Une offre adaptée à votre activité.
+          </p>
+          <Segments segments={segments} />
+        </section>
 
         <section id="realisations" className="page-x pb-24 md:pb-[120px]">
-          <SectionLabel index="02">Réalisations</SectionLabel>
+          <SectionLabel index="03">Réalisations</SectionLabel>
           <ProjectList projects={realisations} />
         </section>
 
         <section id="equipe" className="page-x pb-[88px]">
-          <SectionLabel index="03">Qui sommes-nous</SectionLabel>
+          <SectionLabel index="04">Qui sommes-nous</SectionLabel>
           <div className="mt-9 flex flex-wrap items-start gap-x-12 gap-y-8">
             <p className="flex-[1_1_260px] text-2xl leading-[1.15] font-medium tracking-[-0.02em]">
               Une petite équipe, un interlocuteur direct.
