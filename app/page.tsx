@@ -17,7 +17,7 @@ import { contact, hero, realisations, segments, services } from "@/content/accue
 export const metadata: Metadata = pageMetadata({
   title: null,
   description:
-    "Agence web à Oran : boutiques en ligne, sites vitrines, menus QR et logiciels de gestion sur mesure pour les commerces en Algérie. Paiement unique, sans abonnement.",
+    "Agence web à Oran : boutiques en ligne, sites vitrines, menus QR et logiciels de gestion sur mesure pour les commerces en Algérie.",
   path: "/",
 });
 
@@ -84,7 +84,7 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      <ContactFooter contact={contact} source="Accueil" note="Paiement unique, sans abonnement" />
+      <ContactFooter contact={contact} source="Accueil" />
     </>
   );
 }

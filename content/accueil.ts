@@ -6,7 +6,7 @@ export const hero: { title: AccentTitle; lead: string } = {
     accent: "Sites et logiciels",
     after: " sur mesure pour les commerces qui veulent vendre plus",
   },
-  lead: "Nous concevons chaque projet de zéro, au design de votre marque : boutiques en ligne, sites vitrines et outils de gestion. Paiement unique, sans abonnement.",
+  lead: "Nous concevons chaque projet de zéro, au design de votre marque : boutiques en ligne, sites vitrines et outils de gestion.",
 };
 
 export const services: Service[] = [
