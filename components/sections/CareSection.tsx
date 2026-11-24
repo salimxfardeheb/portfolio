@@ -8,10 +8,9 @@ export function CareSection({ title, text }: { title: string; text: string }) {
     <section aria-labelledby="suivi-title" className="bg-cream">
       <div className="page-x flex flex-wrap items-start gap-12 py-24">
         <div className="min-w-0 flex-[1_1_360px]">
-          <span className="caps text-muted">— Suivi &amp; sécurité</span>
           <h2
             id="suivi-title"
-            className="mt-5 text-[clamp(30px,3.4vw,44px)] leading-[1.05] font-medium tracking-[-0.03em]"
+            className="text-[clamp(30px,3.4vw,44px)] leading-[1.05] font-medium tracking-[-0.03em]"
           >
             {title}
           </h2>

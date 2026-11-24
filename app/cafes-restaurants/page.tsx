@@ -29,7 +29,7 @@ export const metadata: Metadata = pageMetadata({
 const nav = [
   { label: "Offres", href: "#offres" },
   { label: "Services", href: "#services" },
-  { label: "Projets", href: "#projets" },
+  ...(similarProjects.length > 0 ? [{ label: "Projets", href: "#projets" }] : []),
 ];
 
 export default function CafesRestaurantsPage() {
@@ -42,17 +42,19 @@ export default function CafesRestaurantsPage() {
         <CareSection title={care.title} text={care.text} />
 
         <section id="services" className="page-x py-24 md:py-[120px]">
-          <SectionLabel index="02">Services principaux</SectionLabel>
+          <SectionLabel>Services principaux</SectionLabel>
           <div className="mt-6">
             <ServicesGrid services={services} border="bottom" />
           </div>
         </section>
 
-        {/* Vide tant que content/cafes-restaurants.ts → similarProjects est vide. */}
-        <section id="projets" className="page-x pb-24 md:pb-[120px]">
-          <SectionLabel index="03">Projets similaires</SectionLabel>
-          <ProjectList projects={similarProjects} />
-        </section>
+        {/* Masquée (avec son lien de nav) tant que content/cafes-restaurants.ts → similarProjects est vide. */}
+        {similarProjects.length > 0 && (
+          <section id="projets" className="page-x pb-24 md:pb-[120px]">
+            <SectionLabel>Projets similaires</SectionLabel>
+            <ProjectList projects={similarProjects} />
+          </section>
+        )}
       </main>
       <ContactFooter contact={contact} source="Cafés & restaurants" />
     </>

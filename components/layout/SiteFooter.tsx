@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { pages, socials, SITE_NAME } from "@/content/site";
-import { Arrow } from "@/components/ui/Arrow";
 
 const linkClass = "text-cream transition-colors hover:text-accent-soft";
 
@@ -26,7 +25,7 @@ export function SiteFooter({ note }: { note?: string }) {
                 rel="noopener noreferrer"
                 className={linkClass}
               >
-                {social.label} <Arrow />
+                {social.label}
               </a>
             ))}
           </FooterColumn>
@@ -36,9 +35,9 @@ export function SiteFooter({ note }: { note?: string }) {
           </FooterColumn>
         </div>
       </div>
-      <div className="page-x caps flex flex-wrap justify-between gap-3 pt-5 pb-8 text-dim">
+      <div className="page-x label flex flex-wrap justify-between gap-3 pt-5 pb-8 text-dim">
         <span>
-          © {new Date().getFullYear()} {SITE_NAME} — Salim Fardeheb, auto-entrepreneur, Oran.
+          © {new Date().getFullYear()} {SITE_NAME}, Salim Fardeheb, auto-entrepreneur, Oran.
         </span>
         {note && <span>{note}</span>}
       </div>
@@ -49,7 +48,7 @@ export function SiteFooter({ note }: { note?: string }) {
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-[1_1_200px] flex-col gap-3">
-      <span className="caps text-dim">{title}</span>
+      <span className="label text-dim">{title}</span>
       {children}
     </div>
   );

@@ -62,7 +62,7 @@ export const segments: Segment[] = [
   },
   {
     id: "pme",
-    label: "PME · Cafés & restaurants",
+    label: "PME, cafés et restaurants",
     title: "Soyez visible, faites revenir vos clients",
     text: "Un site à l’image de votre établissement, avec votre menu QR et une démo gratuite à essayer 7 jours avant de payer.",
     points: [

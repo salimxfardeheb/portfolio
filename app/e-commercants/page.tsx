@@ -42,14 +42,14 @@ export default function EcommercantsPage() {
         <CareSection title={care.title} text={care.text} />
 
         <section id="services" className="page-x py-24 md:py-[120px]">
-          <SectionLabel index="02">Services principaux</SectionLabel>
+          <SectionLabel>Services principaux</SectionLabel>
           <div className="mt-6">
             <ServicesGrid services={services} border="bottom" />
           </div>
         </section>
 
         <section id="projets" className="page-x pb-24 md:pb-[120px]">
-          <SectionLabel index="03">Projets similaires</SectionLabel>
+          <SectionLabel>Projets similaires</SectionLabel>
           <ProjectList projects={similarProjects} />
         </section>
       </main>

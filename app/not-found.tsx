@@ -17,11 +17,11 @@ export default function NotFound() {
     <>
       <SiteHeader links={pages.slice(1)} quoteHref="/#contact" />
       <main id="contenu" className="page-x pt-12 pb-24 md:pt-16 md:pb-[120px]">
-        <SectionLabel index="404" as="p">
+        <SectionLabel as="p">
           Page introuvable
         </SectionLabel>
         <h1 className="mt-14 max-w-[800px] text-[clamp(40px,5vw,64px)] leading-none font-medium tracking-[-0.04em]">
-          Cette page <span className="text-accent">n’existe pas</span>.
+          Cette page n’existe pas.
         </h1>
         <p className="mt-8 max-w-[460px] leading-[1.55] text-body">
           Elle a peut-être été déplacée lors de la refonte du site. Choisissez une page ci-dessous.

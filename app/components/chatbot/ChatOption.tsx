@@ -7,12 +7,6 @@ import type { ChatOption as Option } from "@/app/types/chatbot";
 export const optionClass =
   "flex min-h-11 w-full cursor-pointer items-center justify-between gap-3 border border-ink bg-paper px-3.5 py-2.5 text-left text-[14px] text-ink transition-colors duration-150 hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-paper disabled:hover:text-ink";
 
-const Mark = ({ children }: { children: string }) => (
-  <span aria-hidden="true" className="shrink-0 text-[13px]">
-    {children}
-  </span>
-);
-
 interface Props {
   option: Option;
   disabled?: boolean;
@@ -41,7 +35,6 @@ const ChatOption = ({ option, disabled = false, onSelect, onLeave }: Props) => {
         }}
       >
         {label}
-        <Mark>→</Mark>
       </a>
     );
   }
@@ -50,7 +43,6 @@ const ChatOption = ({ option, disabled = false, onSelect, onLeave }: Props) => {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={optionClass}>
         {label}
-        <Mark>↗</Mark>
       </a>
     );
   }
@@ -60,7 +52,6 @@ const ChatOption = ({ option, disabled = false, onSelect, onLeave }: Props) => {
     return (
       <Link href={href} onClick={onLeave} className={optionClass}>
         {label}
-        <Mark>→</Mark>
       </Link>
     );
   }
@@ -68,7 +59,6 @@ const ChatOption = ({ option, disabled = false, onSelect, onLeave }: Props) => {
   return (
     <button type="button" disabled={disabled} className={optionClass} onClick={() => onSelect(option)}>
       {label}
-      <Mark>›</Mark>
     </button>
   );
 };

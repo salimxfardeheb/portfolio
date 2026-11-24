@@ -3,7 +3,6 @@
 import { useState, type FormEvent } from "react";
 import { WHATSAPP_NUMBER } from "@/content/site";
 import { buttonClass } from "@/components/ui/Button";
-import { Arrow } from "@/components/ui/Arrow";
 import { Turnstile, turnstileEnabled } from "@/components/ui/Turnstile";
 
 type Status =
@@ -20,9 +19,9 @@ type Fields = {
   website: string; // champ piège anti-spam, invisible pour les humains
 };
 
-const labelClass = "caps flex flex-col gap-2 text-dim";
+const labelClass = "label flex flex-col gap-2 text-dim";
 const fieldClass =
-  "border-0 border-b border-iron bg-transparent py-3 text-base font-normal normal-case tracking-normal text-cream placeholder:text-hint focus:border-cream";
+  "border-0 border-b border-muted bg-transparent py-3 text-base font-normal normal-case tracking-normal text-cream placeholder:text-hint focus:border-cream";
 
 function readFields(form: HTMLFormElement): Fields {
   const data = new FormData(form);
@@ -177,7 +176,7 @@ export function ContactForm({
 
       <div className="flex flex-wrap gap-3">
         <button type="submit" className={buttonClass("inverse", "cursor-pointer px-[26px]")}>
-          Envoyer sur WhatsApp <Arrow />
+          Envoyer sur WhatsApp
         </button>
         <button
           type="button"

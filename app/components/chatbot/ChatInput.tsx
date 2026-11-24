@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { FiArrowRight } from "react-icons/fi";
 
 interface Props {
   placeholder: string;
@@ -39,7 +40,7 @@ const ChatInput = ({ placeholder, disabled, onSubmit }: Props) => {
         disabled={disabled || !value.trim()}
         className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center bg-ink text-paper transition-opacity duration-150 disabled:cursor-not-allowed disabled:opacity-40"
       >
-        <span aria-hidden="true">→</span>
+        <FiArrowRight aria-hidden="true" className="size-4" />
       </button>
     </form>
   );

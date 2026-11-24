@@ -37,7 +37,6 @@ const ChatOptions = ({ node, disabled, canGoBack, onSelect, onBack, onHome, onLe
       <div className="flex gap-2 pt-1">
         {canGoBack && (
           <button type="button" className={navClass} disabled={disabled} onClick={onBack}>
-            <span aria-hidden="true">←</span>
             {BACK_LABEL}
           </button>
         )}

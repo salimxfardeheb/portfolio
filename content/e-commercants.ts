@@ -44,7 +44,7 @@ export const plans: Plan[] = [
 ];
 
 export const plansNote =
-  "Développement sur mesure · Prix sur devis · Paiement unique pour la réalisation (40 % à la signature, 60 % à la validation) · Hébergement et nom de domaine non inclus, à la charge du client.";
+  "Développement sur mesure, prix sur devis. Paiement unique pour la réalisation (40 % à la signature, 60 % à la validation). Hébergement et nom de domaine non inclus, à la charge du client.";
 
 export const benefits: Benefit[] = [
   {

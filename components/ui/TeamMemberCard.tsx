@@ -14,7 +14,7 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
       />
       <div>
         <p className="mb-1 text-lg font-medium">{member.name}</p>
-        <p className="caps mb-2 text-muted">{member.role}</p>
+        <p className="label mb-2 text-muted">{member.role}</p>
         <p className="max-w-[460px] text-sm leading-[1.5] text-body">{member.bio}</p>
       </div>
     </div>

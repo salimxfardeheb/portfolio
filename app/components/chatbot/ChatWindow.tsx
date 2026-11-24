@@ -94,7 +94,7 @@ const ChatWindow = ({ chat, onClose }: Props) => {
       <header className="flex items-center gap-3 border-b border-ink px-4 py-3">
         <div className="min-w-0">
           <p className="text-[15px] leading-tight font-semibold">Info Expertise</p>
-          <p className="caps mt-0.5 text-muted">Assistant</p>
+          <p className="label mt-0.5 text-muted">Assistant</p>
         </div>
         <button
           type="button"

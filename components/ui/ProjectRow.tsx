@@ -1,4 +1,5 @@
 import type { Project } from "@/content/site";
+import { Arrow } from "@/components/ui/Arrow";
 
 export function ProjectRow({ code, project }: { code: string; project: Project }) {
   return (
@@ -15,13 +16,8 @@ export function ProjectRow({ code, project }: { code: string; project: Project }
         </h3>
         <p className="max-w-[560px] leading-[1.55] text-muted">{project.summary}</p>
       </div>
-      <span className="caps w-[200px] shrink-0 text-muted">{project.category}</span>
-      <span
-        aria-hidden="true"
-        className="w-6 shrink-0 text-lg transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-      >
-        ↗
-      </span>
+      <span className="label w-[200px] shrink-0 text-muted">{project.category}</span>
+      <Arrow className="mt-1 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       <span className="sr-only">(ouvre le site du projet dans un nouvel onglet)</span>
     </a>
   );

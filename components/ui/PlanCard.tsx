@@ -1,6 +1,5 @@
 import type { Plan } from "@/content/types";
 import { ButtonLink } from "./Button";
-import { Arrow } from "@/components/ui/Arrow";
 
 export function PlanCard({ code, plan }: { code: string; plan: Plan }) {
   const dark = plan.featured;
@@ -12,7 +11,7 @@ export function PlanCard({ code, plan }: { code: string; plan: Plan }) {
     >
       <div className={`flex items-baseline justify-between gap-3 ${dark ? "text-dim" : "text-muted"}`}>
         <span className="text-[13px] font-medium">{code}</span>
-        <span className="caps">{plan.badge}</span>
+        <span className="label">{plan.badge}</span>
       </div>
       <h3 className="text-[40px] font-medium leading-tight tracking-[-0.03em]">{plan.name}</h3>
       <p className={`leading-[1.55] ${dark ? "text-dim" : "text-muted"}`}>{plan.summary}</p>
@@ -31,7 +30,7 @@ export function PlanCard({ code, plan }: { code: string; plan: Plan }) {
         variant={dark ? "inverse" : "primary"}
         className="mt-auto font-semibold"
       >
-        Demander un devis <Arrow />
+        Demander un devis
       </ButtonLink>
     </div>
   );

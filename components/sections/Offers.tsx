@@ -7,7 +7,7 @@ import { BenefitItem } from "@/components/ui/BenefitItem";
 export function Offers({ plans, note, benefits }: { plans: Plan[]; note: string; benefits: Benefit[] }) {
   return (
     <section id="offres" className="page-x pb-24 md:pb-[120px]">
-      <SectionLabel index="01">Nos offres</SectionLabel>
+      <SectionLabel>Nos offres</SectionLabel>
       <div className="mt-12 grid border border-line lg:grid-cols-3">
         {plans.map((plan, i) => (
           <PlanCard key={plan.name} code={`P.${String(i + 1).padStart(2, "0")}`} plan={plan} />

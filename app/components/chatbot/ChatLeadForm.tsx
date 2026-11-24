@@ -21,7 +21,7 @@ const MAX_DESCRIPTION = 2000;
 
 const fieldClass =
   "w-full border border-ink bg-paper px-3 py-2 text-[14px] text-ink placeholder:text-muted focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent";
-const labelClass = "caps text-muted";
+const labelClass = "label text-muted";
 
 interface Props {
   /** Réponses recueillies dans la conversation. */
@@ -252,7 +252,7 @@ const ChatLeadForm = ({ lead, onSent }: Props) => {
             rel="noopener noreferrer"
             className="inline-flex min-h-11 items-center justify-center gap-2 border border-ink px-3 py-2 text-[14px] text-ink transition-colors duration-150 hover:bg-ink hover:text-paper"
           >
-            WhatsApp <span aria-hidden="true">↗</span>
+            WhatsApp
           </a>
         </div>
       )}

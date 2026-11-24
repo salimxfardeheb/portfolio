@@ -1,7 +1,9 @@
+import { FiArrowUpRight } from "react-icons/fi";
+
 /**
- * Flèche décorative du design (↗ ou ←). Masquée aux lecteurs d'écran, qui liraient sinon
+ * Flèche « lien externe » des lignes de projet. Masquée aux lecteurs d'écran, qui liraient sinon
  * « flèche nord-est » ; le libellé du lien suffit.
  */
-export function Arrow({ dir = "out" }: { dir?: "out" | "back" }) {
-  return <span aria-hidden="true">{dir === "out" ? "↗" : "←"}</span>;
+export function Arrow({ className = "" }: { className?: string }) {
+  return <FiArrowUpRight aria-hidden="true" className={`size-5 ${className}`.trim()} />;
 }
