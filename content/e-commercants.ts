@@ -1,5 +1,7 @@
 import type { AccentTitle, Benefit, ContactContent, Plan, Service } from "./types";
-import { projects } from "./site";
+import iaStore from "@/app/data/projects/ia-store";
+import almasseBeauty from "@/app/data/projects/almasse-beauty";
+import flowmerce from "@/app/data/projects/flowmerce";
 
 export const hero: { title: AccentTitle; lead: string } = {
   title: { before: "Votre ", accent: "boutique en ligne", after: ", conçue pour vendre et livrer" },
@@ -85,7 +87,7 @@ export const services: Service[] = [
   },
 ];
 
-export const similarProjects = [projects.iaStore, projects.flowmerce];
+export const similarProjects = [iaStore, almasseBeauty, flowmerce];
 
 export const contact: ContactContent = {
   title: { before: "Prêt à lancer votre ", accent: "boutique", after: " ?" },

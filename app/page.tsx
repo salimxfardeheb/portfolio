@@ -21,6 +21,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/",
 });
 
+
 const nav = [
   { label: "Services", href: "#services" },
   { label: "Réalisations", href: "#realisations" },

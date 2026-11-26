@@ -1,8 +1,9 @@
-/* Hallmark · checked: 2026-11-24 · genre: editorial (inferred) · surface: absolute
+/* Hallmark · checked: 2026-11-26 · genre: editorial (inferred) · surface: absolute
  * floor: 0 FAIL · fixed: 7 (19, 30a, 34, 38iii, 40, 54, 63) · structural: printed (44c, 58, 59, 77, 78)
  * built: the project · redesign: polish · v2.0.0 */
 /* Hallmark · waive 7b · papier blanc pur · c'est le papier de la charte 2026 (design-ref/), le crème porte déjà la chaleur */
 /* Hallmark · dropped #projets, 01 nos services, 02 pour qui, 03 réalisations, 04 qui sommes-nous, 01 nos offres, 02 services principaux, 03 projets similaires, ce que nous réalisons pour vous, une offre adaptée à votre activité · numéros retirés des intitulés (gate 54), titres génériques réécrits à partir des faits de la page à la demande du propriétaire, la section projets vide est masquée avec son lien */
+/* Hallmark · dropped fenêtre de navigateur dessinée autour des captures (30a), point de couleur décoratif (63), flèches collées aux liens (63) · reworded tirets cadratins des textes de projets en virgules, deux-points et parenthèses (19), catégories « SaaS · … » en « SaaS, … » (63) */
 @import "tailwindcss";
 
 @theme {

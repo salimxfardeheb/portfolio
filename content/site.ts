@@ -1,5 +1,6 @@
 /**
- * Données partagées par les 3 pages : navigation, réseaux, projets, équipe.
+ * Données partagées par les pages : navigation, réseaux, équipe.
+ * Les projets sont dans app/data/ (portfolio.config.ts pour choisir lesquels s'affichent).
  * Les textes propres à chaque page sont dans content/<page>.ts.
  */
 
@@ -16,40 +17,17 @@ export const pages: NavLink[] = [
   { label: "Cafés & restaurants", href: "/cafes-restaurants" },
 ];
 
+/** Liste déroulante « Offres » de la navigation : une entrée par page d'offre. */
+export const offers: (NavLink & { text: string })[] = [
+  { label: "E-commerçants", href: "/e-commercants#offres", text: "Boutique en ligne sur mesure" },
+  { label: "Cafés & restaurants", href: "/cafes-restaurants#offres", text: "Site vitrine et menu QR" },
+];
+
 export const socials: NavLink[] = [
   { label: "WhatsApp", href: `https://wa.me/${WHATSAPP_NUMBER}` },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/salim-fardeheb" },
   { label: "GitHub", href: "https://github.com/salimxfardeheb" },
 ];
-
-export type Project = {
-  name: string;
-  summary: string;
-  category: string;
-  href: string;
-};
-
-export const projects = {
-  flowmerce: {
-    name: "Flowmerce",
-    summary:
-      "Gestion des retours e-commerce et détection des commandes frauduleuses en paiement à la livraison.",
-    category: "Plateforme SaaS",
-    href: "https://flowmerce-web-app.vercel.app/",
-  },
-  costumia: {
-    name: "Costumia",
-    summary: "Plateforme de gestion de location de costumes pour les boutiques en Algérie.",
-    category: "Logiciel de gestion",
-    href: "https://location-costumes.vercel.app/",
-  },
-  iaStore: {
-    name: "IA Store",
-    summary: "Boutique de mode homme sur mesure, avec un espace d’administration dédié.",
-    category: "Boutique en ligne",
-    href: "https://ia-store.vercel.app/",
-  },
-} satisfies Record<string, Project>;
 
 export type TeamMember = {
   name: string;

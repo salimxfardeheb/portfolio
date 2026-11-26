@@ -11,7 +11,7 @@ const almasseBeauty: Project = {
   link: "https://almasse-beauty.com/",
   category: {
     en: "Custom e-commerce · Beauty",
-    fr: "E-commerce sur mesure · Beauté",
+    fr: "E-commerce sur mesure, beauté",
   },
   tagline: {
     en: "Authentic cosmetics, delivered across all 58 wilayas.",
@@ -23,9 +23,18 @@ const almasseBeauty: Project = {
     fr: "Design, développement de la vitrine & de l'administration",
   },
   cover: img("home.png"),
+  excerpt: {
+    en: "Authentic cosmetics store with cash on delivery across all 58 wilayas.",
+    fr: "Boutique de cosmétiques authentiques, paiement à la livraison dans les 58 wilayas.",
+  },
+  /** Version courte affichée sur la page du projet (français). */
+  brief: {
+    need: "Sur un marché plein de contrefaçons, les clientes ne paient pas d'avance des cosmétiques qu'elles ne peuvent pas vérifier.",
+    solution: "Une boutique qui rassure dès le premier écran : vraies marques affichées, authenticité garantie, paiement à la livraison dans les 58 wilayas. La gérante suit commandes, stock et ventes depuis son espace.",
+  },
   summary: {
     en: "Almasse Beauty is an online beauty store selling hand-picked makeup and skincare from real brands — Huda Beauty, Rare Beauty, Fenty, Maybelline, NYX, e.l.f., Estée Lauder. It pairs a soft, brand-led storefront with an admin space precise enough to run the shop day to day: revenue, order pipeline, shade-level stock and customer accounts.",
-    fr: "Almasse Beauty est une boutique de beauté en ligne qui vend du maquillage et des soins sélectionnés à la main, issus de vraies marques — Huda Beauty, Rare Beauty, Fenty, Maybelline, NYX, e.l.f., Estée Lauder. Elle associe une vitrine douce et centrée sur les marques à un espace d'administration assez précis pour piloter la boutique au quotidien : chiffre d'affaires, file des commandes, stock à la teinte et comptes clientes.",
+    fr: "Almasse Beauty est une boutique de beauté en ligne qui vend du maquillage et des soins sélectionnés à la main, issus de vraies marques : Huda Beauty, Rare Beauty, Fenty, Maybelline, NYX, e.l.f., Estée Lauder. Elle associe une vitrine douce et centrée sur les marques à un espace d'administration assez précis pour piloter la boutique au quotidien : chiffre d'affaires, file des commandes, stock à la teinte et comptes clientes.",
   },
   challenge: {
     en: "In a market flooded with counterfeits, customers will not prepay for cosmetics they cannot verify. The shop had to earn trust before it could sell: prove the products are genuine, name the brands it carries, and let people pay only once the parcel is in their hands.",
@@ -46,7 +55,7 @@ const almasseBeauty: Project = {
     ],
     fr: [
       "Mur des marques et garantie d'authenticité placés dès le premier écran pour installer la confiance",
-      "Catalogue filtré par marque et par statut — nouveautés, best-sellers, promotions — jusqu'à la teinte",
+      "Catalogue filtré par marque et par statut (nouveautés, best-sellers, promotions), jusqu'à la teinte",
       "Paiement à la livraison, 58 wilayas couvertes et 77 bureaux de retrait",
       "Tableau de bord : commandes du mois, chiffre d'affaires hors annulations, demandes en attente de réponse",
       "File des commandes avec statut par commande et surveillance des stocks faibles à la déclinaison",

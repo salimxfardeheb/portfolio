@@ -26,8 +26,8 @@ export const metadata: Metadata = pageMetadata({
   path: "/cafes-restaurants",
 });
 
+
 const nav = [
-  { label: "Offres", href: "#offres" },
   { label: "Services", href: "#services" },
   ...(similarProjects.length > 0 ? [{ label: "Projets", href: "#projets" }] : []),
 ];

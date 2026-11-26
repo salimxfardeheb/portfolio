@@ -3,8 +3,8 @@
  *  PORTFOLIO — le seul fichier à modifier pour afficher ou masquer
  * ═══════════════════════════════════════════════════════════════════
  *
- *  visible: true   → le projet apparaît sur la page /portfolio
- *  visible: false  → le projet est masqué partout
+ *  visible: true   → le projet a sa page /realisations/<slug>
+ *  visible: false  → le projet est masqué partout (pas de page)
  *
  *  home: true      → le projet apparaît AUSSI sur la page d'accueil
  *                    (sans effet si visible est false)
@@ -15,9 +15,10 @@
  *  Ajouter un projet
  * ───────────────────────────────────────────────────────────────────
  *  1. Mets tes captures dans   public/projects/<nom>/images/
- *  2. Copie                    app/data/projects/_template.ts
+ *  2. Lance                     npm run images   (génère les versions légères)
+ *  3. Copie                    app/data/projects/_template.ts
  *     vers                     app/data/projects/<nom>.ts   et remplis-le
- *  3. Importe-le ci-dessous et ajoute une ligne dans la liste
+ *  4. Importe-le ci-dessous et ajoute une ligne dans la liste
  */
 import type { Project } from "./projects/types";
 import flowmerce from "./projects/flowmerce";

@@ -1,5 +1,5 @@
 import type { AccentTitle, Benefit, ContactContent, Plan, Service } from "./types";
-import type { Project } from "./site";
+import type { Project } from "@/app/data/projects/types";
 
 export const hero: { title: AccentTitle; lead: string } = {
   title: { before: "Le site de votre ", accent: "café ou restaurant", after: ", avant même de payer" },
@@ -89,9 +89,8 @@ export const services: Service[] = [
 ];
 
 /**
- * Projets affichés dans « 03 Projets similaires ». Vide pour l'instant : la section n'affiche
- * que son label. Ajoute un projet ici (ex. `projects.xxx` de ./site, ou un objet Project)
- * et il apparaîtra automatiquement, numéroté P.01, P.02…
+ * Projets affichés dans « Projets similaires ». Vide pour l'instant : la section est masquée.
+ * Importe un projet de app/data/projects/ et ajoute-le ici pour qu'elle apparaisse.
  */
 export const similarProjects: Project[] = [];
 

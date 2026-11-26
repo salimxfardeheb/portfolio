@@ -1,5 +1,5 @@
 import type { AccentTitle, ContactContent, Service } from "./types";
-import { projects } from "./site";
+import { homeProjects } from "@/app/data/portfolio";
 
 export const hero: { title: AccentTitle; lead: string } = {
   title: {
@@ -28,7 +28,8 @@ export const services: Service[] = [
   },
 ];
 
-export const realisations = [projects.flowmerce, projects.costumia, projects.iaStore];
+/** Projets marqués `home: true` dans app/data/portfolio.config.ts. */
+export const realisations = homeProjects;
 
 export const contact: ContactContent = {
   title: { before: "Un projet pour votre ", accent: "commerce", after: " ?" },

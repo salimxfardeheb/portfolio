@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { NavLink } from "@/content/site";
 import { SITE_NAME } from "@/content/site";
+import { OffersMenu } from "./OffersMenu";
 
 const linkClass = "transition-colors hover:text-accent-strong";
 
@@ -23,6 +24,7 @@ export function SiteHeader({
             {SITE_NAME}
           </Link>
           <ul className="order-last flex w-full flex-wrap gap-x-7 gap-y-2 sm:order-none sm:w-auto">
+            <OffersMenu linkClass={linkClass} />
             {links.map((link) => (
               <li key={link.href}>
                 <a href={link.href} className={linkClass}>

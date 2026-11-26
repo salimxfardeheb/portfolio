@@ -26,8 +26,8 @@ export const metadata: Metadata = pageMetadata({
   path: "/e-commercants",
 });
 
+
 const nav = [
-  { label: "Offres", href: "#offres" },
   { label: "Services", href: "#services" },
   { label: "Projets", href: "#projets" },
 ];

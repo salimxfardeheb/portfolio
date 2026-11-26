@@ -19,7 +19,7 @@ const project: Project = {
   accent: "#FF302F", // couleur de la marque du projet (petit point + bord du cadre)
   host: "mon-projet.vercel.app", // texte de la fausse barre d'adresse — optionnel
   link: "https://mon-projet.vercel.app/", // bouton « Voir le site » — supprime la ligne s'il n'y a pas de site en ligne
-  category: { en: "SaaS · Category", fr: "SaaS · Catégorie" },
+  category: { en: "SaaS, category", fr: "SaaS, catégorie" },
   tagline: { en: "The promise in one line.", fr: "La promesse en une phrase." },
   duration: { en: "1–3 months", fr: "1 à 3 mois" },
   role: {
@@ -27,6 +27,15 @@ const project: Project = {
     fr: "Conception & développement full-stack",
   },
   cover: img("home.png"), // grande image principale
+  excerpt: {
+    en: "One short sentence for project lists.",
+    fr: "Une phrase courte pour les listes de projets.",
+  },
+  /** Version courte affichée sur la page du projet (français). */
+  brief: {
+    need: "Le problème du client, en une ou deux phrases.",
+    solution: "Ce que nous avons construit, en une ou deux phrases, sans jargon technique.",
+  },
   summary: {
     en: "What the product is and who it is for, in 2–3 sentences.",
     fr: "Ce qu'est le produit et pour qui, en 2–3 phrases.",
@@ -39,7 +48,6 @@ const project: Project = {
     en: "What you built, concretely.",
     fr: "Ce que tu as construit, concrètement.",
   },
-  // Les 3 premières s'affichent aussi sur la page d'accueil
   highlights: {
     en: ["Feature 1", "Feature 2", "Feature 3"],
     fr: ["Fonctionnalité 1", "Fonctionnalité 2", "Fonctionnalité 3"],

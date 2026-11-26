@@ -11,7 +11,7 @@ const flowmerce: Project = {
   link: "https://flowmerce-web-app.vercel.app/",
   category: {
     en: "SaaS · AI & Machine Learning",
-    fr: "SaaS · IA & Machine Learning",
+    fr: "SaaS, IA et machine learning",
   },
   tagline: {
     en: "AI recommends, the merchant decides.",
@@ -23,9 +23,18 @@ const flowmerce: Project = {
     fr: "Conception produit, développement full-stack & pipeline ML",
   },
   cover: img("public/home.png"),
+  excerpt: {
+    en: "Return management and fraud detection for cash-on-delivery e-commerce orders.",
+    fr: "Gestion des retours e-commerce et détection des commandes frauduleuses en paiement à la livraison.",
+  },
+  /** Version courte affichée sur la page du projet (français). */
+  brief: {
+    need: "Les boutiques traitent leurs retours à la main, un e-mail à la fois. C'est lent, et un client abusif refusé par une boutique passe simplement à la suivante.",
+    solution: "Une plateforme qui analyse chaque réclamation et propose la bonne décision : échange, remboursement, réparation ou refus. Le marchand valide en un clic, et les fraudeurs sont repérés d'une boutique à l'autre.",
+  },
   summary: {
     en: "Flowmerce is a SaaS platform that handles e-commerce return claims from end to end. A customer files a claim on a portal carrying the store's own brand; the platform cross-checks it against the merchant's return policy and the customer's history, then recommends a resolution — exchange, refund, repair or refusal — with a confidence score the merchant can accept, override, or let run automatically.",
-    fr: "Flowmerce est une plateforme SaaS qui prend en charge les réclamations de retour e-commerce de bout en bout. Le client dépose sa demande sur un portail aux couleurs de la boutique ; la plateforme la confronte à la politique de retour du marchand et à l'historique du client, puis recommande une résolution — échange, remboursement, réparation ou refus — avec un score de confiance que le marchand peut accepter, modifier, ou laisser s'appliquer automatiquement.",
+    fr: "Flowmerce est une plateforme SaaS qui prend en charge les réclamations de retour e-commerce de bout en bout. Le client dépose sa demande sur un portail aux couleurs de la boutique ; la plateforme la confronte à la politique de retour du marchand et à l'historique du client, puis recommande une résolution (échange, remboursement, réparation ou refus) avec un score de confiance que le marchand peut accepter, modifier, ou laisser s'appliquer automatiquement.",
   },
   challenge: {
     en: "Online stores process returns by hand, one email at a time. Every claim means re-reading the return policy, digging up the order, and guessing whether the customer is acting in good faith. It is slow, it is inconsistent from one agent to the next, and it is completely blind to repeat abusers — someone refused by one shop simply moves on to the next one.",
@@ -45,7 +54,7 @@ const flowmerce: Project = {
       "Timestamped decision history and email notifications on every outcome",
     ],
     fr: [
-      "Recommandation automatique de résolution — échange, remboursement, réparation ou refus — avec un score de confiance sur chaque réclamation",
+      "Recommandation automatique de résolution (échange, remboursement, réparation ou refus) avec un score de confiance sur chaque réclamation",
       "Score de fraude inter-boutiques : un client refusé chez un marchand protège tous les autres du réseau",
       "Politique de retour configurable par produit, par motif et par délai, appliquée automatiquement",
       "Un seul endpoint REST pour connecter une boutique existante, avec documentation marchand et développeur",
@@ -77,7 +86,7 @@ const flowmerce: Project = {
           src: img("public/docs_marchand.png"),
           caption: {
             en: "Merchant documentation — onboarding and policy setup",
-            fr: "Documentation marchand — mise en route et configuration de la politique",
+            fr: "Documentation marchand : mise en route et configuration de la politique",
           },
         },
         {
@@ -110,7 +119,7 @@ const flowmerce: Project = {
           src: img("vendeur/politique.png"),
           caption: {
             en: "Return policy editor — conditions per product, reason and delay",
-            fr: "Éditeur de politique de retour — conditions par produit, motif et délai",
+            fr: "Éditeur de politique de retour : conditions par produit, motif et délai",
           },
         },
         {
@@ -136,7 +145,7 @@ const flowmerce: Project = {
           src: img("admin/client_claim.png"),
           caption: {
             en: "Customer claim portal — the form the shopper fills in",
-            fr: "Portail client de réclamation — le formulaire rempli par l'acheteur",
+            fr: "Portail client de réclamation : le formulaire rempli par l'acheteur",
           },
         },
         {
@@ -166,21 +175,21 @@ const flowmerce: Project = {
           },
         },
         {
-          src: img("schemas/erd.png"),
+          src: img("schemas/erd.jpg"),
           caption: {
             en: "Entity-relationship diagram of the database",
             fr: "Modèle entité-association de la base de données",
           },
         },
         {
-          src: img("schemas/Parcours Réclamation Client.png"),
+          src: img("schemas/parcours-reclamation.png"),
           caption: {
             en: "Customer claim journey, from submission to notification",
             fr: "Parcours de réclamation client, du dépôt à la notification",
           },
         },
         {
-          src: img("schemas/Onboarding Vendeur Flowmerce.png"),
+          src: img("schemas/onboarding-vendeur.png"),
           caption: {
             en: "Merchant onboarding flow",
             fr: "Flux d'onboarding marchand",
@@ -190,6 +199,7 @@ const flowmerce: Project = {
     },
     {
       title: { en: "Mobile", fr: "Mobile" },
+      device: "mobile",
       shots: [
         {
           src: img("mobile/home.jpeg"),

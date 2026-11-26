@@ -11,7 +11,7 @@ const iaStore: Project = {
   link: "https://ia-store.vercel.app/",
   category: {
     en: "Custom e-commerce · Men's fashion",
-    fr: "E-commerce sur mesure · Mode homme",
+    fr: "E-commerce sur mesure, mode homme",
   },
   tagline: {
     en: "An editorial storefront, built from scratch.",
@@ -23,9 +23,18 @@ const iaStore: Project = {
     fr: "Design, développement de la boutique & du back-office",
   },
   cover: img("home.png"),
+  excerpt: {
+    en: "Made-to-measure men's fashion store, with its own admin area.",
+    fr: "Boutique de mode homme sur mesure, avec un espace d’administration dédié.",
+  },
+  /** Version courte affichée sur la page du projet (français). */
+  brief: {
+    need: "Les plateformes clés en main imposent leur template et prennent une commission sur chaque vente. La marque voulait une boutique à son image, gérable sans développeur.",
+    solution: "Une boutique au style magazine de mode, avec un catalogue filtrable et des tenues complètes à acheter. Le gérant gère produits, stock et commandes depuis son propre espace.",
+  },
   summary: {
     en: "IA Store is an online men's fashion store — clothing, shoes and accessories — built around an editorial \"Old Money\" art direction rather than a generic shop template. Customers browse a filtered premium catalogue and styled outfit selections; the owner runs the whole thing from a custom admin panel.",
-    fr: "IA Store est une boutique de mode masculine en ligne — vêtements, chaussures et accessoires — construite autour d'une direction artistique éditoriale « Old Money » plutôt que sur un template de boutique générique. Le client parcourt un catalogue premium filtrable et des sélections de tenues ; le gérant pilote l'ensemble depuis un panneau d'administration sur mesure.",
+    fr: "IA Store est une boutique de mode masculine en ligne (vêtements, chaussures et accessoires), construite autour d'une direction artistique éditoriale « Old Money » plutôt que sur un template de boutique générique. Le client parcourt un catalogue premium filtrable et des sélections de tenues ; le gérant pilote l'ensemble depuis un panneau d'administration sur mesure.",
   },
   challenge: {
     en: "Off-the-shelf platforms box a brand into someone else's template, take a cut of every sale, and make an editorial look nearly impossible. The store needed to read like a fashion magazine while staying fully manageable by its owner, with no developer in the loop for day-to-day work.",
@@ -46,10 +55,10 @@ const iaStore: Project = {
     ],
     fr: [
       "Direction artistique éditoriale : hero pleine largeur, typographie serif, mise en page magazine",
-      "Catalogue premium avec onglets — tout, best-sellers, nouveautés, promotions — et badges promo",
+      "Catalogue premium avec onglets (tout, best-sellers, nouveautés, promotions) et badges promo",
       "Fiches produit avec déclinaisons, prix en DA, liste de souhaits et panier",
       "Section « Looks & Tenues » qui vend des styles complets plutôt que des pièces isolées",
-      "Panneau d'administration sur mesure pour le catalogue, le stock et les commandes — sans développeur",
+      "Panneau d'administration sur mesure pour le catalogue, le stock et les commandes, sans développeur",
       "Connectée à l'API Flowmerce pour le traitement automatisé des retours",
     ],
   },
@@ -78,7 +87,7 @@ const iaStore: Project = {
           src: img("admin-catalogue.png"),
           caption: {
             en: "Catalogue management — products, variants and stock",
-            fr: "Gestion du catalogue — produits, déclinaisons et stock",
+            fr: "Gestion du catalogue : produits, déclinaisons et stock",
           },
         },
       ],
