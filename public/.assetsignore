@@ -1,5 +1,6 @@
 # Fichiers présents dans out/ mais à ne PAS mettre en ligne sur Cloudflare.
-# Ils ne servent qu'au chatbot masqué (app/components/chatbot), conservé pour sa refonte.
+# Les notes .md des projets sont des brouillons internes. Les captures de public/projects/
+# (images/ et optimized/) DOIVENT rester en ligne : les pages réalisations les affichent.
 # Doc : https://developers.cloudflare.com/workers/static-assets/binding/#ignoring-assets
-projects/
+projects/*/*.md
 images/profile_picture.png

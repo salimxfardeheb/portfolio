@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter_Tight } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { SITE_NAME, SITE_URL } from "@/content/site";
 import { DEFAULT_TITLE } from "@/content/seo";
@@ -38,6 +39,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         {/* Monté une seule fois : la conversation suit la navigation entre les pages. */}
         <Chatbot />
+        <Script
+          src="https://weixo.vercel.app/weixo.js"
+          data-site="wx_009e04pvuoj13n0gp1pw"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
